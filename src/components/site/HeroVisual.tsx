@@ -70,7 +70,7 @@ export function HeroVisual() {
 
       <div className="pointer-events-none absolute bottom-1 right-0 hidden flex-col items-end gap-1 xl:flex">
         <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-ink/35">
-          Move cursor to tilt
+          Drag to rotate 360° · Scroll to zoom
         </span>
         <span className="h-px w-12 bg-ink/20" />
       </div>

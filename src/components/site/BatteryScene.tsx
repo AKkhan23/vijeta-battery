@@ -1,8 +1,8 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
-import { ContactShadows, Float, RoundedBox } from "@react-three/drei";
-import { useMemo, useRef } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { ContactShadows, RoundedBox } from "@react-three/drei";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 
 function useLabelTexture() {
@@ -89,18 +89,101 @@ function useLabelTexture() {
 function Battery() {
   const group = useRef<THREE.Group>(null);
   const label = useLabelTexture();
+  const { gl } = useThree();
+
+  // User-controlled view: no auto-rotation. Drag rotates 360°, wheel/pinch zooms.
+  const target = useRef({ yaw: 0.35, pitch: -0.05, zoom: 8.1 });
+  const pointers = useRef(new Map<number, { x: number; y: number }>());
+  const drag = useRef<{ x: number; y: number } | null>(null);
+  const pinch = useRef<number | null>(null);
+
+  useEffect(() => {
+    const el = gl.domElement;
+    el.style.cursor = "grab";
+
+    const onDown = (event: PointerEvent) => {
+      el.setPointerCapture(event.pointerId);
+      pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+      if (pointers.current.size === 1) {
+        drag.current = { x: event.clientX, y: event.clientY };
+        el.style.cursor = "grabbing";
+      } else if (pointers.current.size === 2) {
+        const [a, b] = [...pointers.current.values()];
+        pinch.current = Math.hypot(a.x - b.x, a.y - b.y);
+        drag.current = null;
+      }
+    };
+
+    const onMove = (event: PointerEvent) => {
+      if (!pointers.current.has(event.pointerId)) return;
+      pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+
+      if (pointers.current.size >= 2) {
+        const [a, b] = [...pointers.current.values()];
+        const distance = Math.hypot(a.x - b.x, a.y - b.y);
+        if (pinch.current && distance > 0) {
+          target.current.zoom = THREE.MathUtils.clamp(
+            target.current.zoom * (pinch.current / distance),
+            6.2,
+            10.5,
+          );
+        }
+        pinch.current = distance;
+        return;
+      }
+
+      if (drag.current) {
+        const dx = event.clientX - drag.current.x;
+        const dy = event.clientY - drag.current.y;
+        drag.current = { x: event.clientX, y: event.clientY };
+        target.current.yaw += dx * 0.008;
+        target.current.pitch = THREE.MathUtils.clamp(target.current.pitch + dy * 0.006, -0.55, 0.55);
+      }
+    };
+
+    const onUp = (event: PointerEvent) => {
+      pointers.current.delete(event.pointerId);
+      if (el.hasPointerCapture(event.pointerId)) el.releasePointerCapture(event.pointerId);
+      if (pointers.current.size === 0) {
+        drag.current = null;
+        pinch.current = null;
+        el.style.cursor = "grab";
+      } else {
+        const [remaining] = [...pointers.current.values()];
+        drag.current = { x: remaining.x, y: remaining.y };
+        pinch.current = null;
+      }
+    };
+
+    const onWheel = (event: WheelEvent) => {
+      event.preventDefault();
+      target.current.zoom = THREE.MathUtils.clamp(target.current.zoom + event.deltaY * 0.004, 6.2, 10.5);
+    };
+
+    el.addEventListener("pointerdown", onDown);
+    el.addEventListener("pointermove", onMove);
+    el.addEventListener("pointerup", onUp);
+    el.addEventListener("pointercancel", onUp);
+    el.addEventListener("wheel", onWheel, { passive: false });
+
+    return () => {
+      el.removeEventListener("pointerdown", onDown);
+      el.removeEventListener("pointermove", onMove);
+      el.removeEventListener("pointerup", onUp);
+      el.removeEventListener("pointercancel", onUp);
+      el.removeEventListener("wheel", onWheel);
+      el.style.cursor = "";
+    };
+  }, [gl]);
 
   useFrame((state, delta) => {
     if (!group.current) return;
-    const t = state.clock.elapsedTime;
-    const targetY = t * 0.1 + state.pointer.x * 0.34;
-    const targetX = -state.pointer.y * 0.1;
-    group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, targetY, 2.4, delta);
-    group.current.rotation.x = THREE.MathUtils.damp(group.current.rotation.x, targetX, 2.4, delta);
+    group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, target.current.yaw, 6, delta);
+    group.current.rotation.x = THREE.MathUtils.damp(group.current.rotation.x, target.current.pitch, 6, delta);
+    state.camera.position.z = THREE.MathUtils.damp(state.camera.position.z, target.current.zoom, 6, delta);
   });
 
   return (
-    <Float speed={1.15} rotationIntensity={0.14} floatIntensity={0.5} floatingRange={[-0.06, 0.06]}>
       <group ref={group} scale={0.96} position={[0, -0.02, 0]}>
         {/* body */}
         <RoundedBox args={[2.02, 2.62, 1.12]} radius={0.09} smoothness={5} castShadow>
@@ -155,7 +238,6 @@ function Battery() {
           <meshStandardMaterial color="#080d19" metalness={0.4} roughness={0.5} />
         </RoundedBox>
       </group>
-    </Float>
   );
 }
 

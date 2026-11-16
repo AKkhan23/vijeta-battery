@@ -16,7 +16,7 @@ export function FooterWordmark() {
 
   return (
     <div aria-hidden="true" className="select-none overflow-hidden pb-6 pt-10">
-      <div ref={ref} onPointerMove={handleMove} className="wordmark-torch relative">
+      <div ref={ref} onPointerMove={handleMove} className="wordmark-torch relative text-center">
         <p
           className="display whitespace-nowrap text-[clamp(5rem,18.5vw,18rem)] leading-[0.72] tracking-[-0.05em] text-transparent"
           style={{ WebkitTextStroke: "1px rgba(255,255,255,0.14)" }}

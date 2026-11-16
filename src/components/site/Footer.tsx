@@ -12,8 +12,8 @@ export function Footer() {
       <div aria-hidden="true" className="blueprint-dark pointer-events-none absolute inset-0 opacity-40" />
 
       <div className="container-x relative pt-16">
-        <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-6 border-b border-white/10 pb-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-0 lg:pb-12">
+          <div className="col-span-2 border border-white/10 bg-white/[0.025] p-4 lg:col-span-4 lg:border-0 lg:bg-transparent lg:p-0">
             <Logo light />
             <p className="mt-6 max-w-[24rem] text-[0.88rem] leading-relaxed text-white/50">
               Lead-acid batteries for the vehicles India runs on. Manufactured in
@@ -25,7 +25,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="border border-white/10 bg-white/[0.025] p-4 lg:col-span-3 lg:border-0 lg:bg-transparent lg:p-0">
             <p className="eyebrow text-white/35">Applications</p>
             <ul className="mt-4 space-y-2.5">
               {categories.map((category) => (
@@ -38,7 +38,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="border border-white/10 bg-white/[0.025] p-4 lg:col-span-2 lg:border-0 lg:bg-transparent lg:p-0">
             <p className="eyebrow text-white/35">Company</p>
             <ul className="mt-4 space-y-2.5">
               {companyLinks.map((link) => (
@@ -51,7 +51,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="col-span-2 border border-white/10 bg-white/[0.025] p-4 lg:col-span-3 lg:border-0 lg:bg-transparent lg:p-0">
             <p className="eyebrow text-white/35">Contact</p>
             <ul className="mt-4 space-y-3 text-[0.82rem] text-white/60">
               <li className="flex gap-2.5">
