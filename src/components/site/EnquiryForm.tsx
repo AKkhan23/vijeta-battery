@@ -96,7 +96,9 @@ export function EnquiryForm({ defaultType }: { defaultType?: string }) {
         setServerError(
           data.error === "rate_limited"
             ? "Too many attempts from this connection. Please call or WhatsApp us instead."
-            : "That didn’t go through. Try again, or message us on WhatsApp.",
+            : data.error === "delivery_unavailable"
+              ? "Email delivery is being set up. Please call or WhatsApp us with your requirement — your details were not saved."
+              : "That didn’t go through. Try again, or message us on WhatsApp.",
         );
         setStatus("error");
         return;

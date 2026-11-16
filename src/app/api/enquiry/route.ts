@@ -228,8 +228,13 @@ export async function POST(request: Request) {
 
   if (!emailed && !logged) {
     return NextResponse.json(
-      { ok: false, error: "delivery_failed" },
-      { status: 500, headers: { "Cache-Control": "no-store" } },
+      {
+        ok: false,
+        error: "delivery_unavailable",
+        message:
+          "Email delivery is not configured yet. Please call or WhatsApp us with your requirement.",
+      },
+      { status: 503, headers: { "Cache-Control": "no-store" } },
     );
   }
 
