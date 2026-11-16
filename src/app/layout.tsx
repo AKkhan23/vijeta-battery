@@ -125,43 +125,42 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   html.vj-lock, html.vj-lock body { overflow: hidden; }
   #vj-loader {
     position: fixed; inset: 0; z-index: 2147483647;
-    background: #f3f6f2;
+    background: #f4f5f2;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    transition: opacity .45s ease, visibility .45s ease;
+    transition: opacity .4s ease, visibility .4s ease;
   }
   #vj-loader.vj-hide { opacity: 0; visibility: hidden; }
   .vj-stage { position: relative; width: min(84vw, 400px); aspect-ratio: 586 / 510; }
   .vj-stage img {
     position: absolute; inset: 0; width: 100%; height: 100%;
-    opacity: 0; will-change: transform, opacity;
-    animation: vj-in 1.15s cubic-bezier(.34, 1.45, .5, 1) forwards;
-    filter: drop-shadow(0 14px 18px rgba(10, 20, 60, .18));
+    opacity: 0; backface-visibility: hidden; will-change: transform, opacity;
+    animation: vj-in .85s cubic-bezier(.2, .9, .25, 1) forwards;
   }
   .vj-stage img:nth-child(1) { --x:-75%; --y:-70%; --r:-32deg; animation-delay: .00s; }
-  .vj-stage img:nth-child(2) { --x: 75%; --y:-65%; --r: 30deg; animation-delay: .12s; }
-  .vj-stage img:nth-child(3) { --x:-70%; --y: 70%; --r: 26deg; animation-delay: .24s; }
-  .vj-stage img:nth-child(4) { --x: 75%; --y: 72%; --r:-28deg; animation-delay: .36s; }
+  .vj-stage img:nth-child(2) { --x: 75%; --y:-65%; --r: 30deg; animation-delay: .08s; }
+  .vj-stage img:nth-child(3) { --x:-70%; --y: 70%; --r: 26deg; animation-delay: .16s; }
+  .vj-stage img:nth-child(4) { --x: 75%; --y: 72%; --r:-28deg; animation-delay: .24s; }
   @keyframes vj-in {
-    0%   { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--r)); }
-    25%  { opacity: 1; }
-    100% { opacity: 1; transform: none; filter: none; }
+    0%   { opacity: 0; transform: translate3d(var(--x), var(--y), 0) rotate(var(--r)) scale(.92); }
+    20%  { opacity: 1; }
+    100% { opacity: 1; transform: translate3d(0, 0, 0) rotate(0) scale(1); }
   }
   .vj-title {
     width: min(62vw, 270px); height: auto; margin-top: 18px;
-    opacity: 0; transform: translateY(14px);
-    animation: vj-up .6s ease 1.55s forwards;
+    opacity: 0; transform: translate3d(0, 12px, 0);
+    animation: vj-up .5s cubic-bezier(.2, .9, .25, 1) .95s forwards;
   }
   .vj-bar {
     width: min(56vw, 230px); height: 5px; border-radius: 3px;
     background: #d6dceb; margin-top: 22px; overflow: hidden;
-    opacity: 0; animation: vj-fade .4s ease 1.7s forwards;
+    opacity: 0; animation: vj-fade .25s ease .25s forwards;
   }
   .vj-bar i {
     display: block; height: 100%; width: 100%; background: #1133cd;
     transform: scaleX(0); transform-origin: left;
-    animation: vj-fill 2.2s cubic-bezier(.4, 0, .2, 1) 1.7s forwards;
+    animation: vj-fill 1.5s cubic-bezier(.4, 0, .2, 1) .25s forwards;
   }
-  @keyframes vj-up   { to { opacity: 1; transform: none; } }
+  @keyframes vj-up   { to { opacity: 1; transform: translate3d(0, 0, 0); } }
   @keyframes vj-fade { to { opacity: 1; } }
   @keyframes vj-fill { to { transform: scaleX(1); } }
   @media (prefers-reduced-motion: reduce) {
@@ -184,19 +183,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </div>
         <InlineScript html={`
   (function () {
-    var MIN = 2300, MAX = 5000, t0 = Date.now();
+    var MIN = 1800, MAX = 3200, t0 = Date.now();
     var el = document.getElementById('vj-loader'), done = false;
     document.documentElement.classList.add('vj-lock');
     function hide() {
       if (done) return; done = true;
       el.classList.add('vj-hide');
       document.documentElement.classList.remove('vj-lock');
-      setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 600);
+      setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 450);
     }
     function onReady() { setTimeout(hide, Math.max(0, MIN - (Date.now() - t0))); }
-    if (document.readyState === 'complete') onReady();
-    else window.addEventListener('load', onReady);
-    setTimeout(hide, MAX);          // safety: max 5s
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', onReady, { once: true });
+    else onReady();
+    setTimeout(hide, MAX);          // safety: max 3.2s
   })();
 `} />
         {/* ===== VIJETA PRELOADER : END (BODY PART) ===== */}
