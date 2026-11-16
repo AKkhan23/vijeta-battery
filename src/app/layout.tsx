@@ -190,7 +190,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       if (done) return; done = true;
       el.classList.add('vj-hide');
       document.documentElement.classList.remove('vj-lock');
-      setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 450);
     }
     function onReady() { setTimeout(hide, Math.max(0, MIN - (Date.now() - t0))); }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', onReady, { once: true });

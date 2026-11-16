@@ -376,6 +376,30 @@ body::after {
   background: var(--color-royal);
 }
 
+/* Footer wordmark: cursor-following torch effect */
+.wordmark-torch {
+  --mx: 50%;
+  --my: 50%;
+}
+
+.wordmark-torch-glow {
+  background: radial-gradient(
+    circle 220px at var(--mx) var(--my),
+    rgba(190, 213, 255, 0.98) 0%,
+    rgba(82, 124, 255, 0.72) 35%,
+    rgba(82, 124, 255, 0) 70%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.wordmark-torch:hover .wordmark-torch-glow {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

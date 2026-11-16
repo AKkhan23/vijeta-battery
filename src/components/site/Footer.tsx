@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, MailIcon, PhoneIcon, PinIcon } from "@/components/ui/Icons";
 import { Logo } from "@/components/ui/Logo";
+import { FooterWordmark } from "@/components/site/FooterWordmark";
 import { categories, pageLinks, site } from "@/lib/site";
 
 const companyLinks = pageLinks.filter((link) => link.href !== "/");
@@ -103,14 +104,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div aria-hidden="true" className="select-none overflow-hidden pb-6 pt-10">
-          <p
-            className="display whitespace-nowrap text-[clamp(5rem,18.5vw,18rem)] leading-[0.72] tracking-[-0.05em] text-transparent"
-            style={{ WebkitTextStroke: "1px rgba(255,255,255,0.14)" }}
-          >
-            VIJETA
-          </p>
-        </div>
+        <FooterWordmark />
       </div>
     </footer>
   );
