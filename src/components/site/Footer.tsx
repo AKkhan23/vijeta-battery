@@ -86,7 +86,7 @@ export function Footer() {
 
         <div className="flex flex-col gap-4 border-b border-white/10 py-5 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-white/30">
-            © 2026 VIJETA Battery · {site.legalName}
+            ©  VIJETA Battery · {site.legalName}
           </p>
           <div className="flex items-center gap-5">
             <Link href="/" className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-white/40 transition-colors hover:text-white">
