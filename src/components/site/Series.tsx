@@ -41,7 +41,7 @@ const series = [
 
 export function Series({ index = "02" }: { index?: string }) {
   return (
-    <section id="series" className="section-y border-y border-line bg-white">
+    <section id="series" className="section-y border-b border-line bg-white">
       <div className="container-x">
         <Reveal>
           <SectionLabel index={index} text="The series" />
@@ -52,7 +52,7 @@ export function Series({ index = "02" }: { index?: string }) {
             <h2 className="max-w-[16ch] text-[clamp(2.7rem,5.4vw,4.7rem)]">
               Two series.
               <br />
-              One <em className="accent-serif font-normal text-royal">standard.</em>
+              One <em className="heading-gloss accent-serif font-normal text-royal">standard.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="max-w-[26rem] lg:text-right">
@@ -63,29 +63,23 @@ export function Series({ index = "02" }: { index?: string }) {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+        <div className="mt-8 grid gap-5 lg:grid-cols-2">
           {series.map((item, i) => (
             <Reveal key={item.name} delay={i * 0.1} amount={0.12}>
               <article
+                data-torch
                 className={`group relative flex h-full min-h-[34rem] flex-col overflow-hidden border p-6 transition-colors sm:p-8 ${
-                  item.dark
-                    ? "border-ink bg-ink text-white hover:border-royal"
-                    : "border-line bg-paper text-ink hover:border-royal/50"
+                  item.dark ? "torch-card torch-card-ink text-white" : "torch-card text-ink"
                 }`}
               >
                 {item.dark ? (
                   <div aria-hidden="true" className="blueprint-dark absolute inset-0 opacity-50" />
-                ) : (
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-[radial-gradient(circle_at_70%_28%,rgba(22,56,198,0.09),transparent_58%)]"
-                  />
-                )}
+                ) : null}
 
                 <div className="relative flex items-start justify-between gap-6">
                   <div>
                     <span
-                      className={`inline-flex items-center border px-2.5 py-1 font-mono text-[0.58rem] uppercase tracking-[0.18em] ${
+                      className={`inline-flex items-center border px-2.5 py-1 font-sans font-medium text-[0.72rem] ${
                         item.dark
                           ? "border-white/25 text-white/70"
                           : "border-ink/15 text-ink/55"
@@ -106,7 +100,7 @@ export function Series({ index = "02" }: { index?: string }) {
                       {item.warranty}
                     </p>
                     <p
-                      className={`mt-2 font-mono text-[0.56rem] uppercase tracking-[0.18em] ${
+                      className={`mt-2 font-sans font-medium text-[0.72rem] ${
                         item.dark ? "text-white/45" : "text-ink/45"
                       }`}
                     >
@@ -152,7 +146,7 @@ export function Series({ index = "02" }: { index?: string }) {
                         }`}
                       >
                         <dt
-                          className={`font-mono text-[0.55rem] uppercase tracking-[0.16em] ${
+                          className={`font-sans font-medium text-[0.72rem] ${
                             item.dark ? "text-white/35" : "text-ink/35"
                           }`}
                         >
@@ -177,7 +171,7 @@ export function Series({ index = "02" }: { index?: string }) {
         </div>
 
         <Reveal className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-5">
-          <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-ink/40">
+          <p className="font-sans font-medium text-[0.75rem] text-ink/40">
             Not sure which one? Send us the vehicle details.
           </p>
           <Link href="/contact" className="link-arrow">

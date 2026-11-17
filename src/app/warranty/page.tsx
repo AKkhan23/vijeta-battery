@@ -22,7 +22,7 @@ export default function WarrantyPage() {
           <>
             Cover that holds
             <br />
-            at the <em className="accent-serif font-normal text-royal">counter.</em>
+            at the <em className="heading-gloss accent-serif font-normal text-royal">counter.</em>
           </>
         }
         intro="Every VIJETA battery is covered through our authorised dealer network. Keep your invoice and a claim stays simple — for you and for the dealer."
@@ -39,7 +39,7 @@ export default function WarrantyPage() {
           <>
             Still have a
             <br />
-            <em className="accent-serif font-normal text-royal">question?</em>
+            <em className="heading-gloss accent-serif font-normal text-royal">question?</em>
           </>
         }
         copy="Our sales line answers warranty questions directly, or send us the battery details and we will guide you to the right dealer."

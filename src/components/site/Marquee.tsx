@@ -15,7 +15,7 @@ function Row({ hidden = false }: { hidden?: boolean }) {
     <div className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
       {items.map((item) => (
         <span key={item} className="flex items-center">
-          <span className="whitespace-nowrap px-7 font-mono text-[0.68rem] uppercase tracking-[0.28em] text-white/75">
+          <span className="whitespace-nowrap px-7 font-sans font-medium text-[0.78rem] text-white/75">
             {item}
           </span>
           <Bolt className="h-3 w-3 shrink-0 text-volt" />

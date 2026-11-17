@@ -10,16 +10,8 @@ import { navLinks, site } from "@/lib/site";
 
 export function Nav() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -43,11 +35,7 @@ export function Nav() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "border-b border-line bg-paper/88 backdrop-blur-md"
-            : "border-b border-transparent bg-transparent"
-        }`}
+        className="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-paper text-ink backdrop-blur-xl"
       >
         <div className="container-x flex h-[76px] items-center justify-between gap-5">
           <Logo />
@@ -90,7 +78,7 @@ export function Nav() {
           <div className="flex items-center gap-2.5">
             <a
               href={`tel:${site.phonePrimary}`}
-              className="hidden font-mono text-[0.72rem] tracking-wide text-ink/60 transition-colors hover:text-royal xl:block"
+              className="hidden font-sans font-medium text-[0.72rem] text-ink/60 transition-colors hover:text-royal xl:block"
             >
               {site.phonePrimaryLabel}
             </a>
@@ -164,7 +152,7 @@ export function Nav() {
                       >
                         {link.label}
                       </span>
-                      <span className="font-mono text-[0.62rem] text-white/35">
+                      <span className="font-sans font-medium text-[0.75rem] text-white/35">
                         0{index + 1}
                       </span>
                     </Link>

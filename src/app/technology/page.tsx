@@ -22,7 +22,7 @@ export default function TechnologyPage() {
           <>
             What happens
             <br />
-            <em className="accent-serif font-normal text-royal">inside</em> the case.
+            <em className="heading-gloss accent-serif font-normal text-royal">inside</em> the case.
           </>
         }
         intro="Four things decide whether a battery cranks on the morning you need it. Explore the exploded cell to see the part each one plays."
@@ -39,7 +39,7 @@ export default function TechnologyPage() {
           <>
             Built to start.
             <br />
-            Tested to <em className="accent-serif font-normal text-royal">last.</em>
+            Tested to <em className="heading-gloss accent-serif font-normal text-royal">last.</em>
           </>
         }
         copy="See which series puts that engineering to work for your vehicle, or ask our team directly."

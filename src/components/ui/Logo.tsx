@@ -46,7 +46,7 @@ export function Logo({ light = false, compact = false, className = "" }: Props) 
         </span>
         {!compact && (
           <span
-            className={`mt-1 font-mono text-[0.5rem] font-medium uppercase tracking-[0.3em] ${
+            className={`mt-1 font-sans text-[0.78rem] font-medium ${
               light ? "text-white/55" : "text-ink/50"
             }`}
           >

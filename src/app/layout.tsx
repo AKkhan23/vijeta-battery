@@ -1,38 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, IBM_Plex_Mono, Instrument_Serif, Inter_Tight } from "next/font/google";
+import { Manrope, Montserrat } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 import { ChargeRail } from "@/components/site/ChargeRail";
 import { FloatingActions } from "@/components/site/FloatingActions";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
+import { TorchCursor } from "@/components/site/TorchCursor";
 
-const archivo = Archivo({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-archivo",
+  variable: "--font-manrope",
   display: "swap",
 });
 
-const interTight = Inter_Tight({
+const wordmark = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter-tight",
-  display: "swap",
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex-mono",
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument",
+  variable: "--font-wordmark",
   display: "swap",
 });
 
@@ -112,7 +96,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en-IN"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${archivo.variable} ${interTight.variable} ${plexMono.variable} ${instrumentSerif.variable}`}
+      className={`${manrope.variable} ${wordmark.variable}`}
     >
       {/* ===== VIJETA PRELOADER : START (HEAD PART) ===== */}
       <head>
@@ -205,6 +189,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <SmoothScroll />
+        <TorchCursor />
         <ChargeRail />
         <Nav />
         {children}

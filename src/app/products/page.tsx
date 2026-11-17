@@ -1,7 +1,9 @@
 import { PageCta } from "@/components/site/PageCta";
+import { ProductGallery } from "@/components/site/ProductGallery";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Range } from "@/components/site/Range";
 import { Series } from "@/components/site/Series";
+import { ValuesSection } from "@/components/site/ValuesSection";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -19,14 +21,15 @@ export default function ProductsPage() {
         index="01"
         crumb="Products"
         path="/products"
+        image="/products-hero-final.jpg"
         title={
           <>
             Power for the
             <br />
-            way you <em className="accent-serif font-normal text-royal">work.</em>
+            way you <em className="heading-gloss accent-serif font-normal text-white">work.</em>
           </>
         }
-        intro="Two series, six applications, one engineering brief. Gold for the long haul, Silver for the daily drive — built on the same line and tested the same way."
+        intro="Trusted on Indian roads since 1988. Gold for the long haul, Silver for the daily drive — one line, one standard, every unit load-tested before it reaches you."
         meta={[
           { label: "Gold series", value: "36 months" },
           { label: "Silver series", value: "24 months" },
@@ -34,14 +37,16 @@ export default function ProductsPage() {
           { label: "Testing", value: "100% load-tested" },
         ]}
       />
+      <ProductGallery />
       <Series index="01" />
+      <ValuesSection />
       <Range index="02" />
       <PageCta
         title={
           <>
             Tell us what you
             <br />
-            <em className="accent-serif font-normal text-royal">drive.</em>
+            <em className="heading-gloss accent-serif font-normal text-royal">drive.</em>
           </>
         }
         copy="Make, model, fuel type and year — send the details and we will confirm the right series and the nearest dealer."

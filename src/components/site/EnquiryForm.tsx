@@ -114,7 +114,7 @@ export function EnquiryForm({ defaultType }: { defaultType?: string }) {
 
   if (status === "success") {
     return (
-      <div className="relative border border-line bg-white p-6 sm:p-9">
+      <div data-torch className="torch-card relative p-6 sm:p-9">
         <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] bg-royal" />
         <div className="flex h-12 w-12 items-center justify-center rounded-full border border-royal/25 bg-royal/5 text-royal">
           <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -135,14 +135,14 @@ export function EnquiryForm({ defaultType }: { defaultType?: string }) {
           on {values.phone || "the number you gave"}.
         </p>
         {reference && (
-          <p className="mt-5 inline-flex items-center gap-2 border border-line bg-paper px-3 py-2 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-ink/55">
+          <p className="mt-5 inline-flex items-center gap-2 border border-line bg-paper px-3 py-2 font-sans font-medium text-[0.78rem] text-ink/55">
             Reference
             <span className="text-royal">{reference}</span>
           </p>
         )}
 
         <div className="mt-7 border-t border-line pt-5">
-          <p className="font-mono text-[0.55rem] uppercase tracking-[0.16em] text-ink/35">
+          <p className="font-sans font-medium text-[0.72rem] text-ink/35">
             What happens next
           </p>
           <p className="mt-2 text-[0.8rem] leading-relaxed text-ink/55">
@@ -182,7 +182,7 @@ export function EnquiryForm({ defaultType }: { defaultType?: string }) {
   }
 
   return (
-    <div className="relative border border-line bg-white p-6 sm:p-8">
+    <div data-torch className="torch-card relative p-6 sm:p-8">
       <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] bg-royal" />
 
       <div className="flex items-start justify-between gap-4">
@@ -192,7 +192,7 @@ export function EnquiryForm({ defaultType }: { defaultType?: string }) {
             Send us the details
           </h3>
         </div>
-        <span className="hidden border border-line px-2.5 py-1 font-mono text-[0.52rem] uppercase tracking-[0.14em] text-ink/35 sm:inline-block">
+        <span className="hidden border border-line px-2.5 py-1 font-sans font-medium text-[0.7rem] text-ink/35 sm:inline-block">
           Under a minute
         </span>
       </div>
@@ -271,7 +271,7 @@ export function EnquiryForm({ defaultType }: { defaultType?: string }) {
 
           <div>
             <label htmlFor="email" className="eyebrow mb-2 block text-ink/45">
-              Email <span className="font-sans text-[0.6rem] normal-case tracking-normal text-ink/30">(optional)</span>
+              Email <span className="font-sans text-[0.75rem] normal-case tracking-normal text-ink/30">(optional)</span>
             </label>
             <input
               id="email"
@@ -337,7 +337,7 @@ export function EnquiryForm({ defaultType }: { defaultType?: string }) {
             <label htmlFor="message" className="eyebrow text-ink/45">
               Vehicle or message
             </label>
-            <span className="font-mono text-[0.55rem] text-ink/25">{values.message.length}/1200</span>
+            <span className="font-sans font-medium text-[0.72rem] text-ink/25">{values.message.length}/1200</span>
           </div>
           <textarea
             id="message"
@@ -385,7 +385,7 @@ export function EnquiryForm({ defaultType }: { defaultType?: string }) {
           )}
         </button>
 
-        <p className="mt-3 text-center text-[0.68rem] leading-relaxed text-ink/40">
+        <p className="mt-3 text-center text-[0.78rem] leading-relaxed text-ink/40">
           We use these details only to answer your enquiry. No mailing list.
         </p>
       </form>

@@ -30,7 +30,7 @@ export function TechnologyTeaser() {
               <h2 className="max-w-[12ch] text-[clamp(2.6rem,5vw,4.4rem)] text-white">
                 Good starts
                 <br />
-                aren’t <em className="accent-serif font-normal text-volt">luck.</em>
+                aren’t <em className="heading-gloss accent-serif font-normal text-volt">luck.</em>
               </h2>
               <p className="mt-6 max-w-[28rem] text-[0.95rem] leading-relaxed text-white/60">
                 Four things decide whether a battery cranks on the morning you need it.
@@ -42,7 +42,7 @@ export function TechnologyTeaser() {
               {points.map((point, index) => (
                 <Reveal key={point.title} delay={0.05 * index} y={14}>
                   <div className="flex gap-5 border-b border-white/12 py-4">
-                    <span className="font-mono text-[0.62rem] text-volt">0{index + 1}</span>
+                    <span className="font-sans font-medium text-[0.75rem] text-volt">0{index + 1}</span>
                     <div>
                       <p className="font-display text-[1.02rem] font-semibold tracking-tight text-white">
                         {point.title}
@@ -63,13 +63,13 @@ export function TechnologyTeaser() {
           </div>
 
           <Reveal delay={0.08} className="lg:col-span-6" amount={0.1}>
-            <div className="relative mx-auto max-w-[440px] border border-white/12 bg-ink/60">
+            <div data-torch className="torch-card torch-card-dark relative mx-auto max-w-[440px]">
               <div aria-hidden="true" className="blueprint-dark pointer-events-none absolute inset-0 opacity-60" />
               <div className="relative flex items-center justify-between border-b border-white/10 px-4 py-3">
-                <span className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-white/55">
+                <span className="font-sans font-medium text-[0.72rem] text-white/55">
                   Cell assembly / exploded view
                 </span>
-                <span className="flex items-center gap-1.5 font-mono text-[0.55rem] uppercase tracking-[0.14em] text-white/40">
+                <span className="flex items-center gap-1.5 font-sans font-medium text-[0.72rem] text-white/40">
                   <span className="h-1 w-1 rounded-full bg-volt" />
                   Fig. 01
                 </span>

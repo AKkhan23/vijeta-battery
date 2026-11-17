@@ -20,7 +20,7 @@ export function Technology({ index = "04" }: { index?: string }) {
             <h2 className="max-w-[11ch] text-[clamp(2.7rem,5.2vw,4.6rem)]">
               Good starts
               <br />
-              aren’t <em className="accent-serif font-normal text-royal">luck.</em>
+              aren’t <em className="heading-gloss accent-serif font-normal text-royal">luck.</em>
             </h2>
             <p className="prose-lede mt-6 max-w-[28rem]">
               Four things decide whether a battery cranks on the morning you need it.
@@ -104,7 +104,7 @@ export function Technology({ index = "04" }: { index?: string }) {
                   key={label}
                   className="flex items-center justify-between border-b border-line py-2.5"
                 >
-                  <span className="font-mono text-[0.58rem] uppercase tracking-[0.14em] text-ink/40">
+                  <span className="font-sans font-medium text-[0.72rem] text-ink/40">
                     {label}
                   </span>
                   <span className="text-[0.8rem] font-medium text-ink/75">{value}</span>
@@ -114,17 +114,17 @@ export function Technology({ index = "04" }: { index?: string }) {
           </div>
 
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <div className="relative overflow-hidden border border-ink bg-ink shadow-[0_40px_90px_-60px_rgba(7,11,24,0.65)]">
+            <div data-torch className="torch-card torch-card-ink relative overflow-hidden shadow-[0_40px_90px_-60px_rgba(7,11,24,0.65)]">
               <div aria-hidden="true" className="blueprint-dark pointer-events-none absolute inset-0 opacity-70" />
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(47,92,255,0.3),transparent_65%)]"
               />
               <div className="relative flex items-center justify-between border-b border-white/10 px-4 py-3">
-                <span className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-white/55">
+                <span className="font-sans font-medium text-[0.72rem] text-white/55">
                   Cell assembly / {current.title}
                 </span>
-                <span className="flex items-center gap-1.5 font-mono text-[0.55rem] uppercase tracking-[0.14em] text-white/40">
+                <span className="flex items-center gap-1.5 font-sans font-medium text-[0.72rem] text-white/40">
                   <span className="h-1 w-1 rounded-full bg-volt" />
                   Live section
                 </span>
@@ -139,10 +139,10 @@ export function Technology({ index = "04" }: { index?: string }) {
               </div>
 
               <div className="relative flex flex-wrap items-center justify-between gap-2 border-t border-white/10 px-4 py-3">
-                <span className="font-mono text-[0.55rem] uppercase tracking-[0.14em] text-white/35">
+                <span className="font-sans font-medium text-[0.72rem] text-white/35">
                   In-house assembly · Pithampur
                 </span>
-                <span className="font-mono text-[0.55rem] uppercase tracking-[0.14em] text-volt">
+                <span className="font-sans font-medium text-[0.72rem] text-volt">
                   QC 100%
                 </span>
               </div>

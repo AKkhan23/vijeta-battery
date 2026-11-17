@@ -32,7 +32,7 @@ export default function FAQPage() {
         path="/faq"
         title={
           <>
-            Straight <em className="accent-serif font-normal text-royal">answers.</em>
+            Straight <em className="heading-gloss accent-serif font-normal text-royal">answers.</em>
           </>
         }
         intro="The questions we hear most at the counter and on the phone — answered without the runaround. If yours is not here, call the sales line."
@@ -46,7 +46,7 @@ export default function FAQPage() {
       <PageCta
         title={
           <>
-            Still <em className="accent-serif font-normal text-royal">unsure?</em>
+            Still <em className="heading-gloss accent-serif font-normal text-royal">unsure?</em>
           </>
         }
         copy="Tell us the vehicle, the city and what you need. We will answer directly and point you to the nearest authorised dealer."

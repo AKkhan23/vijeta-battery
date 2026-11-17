@@ -63,7 +63,7 @@ export function StatsBand({ index = "05" }: { index?: string }) {
           >
             Numbers we can
             <br />
-            stand <em className="accent-serif font-normal text-white/85">behind.</em>
+            stand <em className="heading-gloss accent-serif font-normal text-white/85">behind.</em>
           </h2>
           <div className="max-w-[23rem] lg:text-right">
             <p className="text-[0.92rem] leading-relaxed text-white/65">
@@ -86,7 +86,7 @@ export function StatsBand({ index = "05" }: { index?: string }) {
               <p className="display text-[clamp(3.2rem,6.2vw,5.4rem)] leading-[0.82] text-white">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </p>
-              <p className="mt-4 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-white/70">
+              <p className="mt-4 font-sans font-medium text-[0.75rem] text-white/70">
                 {stat.label}
               </p>
               <p className="mt-2 max-w-[18ch] text-[0.78rem] leading-relaxed text-white/45">
@@ -96,7 +96,7 @@ export function StatsBand({ index = "05" }: { index?: string }) {
           ))}
         </div>
 
-        <p className="mt-14 border-t border-white/15 pt-5 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-white/40">
+        <p className="mt-14 border-t border-white/15 pt-5 font-sans font-medium text-[0.75rem] text-white/40">
           VIJETA · Pithampur · M.P. · India — manufacturing since 1988
         </p>
       </div>

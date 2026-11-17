@@ -39,7 +39,7 @@ export function VisionMission() {
                 {visionMission.values.map((value, index) => (
                   <div key={value.title} className="border-b border-white/12 py-6">
                     <div className="flex items-baseline gap-4">
-                      <span className="font-mono text-[0.62rem] text-volt">0{index + 1}</span>
+                      <span className="font-sans font-medium text-[0.75rem] text-volt">0{index + 1}</span>
                       <h3 className="font-display text-[1.1rem] font-semibold tracking-tight text-white">
                         {value.title}
                       </h3>
@@ -52,13 +52,15 @@ export function VisionMission() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.12} className="mt-8 border border-white/15 p-5">
-              <p className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-white/35">
-                In one line
-              </p>
-              <p className="mt-3 font-serif text-[1.35rem] italic leading-snug text-white/90">
-                Make it right at the plant. Stand by it at the counter.
-              </p>
+            <Reveal delay={0.12} className="mt-8">
+              <div data-torch className="torch-card torch-card-dark p-5">
+                <p className="font-sans font-medium text-[0.72rem] text-white/35">
+                  In one line
+                </p>
+                <p className="mt-3 border-l-2 border-volt/70 pl-4 font-serif text-[1.35rem] leading-snug text-white/90">
+                  Make it right at the plant. Stand by it at the counter.
+                </p>
+              </div>
             </Reveal>
           </div>
         </div>

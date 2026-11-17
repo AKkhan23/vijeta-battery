@@ -31,7 +31,7 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden pt-[76px]">
       <div
         aria-hidden="true"
-        className="blueprint pointer-events-none absolute inset-0 opacity-70 [mask-image:radial-gradient(ellipse_at_60%_35%,black_20%,transparent_72%)]"
+        className="blueprint pointer-events-none absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_at_60%_35%,black_20%,transparent_72%)]"
       />
       <div
         aria-hidden="true"
@@ -49,37 +49,30 @@ export function Hero() {
             <span className="relative flex h-2 w-2">
               <span className="pulse-dot absolute inline-flex h-full w-full rounded-full bg-royal" />
             </span>
-            <span className="eyebrow whitespace-nowrap text-ink/50">Pithampur, India — since 1988</span>
-            <span aria-hidden="true" className="hidden h-px w-10 bg-ink/20 xl:block" />
-            <span className="hidden font-mono text-[0.62rem] uppercase tracking-[0.16em] text-ink/35 xl:block">
-              22.60° N / 75.67° E
+            <span className="font-sans text-[0.9rem] font-medium tracking-normal text-ink/55">
+              Vijeta Batteries | Powering India Since 1988
             </span>
           </motion.div>
 
-          <h1 className="mt-6 text-[clamp(2.6rem,5.9vw,5.7rem)] leading-[0.9] tracking-[-0.045em] text-ink">
+          <h1 className="mt-5 max-w-[19ch] text-[clamp(2.25rem,4.3vw,4rem)] font-semibold leading-[1.08] tracking-[-0.015em] text-ink">
             <span className="block overflow-hidden pb-[0.04em]">
               <motion.span variants={line} className="block">
-                The first crank
+                The first crank is
               </motion.span>
             </span>
             <span className="block overflow-hidden pb-[0.04em]">
               <motion.span variants={line} className="block">
-                is the whole
-              </motion.span>
-            </span>
-            <span className="block overflow-hidden pb-[0.06em]">
-              <motion.span variants={line} className="block">
-                <em className="accent-serif font-normal text-royal">story.</em>
+                the whole <em className="heading-gloss accent-serif font-normal text-royal">story.</em>
               </motion.span>
             </span>
           </h1>
 
-          <motion.p variants={fade} className="prose-lede mt-7 max-w-[33rem]">
-            Lead-acid batteries for the vehicles India runs on. Built in Pithampur,
-            tested one by one, and backed for up to <strong className="font-semibold text-ink">36 months</strong>.
+          <motion.p variants={fade} className="mt-6 max-w-[34rem] text-[1.02rem] leading-[1.7] text-ink/60">
+            Vijeta Batteries powers the vehicles India runs on. Built in Pithampur,
+            quality-tested and backed by up to <strong className="font-medium text-ink">36 months</strong> of warranty.
           </motion.p>
 
-          <motion.div variants={fade} className="mt-8 flex flex-wrap items-center gap-3">
+          <motion.div variants={fade} className="mt-7 flex flex-wrap items-center gap-3">
             <Link href="/products" className="btn btn-primary">
               Explore the range
               <ArrowUpRight className="h-4 w-4" />
@@ -94,7 +87,7 @@ export function Hero() {
 
           <motion.div
             variants={fade}
-            className="mt-10 grid max-w-[33rem] grid-cols-3 border-t border-line pt-5"
+            className="mt-9 grid max-w-[34rem] grid-cols-3 border-t border-line pt-5"
           >
             {[
               { value: "36 mo", label: "Longest warranty" },
@@ -105,7 +98,7 @@ export function Hero() {
                 <p className="font-display text-[1.05rem] font-bold tracking-tight text-ink">
                   {item.value}
                 </p>
-                <p className="mt-0.5 font-mono text-[0.54rem] uppercase tracking-[0.09em] text-ink/45 sm:text-[0.58rem] sm:tracking-[0.16em]">
+                <p className="mt-0.5 font-sans font-medium text-[0.72rem] text-ink/45 sm:text-[0.72rem] ">
                   {item.label}
                 </p>
               </div>
@@ -126,7 +119,7 @@ export function Hero() {
       <div className="container-x relative hidden items-center justify-between border-t border-line py-4 lg:flex">
         <a
           href="#about"
-          className="group flex items-center gap-3 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-ink/40 transition-colors hover:text-royal"
+          className="group flex items-center gap-3 font-sans font-medium text-[0.75rem] text-ink/40 transition-colors hover:text-royal"
         >
           <span className="flex h-7 w-7 items-center justify-center rounded-full border border-line transition-colors group-hover:border-royal/40">
             <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" aria-hidden="true">
@@ -135,7 +128,7 @@ export function Hero() {
           </span>
           Scroll — the factory floor
         </a>
-        <span className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-ink/30">
+        <span className="font-sans font-medium text-[0.75rem] text-ink/30">
           Lead-acid power systems · M-52, Sector 3
         </span>
       </div>

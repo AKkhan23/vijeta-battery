@@ -46,7 +46,7 @@ export default function DealershipPage() {
           <>
             A counter worth
             <br />
-            <em className="accent-serif font-normal text-royal">standing behind.</em>
+            <em className="heading-gloss accent-serif font-normal text-royal">standing behind.</em>
           </>
         }
         intro="We are expanding our dealer network across central India. If you run a workshop, garage or auto-parts counter, let us talk about territory, margins and stocking a brand customers come back for."
@@ -67,15 +67,15 @@ export default function DealershipPage() {
             <h2 className="mt-8 max-w-[18ch] text-[clamp(2.5rem,4.6vw,4rem)]">
               A partnership, not
               <br />
-              just a <em className="accent-serif font-normal text-royal">supply line.</em>
+              just a <em className="heading-gloss accent-serif font-normal text-royal">supply line.</em>
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((benefit, index) => (
-              <Reveal key={benefit.title} delay={index * 0.06} y={16}>
-                <div className="h-full border-t border-line pt-5">
-                  <span className="font-mono text-[0.62rem] text-royal">0{index + 1}</span>
-                  <h3 className="mt-3 font-display text-[1.1rem] font-semibold tracking-tight">
+              <Reveal key={benefit.title} delay={index * 0.06} y={16} className="h-full">
+                <div data-torch className="torch-card h-full p-5">
+                  <span className="font-sans font-medium text-[0.75rem] text-royal">0{index + 1}</span>
+                  <h3 className="mt-4 font-display text-[1.1rem] font-semibold tracking-tight">
                     {benefit.title}
                   </h3>
                   <p className="mt-2 text-[0.86rem] leading-relaxed text-ink/60">{benefit.copy}</p>
@@ -84,7 +84,7 @@ export default function DealershipPage() {
             ))}
           </div>
           <Reveal className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5">
-            <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-ink/40">
+            <p className="font-sans font-medium text-[0.75rem] text-ink/40">
               Prefer to talk first? The sales line is the fastest route.
             </p>
             <a href={`tel:${site.phones[2].tel}`} className="link-arrow">
@@ -105,7 +105,7 @@ export default function DealershipPage() {
           <>
             Let’s talk
             <br />
-            <em className="accent-serif font-normal text-royal">territory.</em>
+            <em className="heading-gloss accent-serif font-normal text-royal">territory.</em>
           </>
         }
         intro="Tell us your city, your counter and what you stock today. We will come back with territory, series and stock details — no waiting on a call centre."

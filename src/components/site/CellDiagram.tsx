@@ -69,21 +69,77 @@ export function CellDiagram({ highlight }: Props) {
         opacity={dim(on("terminals"))}
         style={{
           transition: "opacity 500ms ease",
-          filter: on("terminals") ? "drop-shadow(0 8px 20px rgba(47,92,255,0.45))" : "none",
+          filter: on("terminals")
+            ? "drop-shadow(0 8px 20px rgba(47,92,255,0.45))"
+            : "none",
         }}
       >
-        <rect x="134" y="64" width="20" height="30" rx="3" fill="url(#term)" stroke="#c3ccdd" />
-        <rect x="137" y="61" width="14" height="7" rx="2" fill="#eef2f9" stroke="#c3ccdd" />
-        <rect x="226" y="64" width="20" height="30" rx="3" fill="url(#term)" stroke="#c3ccdd" />
-        <rect x="229" y="61" width="14" height="7" rx="2" fill="#2f5cff" stroke="#8ba2ff" />
-        <line x1="144" y1="96" x2="144" y2="108" stroke="#ffffff" strokeOpacity="0.3" />
-        <line x1="236" y1="96" x2="236" y2="108" stroke="#ffffff" strokeOpacity="0.3" />
+        <rect
+          x="134"
+          y="64"
+          width="20"
+          height="30"
+          rx="3"
+          fill="url(#term)"
+          stroke="#c3ccdd"
+        />
+        <rect
+          x="137"
+          y="61"
+          width="14"
+          height="7"
+          rx="2"
+          fill="#eef2f9"
+          stroke="#c3ccdd"
+        />
+        <rect
+          x="226"
+          y="64"
+          width="20"
+          height="30"
+          rx="3"
+          fill="url(#term)"
+          stroke="#c3ccdd"
+        />
+        <rect
+          x="229"
+          y="61"
+          width="14"
+          height="7"
+          rx="2"
+          fill="#2f5cff"
+          stroke="#8ba2ff"
+        />
+        <line
+          x1="144"
+          y1="96"
+          x2="144"
+          y2="108"
+          stroke="#ffffff"
+          strokeOpacity="0.3"
+        />
+        <line
+          x1="236"
+          y1="96"
+          x2="236"
+          y2="108"
+          stroke="#ffffff"
+          strokeOpacity="0.3"
+        />
       </g>
 
       {/* LID */}
       <g opacity={dim(on("case"))} style={{ transition: "opacity 500ms ease" }}>
         <rect x="96" y="112" width="186" height="28" rx="4" fill="url(#lid)" />
-        <rect x="96" y="112" width="186" height="5" rx="2.5" fill="#ffffff" fillOpacity="0.28" />
+        <rect
+          x="96"
+          y="112"
+          width="186"
+          height="5"
+          rx="2.5"
+          fill="#ffffff"
+          fillOpacity="0.28"
+        />
         {[134, 164, 194, 224, 254].map((x) => (
           <rect
             key={x}
@@ -112,11 +168,21 @@ export function CellDiagram({ highlight }: Props) {
         opacity={dim(on("plates"))}
         style={{
           transition: "opacity 500ms ease",
-          filter: on("plates") ? "drop-shadow(0 14px 24px rgba(47,92,255,0.4))" : "none",
+          filter: on("plates")
+            ? "drop-shadow(0 14px 24px rgba(47,92,255,0.4))"
+            : "none",
         }}
       >
         <rect x="104" y="168" width="170" height="12" rx="2" fill="#2f5cff" />
-        <rect x="104" y="168" width="170" height="3" rx="1.5" fill="#ffffff" fillOpacity="0.28" />
+        <rect
+          x="104"
+          y="168"
+          width="170"
+          height="3"
+          rx="1.5"
+          fill="#ffffff"
+          fillOpacity="0.28"
+        />
         {Array.from({ length: 7 }).map((_, i) => (
           <g key={i}>
             <rect
@@ -171,7 +237,15 @@ export function CellDiagram({ highlight }: Props) {
           strokeWidth="1.5"
         />
         <rect x="102" y="392" width="172" height="14" rx="2" fill="#2b3852" />
-        <rect x="102" y="392" width="172" height="4" rx="2" fill="#ffffff" fillOpacity="0.14" />
+        <rect
+          x="102"
+          y="392"
+          width="172"
+          height="4"
+          rx="2"
+          fill="#ffffff"
+          fillOpacity="0.14"
+        />
         {[412, 428, 444, 460].map((y) => (
           <line
             key={y}
@@ -183,37 +257,73 @@ export function CellDiagram({ highlight }: Props) {
             strokeOpacity="0.08"
           />
         ))}
-        <rect x="88" y="482" width="200" height="10" rx="3" fill="#8e9bb5" fillOpacity="0.45" />
+        <rect
+          x="88"
+          y="482"
+          width="200"
+          height="10"
+          rx="3"
+          fill="#8e9bb5"
+          fillOpacity="0.45"
+        />
       </g>
 
       {/* callouts */}
       <g
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-manrope), sans-serif"
         fontSize="8"
         letterSpacing="1.4"
         fill="#b9c4dc"
         style={{ transition: "opacity 400ms ease" }}
       >
         <g opacity={on("terminals") ? 1 : 0.55}>
-          <line x1="252" y1="76" x2="306" y2="76" stroke="#7183a5" strokeWidth="0.8" />
+          <line
+            x1="252"
+            y1="76"
+            x2="306"
+            y2="76"
+            stroke="#7183a5"
+            strokeWidth="0.8"
+          />
           <text x="312" y="79" fill={on("terminals") ? "#ffffff" : "#b9c4dc"}>
             TERMINALS
           </text>
         </g>
         <g opacity={on("case") ? 1 : 0.55}>
-          <line x1="282" y1="124" x2="306" y2="124" stroke="#7183a5" strokeWidth="0.8" />
+          <line
+            x1="282"
+            y1="124"
+            x2="306"
+            y2="124"
+            stroke="#7183a5"
+            strokeWidth="0.8"
+          />
           <text x="312" y="127" fill={on("case") ? "#ffffff" : "#b9c4dc"}>
             LID / SEAL
           </text>
         </g>
         <g opacity={on("plates") ? 1 : 0.55}>
-          <line x1="282" y1="250" x2="306" y2="250" stroke="#7183a5" strokeWidth="0.8" />
+          <line
+            x1="282"
+            y1="250"
+            x2="306"
+            y2="250"
+            stroke="#7183a5"
+            strokeWidth="0.8"
+          />
           <text x="312" y="253" fill={on("plates") ? "#ffffff" : "#b9c4dc"}>
             PLATES
           </text>
         </g>
         <g opacity={on("case") ? 1 : 0.55}>
-          <line x1="292" y1="430" x2="310" y2="430" stroke="#7183a5" strokeWidth="0.8" />
+          <line
+            x1="292"
+            y1="430"
+            x2="310"
+            y2="430"
+            stroke="#7183a5"
+            strokeWidth="0.8"
+          />
           <text x="316" y="433" fill={on("case") ? "#ffffff" : "#b9c4dc"}>
             CASE
           </text>
@@ -224,7 +334,7 @@ export function CellDiagram({ highlight }: Props) {
       <g
         stroke="#ffffff"
         strokeOpacity="0.22"
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-manrope), sans-serif"
         fill="#8d9ab4"
         fontSize="7"
         letterSpacing="1"
@@ -249,7 +359,14 @@ export function CellDiagram({ highlight }: Props) {
             fill="#2f5cff"
             fillOpacity="0.12"
           />
-          <circle cx="312" cy="352" r="29" stroke="#6d8cff" strokeWidth="0.8" fill="none" />
+          <circle
+            cx="312"
+            cy="352"
+            r="29"
+            stroke="#6d8cff"
+            strokeWidth="0.8"
+            fill="none"
+          />
           <path
             d="m303 352 6 6 12-13"
             stroke="#ffffff"
@@ -261,7 +378,7 @@ export function CellDiagram({ highlight }: Props) {
             x="312"
             y="378"
             textAnchor="middle"
-            fontFamily="var(--font-mono), monospace"
+            fontFamily="var(--font-manrope), sans-serif"
             fontSize="7"
             letterSpacing="1.6"
             fill="#ffffff"
@@ -274,7 +391,7 @@ export function CellDiagram({ highlight }: Props) {
       <text
         x="22"
         y="508"
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-manrope), sans-serif"
         fontSize="7"
         letterSpacing="1.4"
         fill="#7f8ba3"

@@ -3,64 +3,73 @@ type Props = {
   className?: string;
 };
 
+/**
+ * A matched family of pictograms drawn on one 32px grid with a single stroke
+ * weight. Straight geometry, one diagonal where the subject needs it — no
+ * decorative interior lines.
+ */
 export function CategoryIcon({ name, className = "h-10 w-10" }: Props) {
   const common = {
     fill: "none",
     stroke: "currentColor",
-    strokeWidth: 1.5,
+    strokeWidth: 1.7,
     strokeLinecap: "round" as const,
     strokeLinejoin: "round" as const,
   };
 
   return (
-    <svg viewBox="0 0 48 48" aria-hidden="true" className={className}>
+    <svg viewBox="0 0 32 32" aria-hidden="true" className={className}>
       {name === "car" && (
         <g {...common}>
-          <path d="M7 31v5h4m4 0h14m5 0h5v-5c0-2.1-1.6-3.8-3.7-3.8h-1.9L29 19.7H17.5L13 27.2H9.7C8.2 27.2 7 28.4 7 29.9V31Z" />
-          <path d="M13 31.5h20M17.5 24h13" />
-          <circle cx="16" cy="36" r="3.6" />
-          <circle cx="34" cy="36" r="3.6" />
-          <path d="M22 36h8" />
+          <path d="M3.5 22.5v-3.1c0-1.1.9-2 2-2h2.7l3.9-6c.3-.5 1-.9 1.7-.9h6.4c.7 0 1.4.4 1.7.9l3.9 6h2.7c1.1 0 2 .9 2 2v3.1" />
+          <path d="M8.6 17.4h14.8" />
+          <circle cx="9.5" cy="22.5" r="3.2" />
+          <circle cx="22.5" cy="22.5" r="3.2" />
         </g>
       )}
+
       {name === "tractor" && (
         <g {...common}>
-          <circle cx="33" cy="33" r="8" />
-          <circle cx="13" cy="37" r="4" />
-          <path d="M7 33h9l3.5-9H27l3.5 6H38M24 24v-8h4.5v5M20 26.5h10M33 33h2" />
-          <path d="M18 41h7" />
+          <path d="M3.5 19.8V15.4h8" />
+          <path d="M11.5 19.8V15.4h-8" />
+          <path d="M11.5 15.4V9.6h9.5v4.6" />
+          <circle cx="22.2" cy="19.6" r="5.4" />
+          <circle cx="7.6" cy="22.2" r="2.8" />
         </g>
       )}
+
       {name === "rickshaw" && (
         <g {...common}>
-          <path d="M7 27V18l7-7h20l7 7v9" />
-          <path d="M7 27h34v6H7zM14 18h20M7 33h4m18 0h8" />
-          <circle cx="16" cy="36" r="3.6" />
-          <circle cx="32" cy="36" r="3.6" />
-          <path d="M22 36h6" />
+          <path d="M3.5 21v-4.2c0-.5.1-.9.4-1.3l5.6-7.6c.4-.5.9-.8 1.6-.8h12.4c1.1 0 2 .9 2 2V21" />
+          <path d="M3.5 21h25" />
+          <circle cx="8.8" cy="21.4" r="2.9" />
+          <circle cx="22.4" cy="21.4" r="3.1" />
         </g>
       )}
+
       {name === "truck" && (
         <g {...common}>
-          <rect x="5" y="15" width="24" height="18" rx="1.2" />
-          <path d="M29 22h7l5 6v5h-4M5 33h4m8 0h10m5 0h4" />
-          <circle cx="15" cy="36" r="3.8" />
-          <circle cx="33" cy="36" r="3.8" />
-          <path d="M10 21h14M10 26h14" />
+          <path d="M3.5 21.5V8.5h15.5v13" />
+          <path d="M19 13.5h4.6l4.4 5.4v2.6h-9" />
+          <path d="M21.2 14.2h2.4l2.4 3.1h-4.8z" />
+          <circle cx="9" cy="21.5" r="3.3" />
+          <circle cx="24" cy="21.5" r="3.3" />
         </g>
       )}
+
       {name === "industry" && (
         <g {...common}>
-          <path d="M6 41V21l9 4.5V21l9 4.5V14h7v27H6Z" />
-          <path d="M33 14V7h4v7M10 35h5m4 0h5m4 0h6" />
-          <path d="M38 41V24" />
+          <path d="M3.5 24.5V15.4l6.6 3.3v-3.3l6.6 3.3v-3.3l6.6 3.3v5.8" />
+          <path d="M3.5 24.5h25" />
+          <path d="M13.4 24.5V20h5.2v4.5" />
         </g>
       )}
+
       {name === "charger" && (
         <g {...common}>
-          <rect x="14" y="12" width="20" height="27" rx="3" />
-          <path d="M19 12V6.5h3.5V12M25.5 12V6.5H29V12M24 39v3" />
-          <path d="M25.6 19 20 27h4.2l-1.3 6 6.1-8h-4.2l.8-6Z" />
+          <rect x="8.5" y="7.5" width="15" height="17" rx="3" />
+          <path d="M13 7.5V3.5M19 7.5V3.5" />
+          <path d="m16.6 11.6-2.8 5h2.4l-.8 4.2 3.9-5.7h-2.4l.7-3.5Z" />
         </g>
       )}
     </svg>

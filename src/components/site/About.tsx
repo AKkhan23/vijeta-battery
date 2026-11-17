@@ -23,7 +23,7 @@ export function About() {
                 <br />
                 Thirty-eight years
                 <br />
-                of <em className="accent-serif font-normal text-royal">getting it right.</em>
+                of <em className="heading-gloss accent-serif font-normal text-royal">getting it right.</em>
               </h2>
             </Reveal>
 
@@ -31,7 +31,7 @@ export function About() {
               <p className="max-w-[24ch] font-serif text-[clamp(1.5rem,2.4vw,2.1rem)] leading-[1.15] tracking-[-0.02em] text-ink">
                 “A battery is judged on the morning it must start.”
               </p>
-              <p className="mt-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-ink/40">
+              <p className="mt-3 font-sans font-medium text-[0.75rem] text-ink/40">
                 The rule on our floor
               </p>
             </Reveal>
@@ -67,14 +67,14 @@ export function About() {
                 <Reveal key={step.title} delay={0.04 * index} y={14}>
                   <div className="group flex items-baseline justify-between gap-6 border-t border-line py-3.5 transition-colors hover:bg-white/60">
                     <div className="flex items-baseline gap-4">
-                      <span className="font-mono text-[0.62rem] text-royal/70">
+                      <span className="font-sans font-medium text-[0.75rem] text-royal/70">
                         0{index + 1}
                       </span>
                       <span className="font-display text-[1.05rem] font-semibold tracking-tight text-ink">
                         {step.title}
                       </span>
                     </div>
-                    <span className="text-right font-mono text-[0.62rem] uppercase tracking-[0.12em] text-ink/40">
+                    <span className="text-right font-sans font-medium text-[0.75rem] text-ink/40">
                       {step.note}
                     </span>
                   </div>
@@ -83,7 +83,7 @@ export function About() {
             </div>
 
             <Reveal delay={0.1} className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="border border-line bg-white p-5">
+              <div data-torch className="torch-card p-5">
                 <div className="flex items-center gap-2 text-royal">
                   <PinIcon className="h-3.5 w-3.5" />
                   <span className="eyebrow">The plant</span>
@@ -105,7 +105,7 @@ export function About() {
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </div>
-              <div className="relative overflow-hidden border border-line bg-ink p-5 text-white">
+              <div data-torch className="torch-card torch-card-ink relative overflow-hidden p-5 text-white">
                 <div aria-hidden="true" className="blueprint-dark absolute inset-0 opacity-70" />
                 <div className="relative">
                   <p className="eyebrow text-white/45">On record</p>

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { AboutTeaser } from "@/components/site/AboutTeaser";
 import { DealerCTA } from "@/components/site/DealerCTA";
-import { Hero } from "@/components/site/Hero";
+import { CinematicHero } from "@/components/site/CinematicHero";
+import { JourneyTimeline } from "@/components/site/JourneyTimeline";
+import { ProductShowcase } from "@/components/site/ProductShowcase";
+import { StoryScroll } from "@/components/site/StoryScroll";
 import { Marquee } from "@/components/site/Marquee";
 import { PageCta } from "@/components/site/PageCta";
 import { RangePreview } from "@/components/site/RangePreview";
 import { Series } from "@/components/site/Series";
-import { StatsBand } from "@/components/site/StatsBand";
 import { TechnologyTeaser } from "@/components/site/TechnologyTeaser";
 import { Testimonials } from "@/components/site/Testimonials";
 import { site } from "@/lib/site";
@@ -63,13 +64,14 @@ export default function Home() {
   return (
     <>
       <main id="main">
-        <Hero />
+        <CinematicHero />
+        <ProductShowcase />
+        <JourneyTimeline />
         <Marquee />
-        <AboutTeaser />
         <Series />
         <RangePreview />
         <TechnologyTeaser />
-        <StatsBand />
+        <StoryScroll variant="home" />
         <Testimonials />
         <PageCta
           eyebrow="Find your fit"
@@ -77,7 +79,7 @@ export default function Home() {
             <>
               Not sure which battery
               <br />
-              fits <em className="accent-serif font-normal text-royal">yours?</em>
+              fits <em className="heading-gloss accent-serif font-normal text-royal">yours?</em>
             </>
           }
           copy="Send us the make, model and fuel type. We will confirm the right series and point you to the nearest authorised dealer."

@@ -30,7 +30,7 @@ export function Contact({
     <>
       Tell us what
       <br />
-      you <em className="accent-serif font-normal text-royal">drive.</em>
+      you <em className="heading-gloss accent-serif font-normal text-royal">drive.</em>
     </>
   ),
   intro = "Send the details and we will come back with the right battery, the right series and the nearest authorised dealer. A phone call works too.",
@@ -72,7 +72,7 @@ export function Contact({
                         >
                           {phone.label}
                         </a>
-                        <span className="font-mono text-[0.55rem] uppercase tracking-[0.12em] text-ink/35">
+                        <span className="font-sans font-medium text-[0.72rem] text-ink/35">
                           {phone.note}
                         </span>
                       </div>
@@ -135,14 +135,14 @@ export function Contact({
                     <span className="block text-[0.85rem] font-semibold text-ink">
                       WhatsApp is fastest
                     </span>
-                    <span className="block font-mono text-[0.55rem] uppercase tracking-[0.14em] text-ink/40">
+                    <span className="block font-sans font-medium text-[0.72rem] text-ink/40">
                       {site.phonePrimaryLabel}
                     </span>
                   </span>
                 </span>
                 <ArrowUpRight className="h-4 w-4 text-royal transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
-              <p className="mt-3 font-mono text-[0.55rem] uppercase tracking-[0.14em] text-ink/30">
+              <p className="mt-3 font-sans font-medium text-[0.72rem] text-ink/30">
                 We reply as soon as we can, during working hours.
               </p>
             </Reveal>

@@ -22,7 +22,7 @@ export default function ContactPage() {
           <>
             Talk to a
             <br />
-            <em className="accent-serif font-normal text-royal">person.</em>
+            <em className="heading-gloss accent-serif font-normal text-royal">person.</em>
           </>
         }
         intro="Send the details and we will come back with the right battery, the right series and the nearest authorised dealer. A phone call works too."

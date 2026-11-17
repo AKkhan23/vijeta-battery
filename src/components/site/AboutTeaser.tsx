@@ -24,14 +24,14 @@ export function AboutTeaser() {
               <h2 className="max-w-[14ch] text-[clamp(2.5rem,5vw,4.5rem)]">
                 Thirty-eight years.
                 <br />
-                One <em className="accent-serif font-normal text-royal">standard.</em>
+                One <em className="heading-gloss accent-serif font-normal text-royal">standard.</em>
               </h2>
             </Reveal>
             <Reveal delay={0.08} className="mt-8 border-l-2 border-royal pl-5">
               <p className="max-w-[24ch] font-serif text-[clamp(1.4rem,2.2vw,1.9rem)] leading-[1.16] text-ink">
                 “A battery is judged on the morning it must start.”
               </p>
-              <p className="mt-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-ink/40">
+              <p className="mt-3 font-sans font-medium text-[0.75rem] text-ink/40">
                 The rule on our floor
               </p>
             </Reveal>
@@ -54,7 +54,7 @@ export function AboutTeaser() {
                   <p className="font-display text-[1.5rem] font-bold tracking-tight text-ink">
                     {fact.value}
                   </p>
-                  <p className="mt-1 font-mono text-[0.55rem] uppercase tracking-[0.12em] text-ink/40">
+                  <p className="mt-1 font-sans font-medium text-[0.72rem] text-ink/40">
                     {fact.label}
                   </p>
                 </div>
@@ -66,7 +66,7 @@ export function AboutTeaser() {
                 Inside the factory
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
-              <span className="inline-flex items-center gap-2 font-mono text-[0.58rem] uppercase tracking-[0.14em] text-ink/40">
+              <span className="inline-flex items-center gap-2 font-sans font-medium text-[0.72rem] text-ink/40">
                 <PinIcon className="h-3.5 w-3.5 text-royal" />
                 Pithampur · Dhar · M.P.
               </span>

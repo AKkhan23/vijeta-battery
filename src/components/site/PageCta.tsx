@@ -20,7 +20,10 @@ export function PageCta({
 }: Props) {
   return (
     <section className="relative overflow-hidden border-t border-line bg-paper-deep/60">
-      <div aria-hidden="true" className="blueprint pointer-events-none absolute inset-0 opacity-70" />
+      <div
+        aria-hidden="true"
+        className="blueprint pointer-events-none absolute inset-0 opacity-70"
+      />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 -top-32 h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(22,56,198,0.12),transparent_65%)]"
@@ -29,7 +32,9 @@ export function PageCta({
         <div className="grid items-end gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-8">
             <p className="eyebrow text-royal">{eyebrow}</p>
-            <h2 className="mt-5 max-w-[18ch] text-[clamp(2.6rem,5vw,4.4rem)]">{title}</h2>
+            <h2 className="mt-5 max-w-[18ch] text-[clamp(2.6rem,5vw,4.4rem)]">
+              {title}
+            </h2>
           </Reveal>
           <Reveal delay={0.08} className="lg:col-span-4">
             <p className="prose-lede max-w-[26rem]">{copy}</p>

@@ -24,7 +24,9 @@ export function FloatingActions() {
       aria-hidden={atContact || undefined}
       inert={atContact}
       className={`fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2 transition-all duration-300 sm:bottom-6 sm:right-6 ${
-        atContact ? "pointer-events-none translate-y-3 opacity-0" : "opacity-100"
+        atContact
+          ? "pointer-events-none translate-y-3 opacity-0"
+          : "opacity-100"
       }`}
     >
       <a

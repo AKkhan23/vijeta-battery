@@ -20,13 +20,13 @@ export function FAQ({ index = "07" }: { index?: string }) {
               <h2 className="max-w-[12ch] text-[clamp(2.6rem,4.6vw,4rem)]">
                 The things
                 <br />
-                people <em className="accent-serif font-normal text-royal">ask.</em>
+                people <em className="heading-gloss accent-serif font-normal text-royal">ask.</em>
               </h2>
               <p className="mt-6 max-w-[24rem] text-[0.92rem] leading-relaxed text-ink/60">
                 If your question is not here, the sales line is faster than a form.
                 We would rather answer once and get it right.
               </p>
-              <div className="mt-7 border border-line bg-paper p-4">
+              <div data-torch className="torch-card mt-7 p-4">
                 <p className="eyebrow text-ink/40">Still unsure?</p>
                 <a
                   href={`tel:${site.phonePrimary}`}

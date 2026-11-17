@@ -28,7 +28,7 @@ export function DealerCTA({ href = "/dealership", label = "Explore dealership" }
               <h2 className="mt-5 max-w-[16ch] text-[clamp(2.8rem,6vw,5.4rem)] text-white">
                 Sell batteries that
                 <br />
-                <em className="accent-serif font-normal text-volt">don’t come back.</em>
+                <em className="heading-gloss accent-serif font-normal text-volt">don’t come back.</em>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -70,7 +70,7 @@ export function DealerCTA({ href = "/dealership", label = "Explore dealership" }
                     Or message the sales line
                   </a>
                 </div>
-                <p className="mt-4 text-center font-mono text-[0.55rem] uppercase tracking-[0.14em] text-white/30">
+                <p className="mt-4 text-center font-sans font-medium text-[0.72rem] text-white/30">
                   {site.phonePrimaryLabel}
                 </p>
               </div>

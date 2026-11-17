@@ -34,7 +34,7 @@ export function ChargeRail() {
       aria-hidden="true"
       className="pointer-events-none fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-center gap-3 mix-blend-difference xl:flex"
     >
-      <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-white [writing-mode:vertical-rl]">
+      <span className="font-sans font-medium text-[10px] text-white [writing-mode:vertical-rl]">
         Charge
       </span>
       <div className="relative">
@@ -53,7 +53,7 @@ export function ChargeRail() {
           </div>
         </div>
       </div>
-      <span className="font-mono text-[9px] tabular-nums text-white">{pct}%</span>
+      <span className="font-sans font-medium text-[10px] tabular-nums text-white">{pct}%</span>
     </div>
   );
 }

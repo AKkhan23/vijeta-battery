@@ -9,7 +9,7 @@ export function SectionLabel({ index, text, light = false, className = "" }: Pro
   return (
     <div className={`flex items-center gap-3.5 ${className}`}>
       <span
-        className={`font-mono text-[0.6875rem] font-medium tracking-[0.16em] ${
+        className={`font-sans text-[0.78rem] font-medium ${
           light ? "text-white/60" : "text-royal"
         }`}
       >

@@ -44,7 +44,7 @@ export function StaticBattery({ className = "", variant = "blue" }: Props) {
         x="74"
         y="117"
         fill="#ffffff"
-        fontFamily="var(--font-archivo), Arial, sans-serif"
+        fontFamily="var(--font-bricolage), Arial, sans-serif"
         fontSize="19"
         fontWeight="800"
         letterSpacing="-0.5"
@@ -56,7 +56,7 @@ export function StaticBattery({ className = "", variant = "blue" }: Props) {
         x="74"
         y="148"
         fill="#0a0f1e"
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-manrope), sans-serif"
         fontSize="8"
         letterSpacing="1.2"
       >
@@ -66,7 +66,7 @@ export function StaticBattery({ className = "", variant = "blue" }: Props) {
         x="74"
         y="178"
         fill={accent}
-        fontFamily="var(--font-archivo), Arial, sans-serif"
+        fontFamily="var(--font-bricolage), Arial, sans-serif"
         fontSize="30"
         fontWeight="800"
       >
@@ -76,7 +76,7 @@ export function StaticBattery({ className = "", variant = "blue" }: Props) {
         x="74"
         y="203"
         fill={accent}
-        fontFamily="var(--font-archivo), Arial, sans-serif"
+        fontFamily="var(--font-bricolage), Arial, sans-serif"
         fontSize="30"
         fontWeight="800"
       >

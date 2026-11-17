@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
@@ -12,34 +11,42 @@ type Props = {
   once?: boolean;
 };
 
-export function Reveal({
-  children,
-  className,
-  delay = 0,
-  y = 26,
-  amount = 0.2,
-  once = true,
-}: Props) {
-  const reduce = useReducedMotion();
+/**
+ * Scroll reveal: content is visible by default (fail-safe).
+ * JS arms it and toggles visibility on scroll — appears entering view, hides leaving.
+ */
+export function Reveal({ children, className = "", delay = 0, y = 26 }: Props) {
+  const ref = useRef<HTMLDivElement>(null);
 
-  if (reduce) {
-    return <div className={className}>{children}</div>;
-  }
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) return;
+
+    el.classList.add("reveal-scroll");
+    const update = () => {
+      const r = el.getBoundingClientRect();
+      const show = r.top < window.innerHeight * 0.85 && r.bottom > window.innerHeight * 0.1;
+      el.classList.toggle("is-visible", show);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  const style = {
+    transitionDelay: `${delay}s`,
+    "--reveal-y": `${y}px`,
+  } as CSSProperties;
 
   return (
-    <motion.div
-      data-reveal
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, amount }}
-      transition={{
-        duration: 0.85,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-    >
+    <div ref={ref} className={className} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }
