@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import type { GoogleRating } from "@/lib/googleReviews";
+import { GOOGLE_URL, type GoogleRating } from "@/lib/googleReviews";
 
 function Stars({ rating }: { rating: number }) {
   const filled = Math.round(rating);
@@ -85,13 +85,21 @@ export function Testimonials() {
               Real customers, real ratings — pulled straight from our Google listing.
             </p>
             <div className="mt-3 flex items-center justify-center gap-2 lg:justify-end">
-              <span className="font-display text-[1.2rem] font-bold leading-none text-ink">
-                {data ? data.rating.toFixed(1) : "5.0"}
-              </span>
-              <Stars rating={data?.rating ?? 5} />
-              <span className="font-sans text-[0.78rem] text-ink/50">
-                {data ? `${data.count} Google reviews` : "Google reviews"}
-              </span>
+              {data && data.count > 0 ? (
+                <>
+                  <span className="font-display text-[1.2rem] font-bold leading-none text-ink">
+                    {data.rating.toFixed(1)}
+                  </span>
+                  <Stars rating={data.rating} />
+                  <span className="font-sans text-[0.78rem] text-ink/50">
+                    {data.count} Google reviews
+                  </span>
+                </>
+              ) : (
+                <span className="font-sans text-[0.78rem] text-ink/45">
+                  Loading live Google reviews…
+                </span>
+              )}
             </div>
             <div className="mt-5 flex gap-2 lg:justify-end">
               <button
@@ -121,6 +129,24 @@ export function Testimonials() {
           tabIndex={0}
           className="no-scrollbar mt-11 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-1"
         >
+          {reviews.length === 0 && (
+            <div className="torch-card flex w-full flex-col items-start gap-3 rounded-2xl border border-line bg-paper p-8">
+              <p className="text-[1rem] font-semibold text-ink">Reviews load ho rahe hain</p>
+              <p className="max-w-[46ch] text-[0.88rem] leading-relaxed text-ink/55">
+                Yeh section aapke Google listing se live data fetch karta hai. Abhi Google se jawab nahi mila — neeche diye gaye link par dekhein.
+              </p>
+              <a
+                href={GOOGLE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-arrow"
+              >
+                View reviews on Google
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
+          )}
+
           {reviews.map((review, index) => (
             <figure
               key={`${review.name}-${index}`}
@@ -154,7 +180,7 @@ export function Testimonials() {
 
         <Reveal className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5">
           <a
-            href={data?.url ?? "https://www.google.com/maps/search/?api=1&query=VIJETA%20ACCUMULATORS%20AND%20NEW%20TECHNOLOGIES"}
+            href={data?.url ?? GOOGLE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="link-arrow"
