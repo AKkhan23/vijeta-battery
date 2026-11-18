@@ -4,6 +4,7 @@ import "./globals.css";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 import { ChargeRail } from "@/components/site/ChargeRail";
 import { FloatingActions } from "@/components/site/FloatingActions";
+import { ChatWidget } from "@/components/site/ChatWidget";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { TorchCursor } from "@/components/site/TorchCursor";
@@ -195,6 +196,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <Footer />
         <FloatingActions />
+        <ChatWidget />
         <noscript>
           <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
         </noscript>

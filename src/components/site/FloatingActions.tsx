@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PhoneIcon, WhatsAppIcon } from "@/components/ui/Icons";
+import { WhatsAppIcon } from "@/components/ui/Icons";
 import { site } from "@/lib/site";
 
 export function FloatingActions() {
@@ -29,14 +29,6 @@ export function FloatingActions() {
           : "opacity-100"
       }`}
     >
-      <a
-        href={`tel:${site.phonePrimary}`}
-        aria-label="Call VIJETA Batteries"
-        title="Call us"
-        className="group flex h-12 w-12 items-center justify-center rounded-full border border-line bg-white/90 text-ink shadow-[0_10px_30px_-12px_rgba(7,11,24,0.35)] backdrop-blur transition-all hover:-translate-y-0.5 hover:border-royal hover:text-royal"
-      >
-        <PhoneIcon className="h-[18px] w-[18px]" />
-      </a>
       <a
         href={site.whatsapp}
         target="_blank"
