@@ -54,6 +54,30 @@ export const knowledgeEntries: KnowledgeEntry[] = [
     weight: 3,
   },
   {
+    id: "sorry",
+    keywords: ["sorry", "maafi", "maaf", "pardon", "my apologies", "apologies", "oops", "galti", "galti ho gayi", "sorry yaar", "so sorry"],
+    answer:
+      "Koi baat nahi! 😊 Aapki kya madad kar sakta hoon?",
+    chips: ["Which battery fits my car?", "Gold vs Silver", "Warranty claim"],
+    weight: 3,
+  },
+  {
+    id: "ack-ok",
+    keywords: ["ok", "okay", "okay fine", "theek hai", "thik hai", "accha", "alright", "fine", "sure", "haan", "han", "yes", "ok then", "hmm ok"],
+    answer:
+      "Bataiye, aapki aur kya madad kar sakta hoon?",
+    chips: ["Which battery fits my car?", "Gold vs Silver", "Dealer near me"],
+    weight: 3,
+  },
+  {
+    id: "car-suv",
+    keywords: ["car & suv", "car and suv", "car suv", "suv", "hatchback", "sedan", "cars", "car category", "car battery details", "suv battery"],
+    answer:
+      "Car aur SUV batteries petrol, diesel aur CNG ke liye starting power deti hain — hatchback se SUV tak, roz ki commute aur weekend highway dono ke liye. Gold 36 months ke saath heavy use ke liye, Silver 24 months roz ki driving ke liye. Exact model ke liye make, model, fuel aur year bhejein.",
+    links: [{ label: "WhatsApp", href: whatsappLink }],
+    weight: 3,
+  },
+  {
     id: "assistant-identity",
     keywords: ["what is your name", "your name", "who are you", "kaun ho", "tum kaun", "kya naam", "are you ai", "are you a robot", "tu ai hai", "kya tu robot", "who am i talking to"],
     answer:
@@ -383,10 +407,10 @@ export const knowledgeEntries: KnowledgeEntry[] = [
   },
   {
     id: "thanks",
-    keywords: ["thanks", "thank you", "dhanyavaad", "dhanyavad", "shukriya", "thanks a lot", "thanku", "thnkx", "badhiya", "great"],
+    keywords: ["thanks", "thank you", "dhanyavaad", "dhanyavad", "shukriya", "thanks a lot", "thanku", "thnkx", "badhiya", "great", "thanks for the help", "thank you for help", "thanks for help", "thanks for your help"],
     answer:
-      "You're welcome! Thank you for visiting VIJETA. If you need anything else, I'm right here.",
-    weight: 1,
+      "You're welcome! Thank you for visiting VIJETA. Agar aur koi help chahiye to main yahin hoon.",
+    weight: 3,
   },
   {
     id: "goodbye",

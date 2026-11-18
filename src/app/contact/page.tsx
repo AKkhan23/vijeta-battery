@@ -11,7 +11,7 @@ export const metadata = pageMetadata({
 export default function ContactPage() {
   return (
     <main id="main" className="pt-[76px]">
-      <Contact id="contact" formOnly />
+      <Contact id="contact" />
     </main>
   );
 }

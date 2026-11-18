@@ -21,13 +21,11 @@ type Props = {
   title?: ReactNode;
   intro?: string;
   defaultType?: string;
-  formOnly?: boolean;
 };
 
 export function Contact({
   id = "contact",
   index = "08",
-  formOnly = false,
   title = (
     <>
       Tell us what
@@ -38,23 +36,6 @@ export function Contact({
   intro = "Send the details and we will come back with the right battery, the right series and the nearest authorised dealer. A phone call works too.",
   defaultType,
 }: Props) {
-  if (formOnly) {
-    return (
-      <section id={id} className="section-y bg-paper">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl">
-            <Reveal>
-              <SectionLabel text="Contact" />
-            </Reveal>
-            <Reveal className="mt-8" amount={0.08}>
-              <EnquiryForm defaultType={defaultType} />
-            </Reveal>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section id={id} className="section-y bg-paper">
       <div className="container-x">
@@ -63,6 +44,12 @@ export function Contact({
         </Reveal>
 
         <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-7">
+            <Reveal amount={0.08}>
+              <EnquiryForm defaultType={defaultType} />
+            </Reveal>
+          </div>
+
           <div className="lg:col-span-5">
             <Reveal>
               <h2 className="max-w-[12ch] text-[clamp(2.8rem,5.4vw,4.7rem)]">
@@ -76,7 +63,7 @@ export function Contact({
             </Reveal>
 
             <Reveal delay={0.12} className="mt-8 border-t border-line">
-              <div className="flex gap-4 border-b border-line py-5">
+              <div className="flex gap-4 border-b border-line py-5 transition-all duration-300 hover:border-royal/30 hover:bg-white/60 hover:pl-1">
                 <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center border border-line bg-white text-royal">
                   <PhoneIcon className="h-4 w-4" />
                 </span>
@@ -100,7 +87,7 @@ export function Contact({
                 </div>
               </div>
 
-              <div className="flex gap-4 border-b border-line py-5">
+              <div className="flex gap-4 border-b border-line py-5 transition-all duration-300 hover:border-royal/30 hover:bg-white/60 hover:pl-1">
                 <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center border border-line bg-white text-royal">
                   <MailIcon className="h-4 w-4" />
                 </span>
@@ -115,7 +102,7 @@ export function Contact({
                 </div>
               </div>
 
-              <div className="flex gap-4 border-b border-line py-5">
+              <div className="flex gap-4 border-b border-line py-5 transition-all duration-300 hover:border-royal/30 hover:bg-white/60 hover:pl-1">
                 <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center border border-line bg-white text-royal">
                   <PinIcon className="h-4 w-4" />
                 </span>
@@ -164,12 +151,6 @@ export function Contact({
               <p className="mt-3 font-sans font-medium text-[0.72rem] text-ink/30">
                 We reply as soon as we can, during working hours.
               </p>
-            </Reveal>
-          </div>
-
-          <div className="lg:col-span-7">
-            <Reveal amount={0.08}>
-              <EnquiryForm defaultType={defaultType} />
             </Reveal>
           </div>
         </div>
