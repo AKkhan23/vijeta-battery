@@ -18,9 +18,9 @@ type Message = {
 
 const LABELS = ["Talk with our bot", "Need help? Ask us"];
 const THINKING_LINES = [
-  "Site data check kar raha hoon…",
-  "Ek second…",
-  "Jodi raha hoon…",
+  "Checking our website data…",
+  "Just a moment…",
+  "Putting the answer together…",
 ];
 const STORE_KEY = "vj-chat";
 const MAX_LEN = 600;
@@ -312,7 +312,7 @@ export function ChatWidget() {
     ]);
     if (closeTimer.current) clearTimeout(closeTimer.current);
     // Show the closing line briefly, then wipe the conversation so the next
-    // open starts fresh with the animated Namaste greeting again.
+    // open starts fresh with the animated Hello greeting again.
     closeTimer.current = setTimeout(() => {
       setMessages([]);
       setInput("");
