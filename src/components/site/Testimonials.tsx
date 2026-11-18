@@ -72,7 +72,7 @@ export function Testimonials() {
     const rail = railRef.current;
     if (!rail) return;
     const card = rail.querySelector<HTMLElement>("[data-rating]");
-    const step = card ? card.offsetWidth + 12 : rail.clientWidth * 0.7;
+    const step = card ? card.offsetWidth + 20 : rail.clientWidth * 0.7;
     rail.scrollBy({ left: direction * step, behavior: "smooth" });
   }
 
@@ -87,7 +87,7 @@ export function Testimonials() {
 
         <Reveal className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="max-w-[20ch] text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-[1.15] tracking-[-0.025em]">
+            <h2 className="max-w-[22ch] text-[clamp(2rem,3.8vw,3.1rem)] font-semibold leading-[1.1] tracking-[-0.03em]">
               Rated by the people who <em className="heading-gloss accent-serif font-normal text-royal">use us.</em>
             </h2>
             <div className="mt-3 flex items-center gap-2.5">
@@ -136,7 +136,7 @@ export function Testimonials() {
           role="region"
           aria-label="Google rating tiles"
           tabIndex={0}
-          className="no-scrollbar mt-7 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2"
+          className="no-scrollbar mt-7 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 sm:gap-6"
           data-lenis-prevent
         >
           {reviews.length > 0
