@@ -593,7 +593,7 @@ export function ChatWidget() {
                       send(input);
                     }
                   }}
-                  className="max-h-[120px] min-h-[36px] flex-1 resize-none bg-transparent px-2 py-1.5 text-[13px] leading-snug text-ink outline-none placeholder:text-ink/40"
+                  className="max-h-[120px] min-h-[36px] flex-1 resize-none bg-transparent px-2 py-1.5 text-base leading-snug text-ink outline-none placeholder:text-ink/40 sm:text-[13px]"
                 />
                 <button
                   type="button"
