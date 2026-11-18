@@ -195,38 +195,6 @@ export const visionMission = {
   ],
 } as const;
 
-// Sample owner stories for layout/tone demonstration.
-// Replace with real, permissioned customer quotes before publishing.
-export const testimonials = [
-  {
-    quote:
-      "We run 18 commercial vehicles between Indore and Pithampur. VIJETA Heavy Duty batteries start on cold mornings without hesitation and last through the heat.",
-    author: "Rakesh Dhakad",
-    role: "Fleet Logistics Owner",
-    location: "Indore, M.P.",
-    badge: "Commercial Fleet",
-    rating: 5,
-  },
-  {
-    quote:
-      "Tractors sit out in fields in extreme weather. My customers prefer VIJETA Gold because it gives them 3 years of worry-free cranking power.",
-    author: "Suresh Patidar",
-    role: "Agricultural Equipment Dealer",
-    location: "Dhar, M.P.",
-    badge: "Agri Partner",
-    rating: 5,
-  },
-  {
-    quote:
-      "I have been selling VIJETA batteries at my workshop for 8 years. Claims are rare, support is direct from Pithampur, and margins are fair.",
-    author: "Mohammad Arif",
-    role: "Battery Workshop & Retailer",
-    location: "Ujjain, M.P.",
-    badge: "Dealer 8+ Years",
-    rating: 5,
-  },
-] as const;
-
 export const faqs = [
   {
     q: "Which battery fits my car?",
