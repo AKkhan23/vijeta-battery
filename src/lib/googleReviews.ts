@@ -179,6 +179,8 @@ export async function getGoogleRating(): Promise<GoogleRating> {
   const now = Date.now();
   if (cached && now - cached.at < CACHE_TTL) return cached.value;
   const value = await fetchGoogleRating();
-  cached = { value, at: Date.now() };
+  // Never cache a fallback — one transient Google hiccup must not freeze the
+  // section while a new review is being published.
+  if (value.live) cached = { value, at: Date.now() };
   return value;
 }
