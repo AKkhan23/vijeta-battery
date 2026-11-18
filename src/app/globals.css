@@ -407,6 +407,12 @@
     scroll-margin-top: 76px;
   }
 
+  @media (min-width: 1280px) {
+    section[id] {
+      scroll-margin-top: 112px;
+    }
+  }
+
   .eyebrow {
     font-family: var(--font-sans);
     font-size: 0.75rem;

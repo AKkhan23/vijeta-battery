@@ -28,7 +28,7 @@ export function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="top" className="relative overflow-hidden pt-[76px]">
+    <section id="top" className="relative overflow-hidden pt-[76px] xl:pt-[112px]">
       <div
         aria-hidden="true"
         className="blueprint pointer-events-none absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_at_60%_35%,black_20%,transparent_72%)]"
@@ -38,7 +38,7 @@ export function Hero() {
         className="pointer-events-none absolute -right-24 top-10 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(22,56,198,0.1),transparent_65%)]"
       />
 
-      <div className="container-x relative grid min-h-[calc(100svh-76px)] items-center gap-6 pb-14 pt-10 lg:grid-cols-[1.04fr_0.96fr] lg:gap-4 lg:pb-10 lg:pt-6">
+      <div className="container-x relative grid min-h-[calc(100svh-76px)] items-center gap-6 pb-14 pt-10 lg:grid-cols-[1.04fr_0.96fr] lg:gap-4 lg:pb-10 lg:pt-6 xl:min-h-[calc(100svh-112px)]">
         <motion.div
           initial={reduce ? false : "hidden"}
           animate="show"

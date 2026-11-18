@@ -27,7 +27,7 @@ export function PageHeader({ eyebrow, index, title, intro, crumb, path, meta = [
 
   return (
     <section
-      className={`relative overflow-hidden border-b border-line pt-[76px] ${
+      className={`relative overflow-hidden border-b border-line pt-[76px] xl:pt-[112px] ${
         overlay ? "min-h-[clamp(20rem,24vw,22rem)] bg-[#031321]" : "bg-paper"
       }`}
     >
@@ -54,7 +54,7 @@ export function PageHeader({ eyebrow, index, title, intro, crumb, path, meta = [
         />
       )}
 
-      <div className={`container-x relative ${overlay ? "flex min-h-[calc(clamp(20rem,24vw,22rem)-76px)] flex-col justify-end pb-6 pt-9 lg:pb-8" : "pb-14 pt-12 lg:pb-20 lg:pt-16"}`}>
+      <div className={`container-x relative ${overlay ? "flex min-h-[calc(clamp(20rem,24vw,22rem)-76px)] flex-col justify-end pb-6 pt-9 lg:pb-8 xl:min-h-[calc(clamp(20rem,24vw,22rem)-112px)]" : "pb-14 pt-12 lg:pb-20 lg:pt-16"}`}>
         <nav
           aria-label="Breadcrumb"
           className={`flex items-center gap-2 font-sans font-medium text-[0.75rem] ${overlay ? "text-white/55" : "text-ink/40"}`}

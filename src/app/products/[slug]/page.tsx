@@ -2,29 +2,53 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { HomePowerSeriesDetail } from "@/components/site/HomePowerSeriesDetail";
 import { Reveal } from "@/components/ui/Reveal";
 import { industrialProducts } from "@/lib/industrialProducts";
+import { getGroupForSeries, getHomePowerSeries, homePowerSeries } from "@/lib/homePower";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return industrialProducts.map((product) => ({ slug: product.slug }));
+  return [
+    ...industrialProducts.map((product) => ({ slug: product.slug })),
+    ...homePowerSeries.map((series) => ({ slug: series.slug })),
+  ];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+
+  const series = getHomePowerSeries(slug);
+  if (series) {
+    const group = getGroupForSeries(slug);
+    return {
+      title: `${series.name} · ${group?.name ?? "Home Power"}`,
+      description: series.intro,
+      alternates: { canonical: `/products/${slug}` },
+    };
+  }
+
   const product = industrialProducts.find((item) => item.slug === slug);
   if (!product) return {};
   return { title: product.name, description: product.intro, alternates: { canonical: `/products/${slug}` } };
 }
 
-export default async function IndustrialProductPage({ params }: Props) {
+export default async function ProductDetailPage({ params }: Props) {
   const { slug } = await params;
+
+  const series = getHomePowerSeries(slug);
+  if (series) {
+    const group = getGroupForSeries(slug);
+    if (!group) notFound();
+    return <HomePowerSeriesDetail series={series} group={group} />;
+  }
+
   const product = industrialProducts.find((item) => item.slug === slug);
   if (!product) notFound();
 
   return (
-    <main id="main" className="pt-[76px]">
+    <main id="main" className="pt-[76px] xl:pt-[112px]">
       <section className="section-y bg-white">
         <div className="container-x">
           <Reveal>

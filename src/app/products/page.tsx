@@ -1,4 +1,5 @@
 import { PageCta } from "@/components/site/PageCta";
+import { HomePowerTeaser } from "@/components/site/HomePowerTeaser";
 import { ProductGallery } from "@/components/site/ProductGallery";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Range } from "@/components/site/Range";
@@ -38,6 +39,7 @@ export default function ProductsPage() {
         ]}
       />
       <ProductGallery />
+      <HomePowerTeaser />
       <Series index="01" />
       <ValuesSection />
       <Range index="02" />
