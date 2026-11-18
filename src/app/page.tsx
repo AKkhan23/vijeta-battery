@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { DealerCTA } from "@/components/site/DealerCTA";
 import { CinematicHero } from "@/components/site/CinematicHero";
-import { JourneyTimeline } from "@/components/site/JourneyTimeline";
 import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { StoryScroll } from "@/components/site/StoryScroll";
 import { Marquee } from "@/components/site/Marquee";
@@ -66,7 +65,6 @@ export default function Home() {
       <main id="main">
         <CinematicHero />
         <ProductShowcase />
-        <JourneyTimeline />
         <Marquee />
         <Series />
         <RangePreview />

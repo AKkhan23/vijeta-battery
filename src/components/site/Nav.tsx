@@ -179,7 +179,7 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  const darkTop = pathname === "/" || pathname === "/products";
+  const darkTop = pathname === "/" || pathname === "/products" || pathname === "/about";
   const lightText = darkTop && !scrolled;
 
   useEffect(() => {
