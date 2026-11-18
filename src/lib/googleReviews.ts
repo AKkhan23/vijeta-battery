@@ -81,11 +81,17 @@ function parseReviews(payload: string): GoogleReview[] {
     // Stars can sit a little further out; read them from the whole review
     // window. Text is read from a tight window around the timestamp so the
     // business address later in the payload can never become review text.
-    const starMatch = blockAll.match(/\[\[([1-5])\]\]/);
-    const rating = starMatch ? Number(starMatch[1]) : 0;
+    // Google writes this as [[4],null,...], [[5]] or occasionally a decimal.
+    const starMatch = blockAll.match(/\[\[([1-5](?:\.\d+)?)(?:,|\])/);
+    const parsedRating = starMatch ? Number(starMatch[1]) : 0;
+    const rating = Math.min(5, Math.max(0, Math.round(parsedRating * 10) / 10));
 
-    const candidates = [...blockAll.matchAll(/"([^"\\]{12,600})"/g)]
-      .map((match) => match[1])
+    // Google stores the written text as [["review text",null,[0,length]]].
+    const direct = blockAll.match(/\[\["([^"\\]{5,600})",null,\[0,\d+\]\]\]/);
+    const candidates = direct
+      ? [direct[1]]
+      : [...blockAll.matchAll(/"([^"\\]{12,600})"/g)]
+          .map((match) => match[1])
       .filter((value) => {
         if (value === name || value.split(/\s+/).length < 3) return false;
         if (/^https?:|^www\.|^2ah|^0ah|^Ci9|^ChI|^[\d\s\-:.]+$/.test(value)) return false;
@@ -101,7 +107,7 @@ function parseReviews(payload: string): GoogleReview[] {
       time: timeMatch ? timeMatch[1] : "",
       text: candidates[0],
     });
-    if (result.length >= 6) break;
+    if (result.length >= 50) break;
   }
 
   return result;
@@ -165,7 +171,7 @@ async function fetchGoogleRating(): Promise<GoogleRating> {
 
 // Short in-process cache so a busy site doesn't hammer Google. A newly posted
 // review appears within ~10 seconds. Empty results are never cached.
-const CACHE_TTL = 10_000;
+const CACHE_TTL = 5_000;
 let cached: { value: GoogleRating; at: number } | null = null;
 
 export async function getGoogleRating(): Promise<GoogleRating> {

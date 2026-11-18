@@ -27,8 +27,6 @@ export function Testimonials() {
     let active = true;
 
     const load = () => {
-      // No point polling a background tab.
-      if (document.hidden) return;
       fetch("/api/google-reviews", { cache: "no-store" })
         .then((res) => (res.ok ? res.json() : null))
         .then((json: GoogleRating | null) => {
@@ -48,7 +46,7 @@ export function Testimonials() {
     };
 
     load();
-    const timer = setInterval(load, 10000);
+    const timer = setInterval(load, 5000);
     return () => {
       active = false;
       clearInterval(timer);
