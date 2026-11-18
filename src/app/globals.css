@@ -115,8 +115,14 @@
   /* ---------- Cinematic hero ---------- */
   .cinema-hero__veil {
     background:
-      linear-gradient(180deg, rgba(8, 11, 20, 0.45) 0%, rgba(8, 11, 20, 0.05) 32%, rgba(8, 11, 20, 0.82) 100%),
-      radial-gradient(ellipse at 70% 30%, transparent 20%, rgba(8, 11, 20, 0.35) 100%);
+      linear-gradient(180deg, rgba(8, 11, 20, 0.55) 0%, rgba(8, 11, 20, 0.12) 36%, rgba(8, 11, 20, 0.18) 70%, rgba(8, 11, 20, 0.55) 100%),
+      radial-gradient(ellipse at 70% 25%, transparent 20%, rgba(8, 11, 20, 0.3) 100%);
+  }
+
+  @media (max-width: 640px) {
+    .cinema-hero__veil {
+      background: linear-gradient(180deg, rgba(8, 11, 20, 0.6) 0%, rgba(8, 11, 20, 0.12) 35%, rgba(8, 11, 20, 0.78) 100%);
+    }
   }
 
   .story-scroll {
