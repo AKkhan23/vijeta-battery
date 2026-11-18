@@ -311,7 +311,22 @@ export function ChatWidget() {
       { id: nextId(), role: "assistant", content: closingMessage },
     ]);
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => closePanel(), 900);
+    // Show the closing line briefly, then wipe the conversation so the next
+    // open starts fresh with the animated Namaste greeting again.
+    closeTimer.current = setTimeout(() => {
+      setMessages([]);
+      setInput("");
+      setChips(suggestedPrompts.slice(0, 4));
+      setThinking(false);
+      setGreetingPending(false);
+      greetingDone.current = false;
+      try {
+        sessionStorage.removeItem(STORE_KEY);
+      } catch {
+        /* storage may be unavailable */
+      }
+      closePanel();
+    }, 1100);
   }
 
   async function send(text: string) {
@@ -382,9 +397,20 @@ export function ChatWidget() {
           from { opacity: 0; transform: translateY(8px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        .vjchat-hello { animation: vjchat-hello 0.55s cubic-bezier(.2,.9,.25,1) both; }
+        @keyframes vjchat-hello {
+          from { opacity: 0; transform: translateY(18px) scale(0.96); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .vjchat-wave { display: inline-block; animation: vjchat-wave 1.2s ease-in-out 2; transform-origin: 70% 70%; }
+        @keyframes vjchat-wave {
+          0%, 100% { transform: rotate(0deg); }
+          25% { transform: rotate(18deg); }
+          75% { transform: rotate(-12deg); }
+        }
         .vjchat-paused, .vjchat-paused * { animation-play-state: paused !important; }
         @media (prefers-reduced-motion: reduce) {
-          .vjchat-ring, .vjchat-cursor, .vjchat-dot, .vjchat-up { animation: none !important; }
+          .vjchat-ring, .vjchat-cursor, .vjchat-dot, .vjchat-up, .vjchat-hello, .vjchat-wave { animation: none !important; }
         }
       `}</style>
 
@@ -481,8 +507,9 @@ export function ChatWidget() {
               <div className="flex flex-col gap-3">
                 {messages.map((m) => {
                   const isUser = m.role === "user";
+                  const isGreeting = !isUser && m.content === greeting;
                   return (
-                    <div key={m.id} className={`vjchat-up flex ${isUser ? "justify-end" : "justify-start"}`}>
+                    <div key={m.id} className={`${isGreeting ? "vjchat-hello" : "vjchat-up"} flex ${isUser ? "justify-end" : "justify-start"}`}>
                       <div
                         className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed shadow-sm ${
                           isUser
@@ -494,7 +521,12 @@ export function ChatWidget() {
                           aria-live={isUser ? undefined : "polite"}
                           className="whitespace-pre-wrap break-words"
                         >
-                          {m.content}
+                          {isGreeting ? (
+                            <>
+                              <span className="vjchat-wave" aria-hidden="true">👋</span>{" "}
+                              {m.content.replace("👋", "").trim()}
+                            </>
+                          ) : m.content}
                         </p>
                         {m.links && m.links.length ? (
                           <div className="mt-2 flex flex-wrap gap-1.5">
