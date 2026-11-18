@@ -32,7 +32,7 @@ export function HomePowerCategory({ group }: { group: HomePowerGroup }) {
   const siblings = homePowerGroups.filter((item) => item.slug !== group.slug);
 
   return (
-    <main id="main" className="pt-[76px] xl:pt-[112px]">
+    <main id="main" className="pt-[76px]">
       <section className="section-y bg-white">
         <div className="container-x">
           <Reveal>

@@ -4,7 +4,13 @@ import { ArrowUpRight } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { industrialProducts } from "@/lib/industrialProducts";
 
+// Temporarily hidden from the products grid at the client's request.
+// Detail pages stay live so existing links keep working.
+const hiddenProductSlugs = new Set(["ndp-tubular", "plante-range"]);
+
 export function ProductGallery() {
+  const products = industrialProducts.filter((product) => !hiddenProductSlugs.has(product.slug));
+
   return (
     <section className="section-y bg-paper">
       <div className="container-x">
@@ -22,7 +28,7 @@ export function ProductGallery() {
         </Reveal>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {industrialProducts.map((product, index) => (
+          {products.map((product, index) => (
             <Reveal key={product.slug} delay={index * 0.06} y={18} className="h-full">
               <Link
                 href={`/products/${product.slug}`}

@@ -26,7 +26,7 @@ export function HomePowerSeriesDetail({
   const related = getRelatedSeries(series);
 
   return (
-    <main id="main" className="pt-[76px] xl:pt-[112px]">
+    <main id="main" className="pt-[76px]">
       <section className="section-y bg-white">
         <div className="container-x">
           <Reveal>

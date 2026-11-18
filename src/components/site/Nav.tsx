@@ -20,10 +20,12 @@ const powerMenus = homePowerGroups.map((group) => ({
 }));
 
 const utilityLinks = [
-  { label: "Products", href: "/products" },
   { label: "About", href: "/about" },
+  { label: "Products", href: "/products" },
   { label: "Technology", href: "/technology" },
+  { label: "Warranty", href: "/warranty" },
   { label: "Dealership", href: "/dealership" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -47,7 +49,7 @@ function Chevron({ className = "" }: { className?: string }) {
 
 type PowerMenuType = (typeof powerMenus)[number];
 
-function PowerMenu({ menu }: { menu: PowerMenuType }) {
+function PowerMenu({ menu, light }: { menu: PowerMenuType; light: boolean }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -109,14 +111,15 @@ function PowerMenu({ menu }: { menu: PowerMenuType }) {
           clear();
           setOpen(false);
         }}
-        className={`group flex items-center gap-1.5 border px-4 py-1.5 font-sans text-[0.8rem] font-medium transition-colors ${
+        className={`group relative border-b pb-0.5 font-sans text-[0.85rem] font-semibold tracking-[-0.01em] transition-colors ${
           active
-            ? "border-royal bg-royal text-white"
-            : "border-royal/20 bg-white text-royal hover:border-royal hover:bg-[#eef3ff]"
+            ? light ? "border-white text-white" : "border-royal text-royal"
+            : light
+              ? "border-white/40 text-white/90 hover:border-white hover:text-white"
+              : "border-royal/40 text-royal hover:border-royal hover:text-royal-deep"
         }`}
       >
         {menu.label}
-        <Chevron className={`h-3 w-3 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
       </Link>
 
       <AnimatePresence>
@@ -173,7 +176,18 @@ export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
+
+  const darkTop = pathname === "/" || pathname === "/products";
+  const lightText = darkTop && !scrolled;
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -200,39 +214,71 @@ export function Nav() {
   return (
     <>
       <header
-        className="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-paper text-ink backdrop-blur-xl"
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
+          scrolled
+            ? "border-line/70 bg-paper/95 text-ink backdrop-blur-xl"
+            : lightText
+              ? "border-transparent bg-transparent text-white"
+              : "border-transparent bg-transparent text-ink"
+        }`}
       >
-        <div className="container-x flex h-[72px] items-center justify-between gap-5">
-          <Logo />
+        <div className="container-x relative flex h-[76px] items-center justify-between gap-4">
+          <Logo light={lightText} />
 
-          <nav aria-label="Primary" className="hidden flex-1 items-center justify-center gap-7 xl:flex">
+          <nav aria-label="Primary" className="absolute left-1/2 top-0 hidden h-[50px] -translate-x-1/2 items-center gap-5 xl:flex">
+            <Link
+              href="/"
+              aria-current={isActive("/") ? "page" : undefined}
+              className={`group relative py-2 font-sans text-[0.85rem] font-medium transition-colors ${
+                isActive("/")
+                  ? lightText ? "text-white" : "text-royal"
+                  : lightText ? "text-white/75 hover:text-white" : "text-ink/70 hover:text-ink"
+              }`}
+            >
+              Home
+              <span
+                className={`absolute -bottom-0.5 left-0 h-px transition-all duration-300 group-hover:w-full ${
+                  lightText ? "bg-white" : "bg-royal"
+                } ${isActive("/") ? "w-full" : "w-0"}`}
+              />
+            </Link>
             {utilityLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
-                className={`group relative py-2 font-sans text-[0.82rem] font-medium transition-colors ${
-                  isActive(link.href) ? "text-royal" : "text-ink/70 hover:text-ink"
+                className={`group relative py-2 font-sans text-[0.85rem] font-medium transition-colors ${
+                  isActive(link.href)
+                    ? lightText ? "text-white" : "text-royal"
+                    : lightText ? "text-white/75 hover:text-white" : "text-ink/70 hover:text-ink"
                 }`}
               >
                 {link.label}
                 <span
-                  className={`absolute -bottom-0.5 left-0 h-px bg-royal transition-all duration-300 group-hover:w-full ${
-                    isActive(link.href) ? "w-full" : "w-0"
-                  }`}
+                  className={`absolute -bottom-0.5 left-0 h-px transition-all duration-300 group-hover:w-full ${
+                    lightText ? "bg-white" : "bg-royal"
+                  } ${isActive(link.href) ? "w-full" : "w-0"}`}
                 />
               </Link>
             ))}
           </nav>
 
+          <div className="absolute bottom-[4px] left-[calc(50%+3rem)] hidden items-center gap-5 xl:flex">
+            {powerMenus.map((menu) => (
+              <PowerMenu key={menu.href} menu={menu} light={lightText} />
+            ))}
+          </div>
+
           <div className="flex items-center gap-2.5">
             <a
               href={`tel:${site.phonePrimary}`}
-              className="hidden font-sans font-medium text-[0.72rem] text-ink/60 transition-colors hover:text-royal xl:block"
+              className={`hidden font-sans font-medium text-[0.76rem] transition-colors xl:block ${
+                lightText ? "text-white/70 hover:text-white" : "text-ink/60 hover:text-royal"
+              }`}
             >
               {site.phonePrimaryLabel}
             </a>
-            <Link href="/contact" className="btn btn-primary hidden h-[42px] px-5 py-0 text-[0.82rem] sm:inline-flex">
+            <Link href="/contact" className="btn btn-primary hidden h-[42px] px-5 py-0 text-[0.85rem] sm:inline-flex">
               Enquire
               <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
@@ -247,14 +293,6 @@ export function Nav() {
               <span className="h-px w-5 bg-ink" />
               <span className="h-px w-5 bg-ink" />
             </button>
-          </div>
-        </div>
-
-        <div className="hidden border-t border-line/70 bg-white/70 xl:block">
-          <div className="container-x flex h-10 items-center justify-center gap-2">
-            {powerMenus.map((menu) => (
-              <PowerMenu key={menu.href} menu={menu} />
-            ))}
           </div>
         </div>
       </header>
