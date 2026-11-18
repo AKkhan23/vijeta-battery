@@ -7,8 +7,6 @@ export async function GET() {
   await connection();
   const rating = await getGoogleRating();
   return NextResponse.json(rating, {
-    headers: {
-      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-    },
+    headers: { "Cache-Control": "no-store" },
   });
 }
