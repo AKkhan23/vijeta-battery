@@ -13,6 +13,13 @@ export type IndustrialProduct = {
     headers: string[];
     rows: string[][];
   };
+  // Client-requested spotlight for the transparent SAN cell. All values below
+  // are taken from the existing technical copy for this product — no new claims.
+  badge?: string;
+  featured?: boolean;
+  atAGlance?: { label: string; value: string }[];
+  materials?: { title: string; copy: string }[];
+  quality?: string[];
 };
 
 export const industrialProducts: IndustrialProduct[] = [
@@ -25,6 +32,42 @@ export const industrialProducts: IndustrialProduct[] = [
       "Tubular battery cells in transparent SAN containers, built for dependable standby and cyclic power in industrial applications.",
     note:
       "Currently these cells in SAN Containers are available equivalent to OPzS 100 to OPzS 1000 Ah range. For any requirement above 1000 Ah please write or contact us.",
+    badge: "Best Seller",
+    featured: true,
+    atAGlance: [
+      { label: "Container", value: "Transparent SAN" },
+      { label: "Capacity", value: "OPzS 100 – OPzS 1000 Ah" },
+      { label: "Duty", value: "Standby float + cyclic" },
+      { label: "Standard", value: "IS 1651:2013" },
+    ],
+    materials: [
+      {
+        title: "Tubular positive plates",
+        copy: "Cast on high-pressure HADI machines to resist corrosion and deliver long service life.",
+      },
+      {
+        title: "Acid-resistant gauntlets",
+        copy: "High tensile polyester gauntlets hold the active material and protect the plates.",
+      },
+      {
+        title: "High porosity separators",
+        copy: "Envelope separators keep the plates apart while allowing the electrolyte to circulate freely.",
+      },
+      {
+        title: "Transparent SAN container",
+        copy: "Electrolyte level, plate condition and separators can be checked visually at a glance.",
+      },
+      {
+        title: "Level indicator & vent plug",
+        copy: "Electrolyte level indicator with a micro porous ceramic vent plug.",
+      },
+    ],
+    quality: [
+      "Low self-discharge and rapid recharge",
+      "High Ampere-hour and Watt-hour efficiencies",
+      "Withstands high ambient temperatures",
+      "Conforms to IS 1651:2013",
+    ],
     details: [
       "The cells use tubular positive plates cast on high-pressure HADI machines to resist corrosion and deliver long service life. Transparent SAN containers make electrolyte level, plate condition and separators easy to inspect visually.",
       "Low self-discharge, rapid recharge and high Ampere-hour and Watt-hour efficiencies make these cells suitable for both standby float and frequent charge/discharge duties.",

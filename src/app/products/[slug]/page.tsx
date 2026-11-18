@@ -73,7 +73,23 @@ export default async function ProductDetailPage({ params }: Props) {
               <h1 className="mt-4 text-[clamp(2rem,4vw,3.4rem)] font-semibold leading-[1.1] tracking-[-0.025em] text-ink">
                 {product.name}
               </h1>
+              {product.badge && (
+                <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-1 font-sans text-[0.7rem] font-bold uppercase tracking-[0.12em] text-ink">
+                  ★ {product.badge}
+                </span>
+              )}
               <p className="mt-6 text-[1.05rem] leading-[1.8] text-ink/65">{product.intro}</p>
+
+              {product.featured && (
+                <div className="mt-6 rounded-2xl border border-gold/30 bg-[#fbf7ee] p-5">
+                  <p className="font-sans text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-[#7a5c1f]">
+                    Why this one leads
+                  </p>
+                  <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/70">
+                    Transparent SAN containers let operators see electrolyte level, plate condition and separators without opening the cell. Tubular plates cast on high-pressure HADI machines, low self-discharge and rapid recharge make it a dependable choice for standby float and cyclic duty — from 100 Ah to 1000 Ah.
+                  </p>
+                </div>
+              )}
 
               {product.note && (
                 <div className="mt-7 rounded-xl border border-royal/15 bg-[#eef3ff] p-5 text-[0.92rem] leading-relaxed text-ink/70">
@@ -88,6 +104,57 @@ export default async function ProductDetailPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {(product.atAGlance || product.materials || product.quality) && (
+        <section className="section-y bg-paper">
+          <div className="container-x">
+            {product.atAGlance && (
+              <Reveal>
+                <p className="font-sans text-[0.78rem] font-medium text-royal">At a glance</p>
+                <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  {product.atAGlance.map((item) => (
+                    <div key={item.label} className="rounded-xl border border-royal/12 bg-white p-4">
+                      <span className="block font-sans text-[0.7rem] uppercase tracking-[0.1em] text-ink/45">{item.label}</span>
+                      <span className="mt-1.5 block text-[1rem] font-semibold leading-snug text-ink">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            )}
+
+            {product.materials && (
+              <Reveal className="mt-12">
+                <p className="font-sans text-[0.78rem] font-medium text-royal">Inside the cell</p>
+                <h2 className="mt-3 text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold tracking-[-0.02em] text-ink">
+                  What it is <em className="heading-gloss accent-serif font-normal text-royal">made of.</em>
+                </h2>
+                <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {product.materials.map((item) => (
+                    <div key={item.title} className="rounded-2xl border border-royal/12 bg-white p-5">
+                      <h3 className="font-sans text-[0.95rem] font-semibold text-ink">{item.title}</h3>
+                      <p className="mt-2 text-[0.88rem] leading-relaxed text-ink/60">{item.copy}</p>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            )}
+
+            {product.quality && (
+              <Reveal className="mt-12">
+                <p className="font-sans text-[0.78rem] font-medium text-royal">Quality &amp; standards</p>
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {product.quality.map((item) => (
+                    <div key={item} className="flex items-start gap-3 rounded-xl border border-royal/12 bg-white p-4 text-[0.9rem] leading-relaxed text-ink/65">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-royal" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="section-y bg-paper">
         <div className="container-x grid gap-10 lg:grid-cols-2 lg:gap-16">

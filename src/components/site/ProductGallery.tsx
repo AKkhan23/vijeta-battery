@@ -10,6 +10,7 @@ const hiddenProductSlugs = new Set(["ndp-tubular", "plante-range"]);
 
 export function ProductGallery() {
   const products = industrialProducts.filter((product) => !hiddenProductSlugs.has(product.slug));
+  const featured = products.find((product) => product.featured);
 
   return (
     <section className="section-y bg-paper">
@@ -27,13 +28,65 @@ export function ProductGallery() {
           </Link>
         </Reveal>
 
+        {featured && (
+          <Reveal className="mt-8">
+            <Link
+              href={`/products/${featured.slug}`}
+              className="group relative grid overflow-hidden rounded-3xl border border-royal/15 bg-royal text-white shadow-[0_24px_60px_-30px_rgba(20,54,200,0.8)] transition-transform duration-300 hover:-translate-y-0.5 md:grid-cols-[1.25fr_0.75fr]"
+            >
+              <div className="relative z-10 p-6 sm:p-8">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-1 font-sans text-[0.7rem] font-bold uppercase tracking-[0.12em] text-ink">
+                  ★ {featured.badge}
+                </span>
+                <p className="mt-5 font-sans text-[0.78rem] font-medium uppercase tracking-[0.14em] text-white/60">
+                  {featured.category}
+                </p>
+                <h3 className="mt-2 max-w-[24ch] text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-[1.1] tracking-[-0.025em]">
+                  {featured.name}
+                </h3>
+                <p className="mt-4 max-w-[52ch] text-[0.95rem] leading-relaxed text-white/75">
+                  {featured.intro}
+                </p>
+                {featured.atAGlance && (
+                  <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                    {featured.atAGlance.map((item) => (
+                      <div key={item.label} className="rounded-xl border border-white/15 bg-white/10 p-3">
+                        <span className="block font-sans text-[0.68rem] uppercase tracking-[0.1em] text-white/55">{item.label}</span>
+                        <span className="mt-1 block text-[0.88rem] font-semibold leading-snug">{item.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <span className="mt-7 inline-flex items-center gap-2 font-sans text-[0.85rem] font-semibold text-white">
+                  Explore the SAN cell
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+              </div>
+              <div className="relative min-h-[16rem] overflow-hidden bg-gradient-to-b from-[#eef3ff] to-[#dbe6ff] md:min-h-full">
+                <Image
+                  src={featured.image}
+                  alt={featured.name}
+                  fill
+                  sizes="(max-width: 768px) 90vw, 30vw"
+                  className="object-contain p-6 transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+            </Link>
+          </Reveal>
+        )}
+
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((product, index) => (
             <Reveal key={product.slug} delay={index * 0.06} y={18} className="h-full">
               <Link
                 href={`/products/${product.slug}`}
-                className="torch-card industrial-card group flex h-full flex-col p-5"
+                className="torch-card industrial-card group relative flex h-full flex-col p-5"
               >
+                {product.badge && (
+                  <span className="absolute left-3 top-3 z-10 rounded-full bg-gold px-2.5 py-1 font-sans text-[0.65rem] font-bold uppercase tracking-[0.1em] text-ink shadow-sm">
+                    ★ {product.badge}
+                  </span>
+                )}
                 <div className="industrial-card__media relative flex h-[13rem] items-center justify-center rounded-xl bg-gradient-to-b from-white to-[#e8eefc] p-4">
                   <Image
                     src={product.image}

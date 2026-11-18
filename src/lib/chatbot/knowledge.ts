@@ -14,7 +14,7 @@ const whatsappLink = site.whatsapp;
 const callLink = `tel:${site.phonePrimary}`;
 
 export const greeting =
-  "Namaste! Main VIJETA ka battery dost hoon — car, tractor, truck, inverter ya industrial battery ke sawal ka jawab de sakta hoon. Kuch bhi poochhiye, aur agar main na jaan paun to aapko seedha call ya WhatsApp par bhej dunga. Bataiye, aaj kya jaanna hai?";
+  "Namaste 👋 I'm VIJETA's service assistant. How can I help you today?";
 
 export const suggestedPrompts: string[] = [
   "Which battery fits my car?",
@@ -24,7 +24,7 @@ export const suggestedPrompts: string[] = [
 ];
 
 export const fallbackAnswer =
-  "Samajh gaya, lekin yeh jaankari website par available nahi hai. Main sirf vijetabattery.com par di gayi cheezon ke baare mein bata sakta hoon. Is sawal ka pakka jawab humari team WhatsApp ya phone par de sakti hai — woh zaroor madad karengi.";
+  "I'm sorry, but that detail isn't available on vijetabattery.com. I can help with batteries, warranty, dealers and contact details — or connect you with our team on call or WhatsApp for a confirmed answer.";
 
 export const fallbackLinks: ChatLink[] = [
   { label: "Call us", href: callLink },
@@ -32,14 +32,50 @@ export const fallbackLinks: ChatLink[] = [
   { label: "Contact page", href: "/contact" },
 ];
 
+export const closingMessage =
+  "Thank you for visiting VIJETA. If any problem comes up, I'm here to help — call or WhatsApp us anytime. Have a great day!";
+
 export const knowledgeEntries: KnowledgeEntry[] = [
   {
     id: "greeting",
-    keywords: ["namaste", "hello", "hi", "hey", "namaskar", "good morning", "good evening", "start", "hey there", "hlo"],
+    keywords: ["namaste", "hello", "hi", "hey", "namaskar", "good morning", "good afternoon", "good evening", "nice to meet you", "start", "hey there", "hlo"],
     answer:
-      "Namaste! Main VIJETA ka battery assistant hoon. Car, tractor, truck, inverter aur industrial battery — sabke baare mein madad kar sakta hoon. Bataiye, aaj kya jaanna chahte hain?",
-    chips: ["Which battery fits my car?", "Gold vs Silver warranty", "Dealer near me"],
+      "Namaste 👋 I'm VIJETA's service assistant. How can I help you today?",
+    links: [{ label: "All products", href: "/products" }],
+    chips: ["Which battery fits my car?", "Gold vs Silver", "Warranty claim", "Dealer near me"],
     weight: 1,
+  },
+  {
+    id: "how-are-you",
+    keywords: ["how are you", "how r u", "how are u", "how you doing", "kaise ho", "kaise hain", "kya haal", "sab theek", "all good", "are you ok", "how do you do"],
+    answer:
+      "I'm doing well, thank you! How may I help you with batteries, warranty or dealers today?",
+    chips: ["Which battery fits my car?", "Gold vs Silver", "Warranty claim"],
+    weight: 3,
+  },
+  {
+    id: "assistant-identity",
+    keywords: ["what is your name", "your name", "who are you", "kaun ho", "tum kaun", "kya naam", "are you ai", "are you a robot", "tu ai hai", "kya tu robot", "who am i talking to"],
+    answer:
+      "I'm VIJETA's virtual service assistant here on the website. I can help with products, warranty, dealers and contact details — what would you like to know?",
+    links: [{ label: "All products", href: "/products" }, { label: "Contact", href: "/contact" }],
+    weight: 3,
+  },
+  {
+    id: "confused",
+    keywords: ["confused", "not understanding", "samajh nahi", "kya bol rahe", "what do you mean", "pagal", "idiot", "stupid", "galat jawab", "wrong answer", "repeat", "phir se"],
+    answer:
+      "No problem — let me make it simple. I can help with batteries, warranty, dealers, inverters and industrial cells. Tell me what you need, or reach our team directly on call or WhatsApp.",
+    links: [{ label: "Call us", href: callLink }, { label: "WhatsApp", href: whatsappLink }],
+    weight: 3,
+  },
+  {
+    id: "end-chat",
+    keywords: ["end chat", "close chat", "that's all", "thats all", "no more", "nothing else", "done", "exit", "finish"],
+    answer:
+      "Thank you for visiting VIJETA. Is there anything else I can help you with before you go?",
+    links: [{ label: "Call us", href: callLink }, { label: "WhatsApp", href: whatsappLink }],
+    weight: 3,
   },
   {
     id: "what-can-you-do",
@@ -349,14 +385,13 @@ export const knowledgeEntries: KnowledgeEntry[] = [
     id: "thanks",
     keywords: ["thanks", "thank you", "dhanyavaad", "dhanyavad", "shukriya", "thanks a lot", "thanku", "thnkx", "badhiya", "great"],
     answer:
-      "Koi baat nahi! Khush ki madad ho payi. Aur koi sawal ho to main yahin hoon — Namaste!",
+      "You're welcome! Thank you for visiting VIJETA. If you need anything else, I'm right here.",
     weight: 1,
   },
   {
     id: "goodbye",
     keywords: ["bye", "goodbye", "see you", "alvida", "bye bye", "later", "nice talking", "att chalta hoon", "chalta hoon"],
-    answer:
-      "Alvida! Aapki safalta ke liye shubhkaamnaayein — battery, warranty ya dealer se juda koi bhi sawal ho to wapas aa kar poochh sakte hain. Namaste!",
+    answer: closingMessage,
     weight: 1,
   },
 ];

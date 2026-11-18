@@ -267,6 +267,18 @@ export function Nav() {
             {powerMenus.map((menu) => (
               <PowerMenu key={menu.href} menu={menu} light={lightText} />
             ))}
+            <Link
+              href="/products/tbs-san-cell"
+              className={`group relative border-b pb-0.5 font-sans text-[0.85rem] font-semibold tracking-[-0.01em] transition-colors ${
+                pathname === "/products/tbs-san-cell"
+                  ? "border-gold text-ink"
+                  : lightText
+                    ? "border-gold/60 text-white hover:border-gold hover:text-white"
+                    : "border-gold/60 text-[#7a5c1f] hover:border-gold hover:text-ink"
+              }`}
+            >
+              ★ TBS SAN Cell
+            </Link>
           </div>
 
           <div className="flex items-center gap-2.5">
@@ -400,6 +412,14 @@ export function Nav() {
                   );
                 })}
               </nav>
+
+              <Link
+                href="/products/tbs-san-cell"
+                onClick={() => setOpen(false)}
+                className="mt-2 inline-flex items-center gap-2 border-b border-gold/60 pb-1 font-sans text-[0.9rem] font-semibold text-gold transition-colors hover:text-white"
+              >
+                ★ TBS SAN Cell · Best Seller
+              </Link>
 
               <p className="eyebrow mt-9 text-white/40">Explore</p>
               <nav aria-label="Mobile" className="mt-3 flex flex-col">

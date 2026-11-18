@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
+  closingMessage,
   greeting,
   suggestedPrompts,
   type ChatLink,
@@ -304,6 +305,15 @@ export function ChatWidget() {
     closeTimer.current = setTimeout(() => setOpen(false), 240);
   }
 
+  function endChat() {
+    setMessages((prev) => [
+      ...prev,
+      { id: nextId(), role: "assistant", content: closingMessage },
+    ]);
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => closePanel(), 900);
+  }
+
   async function send(text: string) {
     const trimmed = text.trim();
     if (!trimmed || thinking || greetingPending) return;
@@ -563,9 +573,18 @@ export function ChatWidget() {
                   <SendIcon />
                 </button>
               </div>
-              <p className="mt-2 px-1 text-center text-[10px] leading-snug text-ink/45">
-                Answers from vijetabattery.com · Exact fitment? Confirm with your dealer.
-              </p>
+              <div className="mt-2 flex items-center justify-between gap-2 px-1">
+                <p className="text-[10px] leading-snug text-ink/45">
+                  Answers from vijetabattery.com · Exact fitment? Confirm with your dealer.
+                </p>
+                <button
+                  type="button"
+                  onClick={endChat}
+                  className="shrink-0 rounded-full border border-royal/20 bg-white px-2.5 py-1 font-sans text-[10px] font-semibold text-royal transition-colors hover:border-royal hover:bg-mist"
+                >
+                  End chat
+                </button>
+              </div>
             </footer>
           </div>
         </>
