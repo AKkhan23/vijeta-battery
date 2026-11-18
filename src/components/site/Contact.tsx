@@ -21,11 +21,13 @@ type Props = {
   title?: ReactNode;
   intro?: string;
   defaultType?: string;
+  formOnly?: boolean;
 };
 
 export function Contact({
   id = "contact",
   index = "08",
+  formOnly = false,
   title = (
     <>
       Tell us what
@@ -36,6 +38,23 @@ export function Contact({
   intro = "Send the details and we will come back with the right battery, the right series and the nearest authorised dealer. A phone call works too.",
   defaultType,
 }: Props) {
+  if (formOnly) {
+    return (
+      <section id={id} className="section-y bg-paper">
+        <div className="container-x">
+          <div className="mx-auto max-w-3xl">
+            <Reveal>
+              <SectionLabel text="Contact" />
+            </Reveal>
+            <Reveal className="mt-8" amount={0.08}>
+              <EnquiryForm defaultType={defaultType} />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id={id} className="section-y bg-paper">
       <div className="container-x">
