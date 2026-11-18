@@ -114,7 +114,7 @@ export function EnquiryForm({ defaultType }: { defaultType?: string }) {
 
   if (status === "success") {
     return (
-      <div data-torch className="torch-card relative p-6 sm:p-9">
+      <div data-torch className="torch-card relative rounded-xl p-5 sm:p-6">
         <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] bg-royal" />
         <div className="flex h-12 w-12 items-center justify-center rounded-full border border-royal/25 bg-royal/5 text-royal">
           <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -182,7 +182,7 @@ export function EnquiryForm({ defaultType }: { defaultType?: string }) {
   }
 
   return (
-    <div data-torch className="torch-card relative p-6 sm:p-8">
+    <div data-torch className="torch-card relative rounded-xl p-5 sm:p-6">
       <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] bg-royal" />
 
       <div className="flex items-start justify-between gap-4">
