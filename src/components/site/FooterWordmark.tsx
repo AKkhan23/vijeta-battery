@@ -17,13 +17,10 @@ export function FooterWordmark() {
   return (
     <div aria-hidden="true" className="select-none overflow-hidden pb-10 pt-12">
       <div ref={ref} onPointerMove={handleMove} className="wordmark-torch relative text-center">
-        <p className="wordmark-base display whitespace-nowrap text-[clamp(4rem,20vw,18rem)] leading-[0.9] tracking-[0.12em]">
+        <p className="wordmark-base display whitespace-nowrap text-[clamp(4rem,20vw,18rem)] leading-[0.9] tracking-[0.06em]">
           VIJETA
         </p>
-        <p className="wordmark-shine display pointer-events-none absolute inset-0 whitespace-nowrap text-[clamp(4rem,20vw,18rem)] leading-[0.9] tracking-[0.12em]">
-          VIJETA
-        </p>
-        <p className="wordmark-torch-glow display pointer-events-none absolute inset-0 whitespace-nowrap text-[clamp(4rem,20vw,18rem)] leading-[0.9] tracking-[0.12em]">
+        <p className="wordmark-torch-glow display pointer-events-none absolute inset-0 whitespace-nowrap text-[clamp(4rem,20vw,18rem)] leading-[0.9] tracking-[0.06em]">
           VIJETA
         </p>
       </div>

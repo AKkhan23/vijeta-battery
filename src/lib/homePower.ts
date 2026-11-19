@@ -42,6 +42,8 @@ export type HomePowerGroup = {
   stats: PowerStat[];
   selectionNote: string;
   series: HomePowerSeries[];
+  image?: string;
+  cardImage?: string;
 };
 
 export const homePowerGroups: HomePowerGroup[] = [
@@ -53,6 +55,8 @@ export const homePowerGroups: HomePowerGroup[] = [
     description:
       "VIJETA home inverters convert stored battery power into smooth AC for the things your home cannot do without. Pure sine wave models protect sensitive electronics and run quietly; square wave models deliver dependable backup for everyday loads. Pick the VA rating that matches your appliances, then pair it with a battery that matches your outage pattern.",
     kind: "inverter",
+    image: "/home-inverter.jpg",
+    cardImage: "/home-inverter-card.jpg",
     stats: [
       { label: "Series", value: "6" },
       { label: "Capacity", value: "700 VA – 15,000 VA" },
@@ -253,6 +257,8 @@ export const homePowerGroups: HomePowerGroup[] = [
     description:
       "An inverter is only as good as the battery behind it. VIJETA inverter batteries use tubular plate technology for long cycle life, steady backup and slow recovery from the deep discharges that frequent power cuts cause. Choose on capacity, outage length and how much maintenance you want to do.",
     kind: "battery",
+    image: "/inverter-battery.jpg",
+    cardImage: "/inverter-battery-card.jpg",
     stats: [
       { label: "Series", value: "3" },
       { label: "Capacity", value: "100 Ah – 400 Ah" },

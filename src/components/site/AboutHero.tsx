@@ -1,96 +1,146 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useRef } from "react";
 import { ArrowUpRight } from "@/components/ui/Icons";
+import { aboutHero } from "@/lib/heritage";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export function AboutHero() {
-  const ref = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, 60]);
-  const copyY = useTransform(scrollYProgress, [0, 0.8], [0, -40]);
-  const copyOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    video.muted = true;
+    void video.play().catch(() => {});
+  }, []);
 
   return (
-    <section ref={ref} className="about-hero relative h-[170svh]">
-      <div className="sticky top-0 h-[100svh] overflow-hidden bg-ink">
-        <motion.div
-          className="absolute inset-0"
-          style={reduce ? undefined : { scale: imageScale, y: imageY }}
-        >
-          <div className="about-hero__image absolute inset-0" />
-        </motion.div>
-        <div aria-hidden="true" className="about-hero__veil absolute inset-0" />
+    <section className="relative overflow-hidden bg-ink text-white">
+      <div aria-hidden="true" className="blueprint-dark pointer-events-none absolute inset-0 opacity-60" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 top-10 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(20,54,200,0.28),transparent_66%)]"
+      />
 
-        <motion.div
-          style={reduce ? undefined : { y: copyY, opacity: copyOpacity }}
-          className="container-x relative z-10 flex h-full flex-col justify-end pb-[10vh] pt-32 sm:pb-[12vh]"
-        >
+      <div className="container-x relative pb-14 pt-24 sm:pb-16 lg:pb-20 lg:pt-32">
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-6">
+            <motion.p
+              initial={reduce ? false : { opacity: 0, y: -14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.08, ease }}
+              className="font-sans text-[0.75rem] font-medium tracking-[0.02em] text-white/60"
+            >
+              {aboutHero.eyebrow}
+            </motion.p>
+
+            <h1 className="mt-5 max-w-[15ch] text-[clamp(2.5rem,4.6vw,4.6rem)] font-semibold leading-[1.04] tracking-[-0.025em] text-white">
+              <span className="block overflow-hidden pb-[0.06em]">
+                <motion.span
+                  className="block"
+                  initial={reduce ? false : { opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.16, ease }}
+                >
+                  {aboutHero.line1}
+                </motion.span>
+              </span>
+              <span className="block overflow-hidden pb-[0.06em]">
+                <motion.span
+                  className="block"
+                  initial={reduce ? false : { opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.28, ease }}
+                >
+                  <em className="heading-gloss accent-serif font-normal not-italic text-volt">
+                    {aboutHero.line2}
+                  </em>
+                </motion.span>
+              </span>
+            </h1>
+
+            <motion.p
+              initial={reduce ? false : { opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.42, ease }}
+              className="mt-6 max-w-[33rem] text-[0.98rem] leading-[1.75] text-white/65 sm:text-[1.02rem]"
+            >
+              {aboutHero.body}
+            </motion.p>
+
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.54, ease }}
+              className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:justify-start"
+            >
+              <Link href={aboutHero.primary.href} className="btn btn-primary w-full sm:w-auto">
+                {aboutHero.primary.label}
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+              <Link href={aboutHero.secondary.href} className="btn btn-ghost w-full sm:w-auto">
+                {aboutHero.secondary.label}
+                <span aria-hidden="true" className="text-royal">→</span>
+              </Link>
+            </motion.div>
+
+            <motion.dl
+              initial={reduce ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.66, ease }}
+              className="mt-9 hidden max-w-[30rem] grid-cols-3 gap-5 border-t border-white/15 pt-5 sm:grid"
+            >
+              {aboutHero.facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt className="font-sans text-[0.68rem] font-medium text-white/40">{fact.label}</dt>
+                  <dd className="mt-1.5 font-display text-[0.9rem] font-semibold tracking-tight text-white/90">
+                    {fact.value}
+                  </dd>
+                </div>
+              ))}
+            </motion.dl>
+          </div>
+
           <motion.div
-            initial={reduce ? false : { opacity: 0, y: -18 }}
+            initial={reduce ? false : { opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease }}
+            transition={{ duration: 0.9, delay: 0.22, ease }}
+            className="order-first lg:order-none lg:col-span-6"
           >
-            <p className="font-sans text-[0.75rem] font-medium tracking-[0.02em] text-white/60">
-              ABOUT VIJETA BATTERIES
-            </p>
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[1.75rem] border border-white/12 bg-ink-soft shadow-[0_50px_100px_-55px_rgba(20,54,200,0.75)] sm:aspect-[16/9] lg:aspect-[4/3]">
+              <video
+                ref={videoRef}
+                src="/about-banner.mp4"
+                muted
+                loop
+                playsInline
+                preload="auto"
+                aria-hidden="true"
+                tabIndex={-1}
+                className="h-full w-full object-cover object-center motion-reduce:hidden"
+              />
+              <Image
+                src="/about-banner-poster.jpg"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 92vw, 46vw"
+                aria-hidden="true"
+                className="hidden object-cover object-center motion-reduce:block"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 rounded-[1.75rem] ring-1 ring-inset ring-white/10"
+              />
+            </div>
           </motion.div>
-
-          <h1 className="mt-5 max-w-[15ch] text-[clamp(2.6rem,6vw,5.4rem)] font-semibold leading-[1.06] tracking-[-0.025em] text-white">
-            <span className="block overflow-hidden pb-[0.06em]">
-              <motion.span
-                className="block"
-                initial={reduce ? false : { opacity: 0, y: 42 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease }}
-              >
-                Built on experience.
-              </motion.span>
-            </span>
-            <span className="block overflow-hidden pb-[0.06em]">
-              <motion.span
-                className="block"
-                initial={reduce ? false : { opacity: 0, y: 42 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.34, ease }}
-              >
-                <em className="heading-gloss accent-serif font-normal not-italic text-volt">Powered by people.</em>
-              </motion.span>
-            </span>
-          </h1>
-
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.5, ease }}
-            className="mt-7 max-w-[36rem] text-[1.05rem] leading-[1.75] text-white/75"
-          >
-            Since 1988, Vijeta Batteries has been manufacturing dependable power solutions
-            for vehicles and industrial applications at its Pithampur facility.
-          </motion.p>
-
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.62, ease }}
-            className="mt-9 flex flex-wrap items-center gap-3"
-          >
-            <Link href="#about" className="btn btn-primary">
-              Discover Our Story
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
-            <Link href="/technology" className="btn btn-ghost">
-              Our Manufacturing
-              <span aria-hidden="true" className="text-royal">→</span>
-            </Link>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

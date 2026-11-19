@@ -156,7 +156,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       {/* ===== VIJETA PRELOADER : END (HEAD PART) ===== */}
       <body id="top" className="min-h-svh bg-paper font-sans text-ink">
         {/* ===== VIJETA PRELOADER : START (BODY PART - <body> ke bilkul upar, #root se pehle) ===== */}
-        <div id="vj-loader" role="status" aria-label="Loading">
+        <div id="vj-loader" role="status" aria-label="Loading" suppressHydrationWarning>
           <div className="vj-stage">
             <img src="/loader/p1.webp" alt="" decoding="async" />
             <img src="/loader/p2.webp" alt="" decoding="async" />

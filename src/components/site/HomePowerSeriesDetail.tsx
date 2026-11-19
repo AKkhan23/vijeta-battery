@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { PageCta } from "@/components/site/PageCta";
 import { PowerVisual } from "@/components/site/PowerVisual";
@@ -24,6 +25,7 @@ export function HomePowerSeriesDetail({
     { label: "Output", value: series.waveform },
   ];
   const related = getRelatedSeries(series);
+  const productImage = series.image;
 
   return (
     <main id="main" className="pt-[76px]">
@@ -43,13 +45,28 @@ export function HomePowerSeriesDetail({
 
           <div className="mt-10 grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:gap-16">
             <Reveal>
-              <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden border border-royal/12 bg-gradient-to-b from-white via-[#f4f7ff] to-[#e3e9f9] blueprint p-6">
-                <PowerVisual
-                  kind={series.kind}
-                  uid={`detail-${series.slug}`}
-                  className="h-full w-full max-w-[34rem]"
-                  title={`VIJETA ${series.name} illustration`}
-                />
+              <div
+                className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden border border-royal/12 bg-gradient-to-b from-white via-[#f4f7ff] to-[#e3e9f9] ${
+                  productImage ? "" : "blueprint p-6"
+                }`}
+              >
+                {productImage ? (
+                  <Image
+                    src={productImage}
+                    alt={`VIJETA ${series.name}`}
+                    fill
+                    sizes="(max-width: 1024px) 92vw, 46vw"
+                    priority
+                    className="object-cover object-[50%_58%]"
+                  />
+                ) : (
+                  <PowerVisual
+                    kind={series.kind}
+                    uid={`detail-${series.slug}`}
+                    className="h-full w-full max-w-[34rem]"
+                    title={`VIJETA ${series.name} illustration`}
+                  />
+                )}
               </div>
             </Reveal>
 

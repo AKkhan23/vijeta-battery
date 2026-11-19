@@ -3,6 +3,8 @@ export type IndustrialProduct = {
   name: string;
   category: string;
   image: string;
+  hoverImage?: string;
+  detailImage?: string;
   intro: string;
   details?: string[];
   note?: string;
@@ -20,14 +22,20 @@ export type IndustrialProduct = {
   atAGlance?: { label: string; value: string }[];
   materials?: { title: string; copy: string }[];
   quality?: string[];
+  compare?: {
+    title: string;
+    columns: [string, string];
+    rows: [string, string, string][];
+  };
 };
 
 export const industrialProducts: IndustrialProduct[] = [
   {
     slug: "tbs-san-cell",
-    name: "TBS Battery Cells in Transparent SAN Containers",
+    name: "SAN 100",
     category: "TBS / OPzS — Transparent SAN",
-    image: "/products/tbs-san-cell.jpg",
+    image: "/products/tbs-san-cell-real.jpg",
+    hoverImage: "/products/tbs-san-cell-detail.jpg",
     intro:
       "Tubular battery cells in transparent SAN containers, built for dependable standby and cyclic power in industrial applications.",
     note:
@@ -107,6 +115,98 @@ export const industrialProducts: IndustrialProduct[] = [
         ["6 TBS 500", "500", "60", "30", "3000", "27.1", "35.1", "6.5", "206", "145", "636/721"],
         ["7 TBS 535", "535", "64.2", "32.1", "3210", "31.5", "41", "8", "206", "145", "636/721"],
         ["7 TBS 600", "600", "72", "36", "3600", "31.5", "41.5", "8", "206", "145", "636/721"],
+      ],
+    },
+  },
+  {
+    slug: "san-200",
+    name: "SAN 200",
+    category: "TBS / OPzS — Transparent SAN",
+    image: "/products/san-200.jpg",
+    hoverImage: "/products/san-200-hover.jpg",
+    detailImage: "/products/san-200-detail.jpg",
+    intro:
+      "A 200 Ah tubular cell in a transparent SAN container, built for longer backup and dependable standby and cyclic power in industrial applications.",
+    note:
+      "Available as the 4 TBS 200 / OPzS 200 equivalent at 200 Ah. For any other capacity, write or contact us.",
+    atAGlance: [
+      { label: "Container", value: "Transparent SAN" },
+      { label: "Capacity", value: "200 Ah (C10)" },
+      { label: "Duty", value: "Standby float + cyclic" },
+      { label: "Standard", value: "IS 1651:2013" },
+    ],
+    materials: [
+      {
+        title: "Tubular positive plates",
+        copy: "Cast on high-pressure HADI machines to resist corrosion and deliver long service life.",
+      },
+      {
+        title: "Acid-resistant gauntlets",
+        copy: "High tensile polyester gauntlets hold the active material and protect the plates.",
+      },
+      {
+        title: "High porosity separators",
+        copy: "Envelope separators keep the plates apart while allowing the electrolyte to circulate freely.",
+      },
+      {
+        title: "Transparent SAN container",
+        copy: "Electrolyte level, plate condition and separators can be checked visually at a glance.",
+      },
+      {
+        title: "Level indicator & vent plug",
+        copy: "Electrolyte level indicator with a micro porous ceramic vent plug.",
+      },
+    ],
+    quality: [
+      "Low self-discharge and rapid recharge",
+      "High Ampere-hour and Watt-hour efficiencies",
+      "Withstands high ambient temperatures",
+      "Conforms to IS 1651:2013",
+    ],
+    details: [
+      "SAN 200 uses tubular positive plates cast on high-pressure HADI machines to resist corrosion and deliver long service life. The transparent SAN container makes electrolyte level, plate condition and separators easy to inspect visually.",
+      "Rated at 200 Ah on the 10-hour rate to 1.80 V per cell, it is built for standby float and frequent charge/discharge duty, with low self-discharge and rapid recharge.",
+      "The design withstands high ambient temperatures and conforms to IS 1651:2013.",
+    ],
+    applications: ["Power Plants", "Substations", "UPS Systems", "Process Industries", "C & I", "Solar", "Railway Signalling", "Telecommunication"],
+    features: [
+      "Transparent SAN container for clear visual monitoring",
+      "Tubular positive plates cast on high-pressure HADI machines",
+      "High tensile, acid-resistant polyester gauntlets",
+      "High porosity envelope separators",
+      "Electrolyte level indicator and micro porous ceramic vent plug",
+      "Low maintenance with conforming IS 1651:2013 performance",
+    ],
+    compare: {
+      title: "SAN 100 or SAN 200?",
+      columns: ["SAN 100", "SAN 200"],
+      rows: [
+        ["Rated capacity (C10)", "100 Ah", "200 Ah"],
+        ["Cell designation", "2 TBS 100", "4 TBS 200"],
+        ["Starting charge current", "12 A", "24 A"],
+        ["Finishing charge current", "6 A", "12 A"],
+        ["Dry weight", "9 kg", "13.2 kg"],
+        ["Filled weight", "13.7 kg", "17 kg"],
+        ["Container", "Transparent SAN", "Transparent SAN"],
+        ["Duty", "Standby float + cyclic", "Standby float + cyclic"],
+      ],
+    },
+    table: {
+      headers: [
+        "Type / Designation",
+        "C-10 Capacity upto 1.80 V/Cell (AH)",
+        "Charging Current — Starting rate (A)",
+        "Charging Current — Finishing rate (A)",
+        "Total Min. Input during Initial Charging (AH)",
+        "Weight ±5% — Dry (Kg)",
+        "Weight ±5% — With Acid filled (Kg)",
+        "App. Qty. of Acid 1.230 Sp. Gr. (Liters)",
+        "Length ±5 (mm)",
+        "Width ±5 (mm)",
+        "Height ±5 (mm)",
+      ],
+      rows: [
+        ["4 TBS 200", "200", "24", "12", "1200", "13.2", "17", "3", "206", "103", "345/430"],
       ],
     },
   },

@@ -23,24 +23,24 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-x-4 gap-y-6 border-b border-white/10 pb-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-0 lg:pb-12">
           <div className="col-span-2 border border-white/10 bg-white/[0.025] p-4 lg:col-span-4 lg:border-0 lg:bg-transparent lg:p-0">
             <Logo light />
-            <p className="mt-6 max-w-[24rem] text-[0.88rem] leading-relaxed text-white/50">
+            <p className="mt-6 max-w-[24rem] text-[0.88rem] font-medium leading-relaxed text-white/60">
               Lead-acid batteries for the vehicles India runs on. Manufactured
               in Pithampur since 1988, tested unit by unit, and sold through
               authorised dealers.
             </p>
-            <p className="mt-5 font-sans font-medium text-[0.72rem] text-white/30">
+            <p className="mt-5 font-sans font-semibold text-[0.75rem] text-white/50">
               Aadinath Power Systems Pvt. Ltd.
             </p>
           </div>
 
           <div className="border border-white/10 bg-white/[0.025] p-4 lg:col-span-3 lg:border-0 lg:bg-transparent lg:p-0">
-            <p className="eyebrow text-white/35">Applications</p>
+            <p className="eyebrow text-white/45">Applications</p>
             <ul className="mt-4 space-y-2.5">
               {categories.map((category) => (
                 <li key={category.title}>
                   <Link
                     href="/products"
-                    className="text-[0.85rem] text-white/60 transition-colors hover:text-white"
+                    className="text-[0.85rem] font-medium text-white/70 transition-colors hover:text-white"
                   >
                     {category.title}
                   </Link>
@@ -50,13 +50,13 @@ export function Footer() {
           </div>
 
           <div className="border border-white/10 bg-white/[0.025] p-4 lg:col-span-2 lg:border-0 lg:bg-transparent lg:p-0">
-            <p className="eyebrow text-white/35">Company</p>
+            <p className="eyebrow text-white/45">Company</p>
             <ul className="mt-4 space-y-2.5">
               {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[0.85rem] text-white/60 transition-colors hover:text-white"
+                    className="text-[0.85rem] font-medium text-white/70 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -66,8 +66,8 @@ export function Footer() {
           </div>
 
           <div className="col-span-2 border border-white/10 bg-white/[0.025] p-4 lg:col-span-3 lg:border-0 lg:bg-transparent lg:p-0">
-            <p className="eyebrow text-white/35">Contact</p>
-            <ul className="mt-4 space-y-3 text-[0.82rem] text-white/60">
+            <p className="eyebrow text-white/45">Contact</p>
+            <ul className="mt-4 space-y-3 font-medium text-[0.82rem] text-white/70">
               <li className="flex gap-2.5">
                 <PhoneIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-volt" />
                 <span className="flex flex-col gap-1">
@@ -93,7 +93,7 @@ export function Footer() {
               </li>
               <li className="flex gap-2.5">
                 <PinIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-volt" />
-                <address className="not-italic leading-relaxed text-white/50">
+                <address className="not-italic leading-relaxed text-white/60">
                   {site.address.line1}
                   <br />
                   {site.address.line2}
@@ -106,19 +106,19 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-4 border-b border-white/10 py-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-sans font-medium text-[0.72rem] text-white/30">
+          <p className="font-sans font-semibold text-[0.75rem] text-white/50">
             © VIJETA Battery · {site.legalName}
           </p>
           <div className="flex items-center gap-5">
             <Link
               href="/"
-              className="font-sans font-medium text-[0.72rem] text-white/40 transition-colors hover:text-white"
+              className="font-sans font-semibold text-[0.75rem] text-white/55 transition-colors hover:text-white"
             >
               {site.domain}
             </Link>
             <a
               href="#top"
-              className="group inline-flex items-center gap-2 font-sans font-medium text-[0.72rem] text-white/40 transition-colors hover:text-white"
+              className="group inline-flex items-center gap-2 font-sans font-semibold text-[0.75rem] text-white/55 transition-colors hover:text-white"
             >
               Back to top
               <span className="flex h-6 w-6 items-center justify-center border border-white/20 transition-colors group-hover:border-white/60">

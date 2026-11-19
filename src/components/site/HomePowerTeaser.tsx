@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { PowerVisual } from "@/components/site/PowerVisual";
 import { ArrowUpRight } from "@/components/ui/Icons";
@@ -27,8 +28,18 @@ export function HomePowerTeaser() {
                 href={getGroupHref(group)}
                 className="torch-card group flex h-full flex-col border border-royal/12 bg-white p-5"
               >
-                <div className="flex h-[11rem] items-center justify-center bg-gradient-to-b from-white to-[#e8eefc] p-3">
-                  <PowerVisual kind={group.kind} uid={`teaser-${group.slug}`} className="h-full w-full" title={`${group.name} illustration`} />
+                <div className="relative flex h-[11rem] items-center justify-center overflow-hidden bg-gradient-to-b from-white to-[#e8eefc]">
+                  {group.image ? (
+                    <Image
+                      src={group.cardImage ?? group.image}
+                      alt={`VIJETA ${group.name}`}
+                      fill
+                      sizes="(max-width: 768px) 92vw, 30vw"
+                      className="object-cover object-[50%_64%] transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
+                  ) : (
+                    <PowerVisual kind={group.kind} uid={`teaser-${group.slug}`} className="h-full w-full p-3" title={`${group.name} illustration`} />
+                  )}
                 </div>
                 <p className="mt-5 font-sans text-[0.72rem] font-medium text-royal">
                   {group.series.length} series · {group.stats[1]?.value}

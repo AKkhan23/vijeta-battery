@@ -8,6 +8,7 @@ const points = [
   { title: "Cranking power", note: "Wide plate surface. First turn, no hesitation." },
   { title: "Service life", note: "Lead-calcium alloy resists heat and corrosion." },
   { title: "Tested unit by unit", note: "Formation-charged and load-tested in Pithampur." },
+       
 ];
 
 export function TechnologyTeaser() {

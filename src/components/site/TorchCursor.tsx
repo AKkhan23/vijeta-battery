@@ -10,6 +10,7 @@ import { useEffect } from "react";
 export function TorchCursor() {
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (!window.PointerEvent) return;
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 

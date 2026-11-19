@@ -30,6 +30,7 @@ const utilityLinks = [
 ];
 
 const mobileLinks = [
+  { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
   { label: "About", href: "/about" },
   { label: "Technology", href: "/technology" },
@@ -71,7 +72,8 @@ function PowerMenu({ menu, light }: { menu: PowerMenuType; light: boolean }) {
   };
 
   useEffect(() => {
-    setOpen(false);
+    const id = window.setTimeout(() => setOpen(false), 0);
+    return () => window.clearTimeout(id);
   }, [pathname]);
 
   useEffect(() => {
@@ -179,7 +181,11 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  const darkTop = pathname === "/" || pathname === "/products" || pathname === "/about";
+  const darkTop =
+    pathname === "/" ||
+    pathname === "/products" ||
+    pathname === "/about" ||
+    pathname === "/faq";
   const lightText = darkTop && !scrolled;
 
   useEffect(() => {
@@ -205,8 +211,11 @@ export function Nav() {
   }, [open]);
 
   useEffect(() => {
-    setOpen(false);
-    setExpanded(null);
+    const id = window.setTimeout(() => {
+      setOpen(false);
+      setExpanded(null);
+    }, 0);
+    return () => window.clearTimeout(id);
   }, [pathname]);
 
   const isActive = (href: string) => pathname === href;
@@ -300,10 +309,14 @@ export function Nav() {
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label="Open menu"
-              className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] border border-line bg-white/50 transition-colors hover:border-ink/40 xl:hidden"
+              className={`flex h-11 w-11 flex-col items-center justify-center gap-[5px] border transition-colors xl:hidden ${
+                lightText
+                  ? "border-white/25 bg-white/5 hover:border-white/60"
+                  : "border-line bg-white/50 hover:border-ink/40"
+              }`}
             >
-              <span className="h-px w-5 bg-ink" />
-              <span className="h-px w-5 bg-ink" />
+              <span className={`h-px w-5 ${lightText ? "bg-white" : "bg-ink"}`} />
+              <span className={`h-px w-5 ${lightText ? "bg-white" : "bg-ink"}`} />
             </button>
           </div>
         </div>

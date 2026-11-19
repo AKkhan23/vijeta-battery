@@ -3,14 +3,53 @@ import Link from "next/link";
 import { ArrowUpRight } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { industrialProducts } from "@/lib/industrialProducts";
+import { getGroupHref, homePowerGroups } from "@/lib/homePower";
 
 // Temporarily hidden from the products grid at the client's request.
 // Detail pages stay live so existing links keep working.
 const hiddenProductSlugs = new Set(["ndp-tubular", "plante-range"]);
 
+type GalleryCard = {
+  key: string;
+  href: string;
+  name: string;
+  category: string;
+  intro: string;
+  image: string;
+  hoverImage?: string;
+  badge?: string;
+  cover?: boolean;
+};
+
 export function ProductGallery() {
   const products = industrialProducts.filter((product) => !hiddenProductSlugs.has(product.slug));
   const featured = products.find((product) => product.featured);
+
+  const homePowerCards: GalleryCard[] = homePowerGroups
+    .filter((group) => group.slug === "home-inverters" || group.slug === "inverter-batteries")
+    .map((group) => ({
+      key: `home-${group.slug}`,
+      href: getGroupHref(group),
+      name: group.name,
+      category: "Home power",
+      intro: group.intro,
+      image: group.image!,
+      cover: true,
+    }));
+
+  const cards: GalleryCard[] = [
+    ...homePowerCards,
+    ...products.map((product) => ({
+      key: product.slug,
+      href: `/products/${product.slug}`,
+      name: product.name,
+      category: product.category,
+      intro: product.intro,
+      image: product.image,
+      hoverImage: product.hoverImage,
+      badge: product.badge,
+    })),
+  ];
 
   return (
     <section className="section-y bg-paper">
@@ -68,18 +107,27 @@ export function ProductGallery() {
                   alt={featured.name}
                   fill
                   sizes="(max-width: 768px) 90vw, 30vw"
-                  className="object-contain p-6 transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="object-contain p-6 transition-opacity duration-500 group-hover:opacity-0"
                 />
+                {featured.hoverImage && (
+                  <Image
+                    src={featured.hoverImage}
+                    alt={`${featured.name} — transparent SAN container detail`}
+                    fill
+                    sizes="(max-width: 768px) 90vw, 30vw"
+                    className="object-contain p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  />
+                )}
               </div>
             </Link>
           </Reveal>
         )}
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {products.map((product, index) => (
-            <Reveal key={product.slug} delay={index * 0.06} y={18} className="h-full">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {cards.map((product, index) => (
+            <Reveal key={product.key} delay={index * 0.06} y={18} className="h-full">
               <Link
-                href={`/products/${product.slug}`}
+                href={product.href}
                 className="torch-card industrial-card group relative flex h-full flex-col p-5"
               >
                 {product.badge && (
@@ -87,14 +135,33 @@ export function ProductGallery() {
                     ★ {product.badge}
                   </span>
                 )}
-                <div className="industrial-card__media relative flex h-[13rem] items-center justify-center rounded-xl bg-gradient-to-b from-white to-[#e8eefc] p-4">
+                <div
+                  className={`industrial-card__media relative flex h-[13rem] items-center justify-center overflow-hidden rounded-xl bg-gradient-to-b from-white to-[#e8eefc] ${
+                    product.cover ? "" : "p-4"
+                  }`}
+                >
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
-                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 24vw"
-                    className="industrial-card__image object-contain p-3"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, (max-width: 1280px) 30vw, 20vw"
+                    className={
+                      product.cover
+                        ? "object-cover object-[50%_62%] transition-transform duration-700 group-hover:scale-[1.04]"
+                        : product.hoverImage
+                          ? "object-contain p-3 transition-opacity duration-500 group-hover:opacity-0"
+                          : "industrial-card__image object-contain p-3"
+                    }
                   />
+                  {product.hoverImage && (
+                    <Image
+                      src={product.hoverImage}
+                      alt={`${product.name} — transparent SAN container detail`}
+                      fill
+                      sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, (max-width: 1280px) 30vw, 20vw"
+                      className="object-contain p-3 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    />
+                  )}
                 </div>
                 <span className="mt-5 font-sans text-[0.72rem] font-medium text-royal">
                   {product.category}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { PageCta } from "@/components/site/PageCta";
 import { PowerVisual } from "@/components/site/PowerVisual";
@@ -68,8 +69,23 @@ export function HomePowerCategory({ group }: { group: HomePowerGroup }) {
             </Reveal>
 
             <Reveal delay={0.08}>
-              <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden border border-royal/12 bg-gradient-to-b from-white via-[#f4f7ff] to-[#e3e9f9] blueprint p-6">
-                <PowerVisual kind={group.kind} uid={`cat-${group.slug}`} className="h-full w-full max-w-[34rem]" title={`VIJETA ${group.name} illustration`} />
+              <div
+                className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden border border-royal/12 bg-gradient-to-b from-white via-[#f4f7ff] to-[#e3e9f9] ${
+                  group.image ? "" : "blueprint p-6"
+                }`}
+              >
+                {group.image ? (
+                  <Image
+                    src={group.image}
+                    alt={`VIJETA ${group.name}`}
+                    fill
+                    sizes="(max-width: 1024px) 92vw, 46vw"
+                    priority
+                    className="object-cover object-[50%_58%]"
+                  />
+                ) : (
+                  <PowerVisual kind={group.kind} uid={`cat-${group.slug}`} className="h-full w-full max-w-[34rem]" title={`VIJETA ${group.name} illustration`} />
+                )}
               </div>
             </Reveal>
           </div>
@@ -105,14 +121,26 @@ export function HomePowerCategory({ group }: { group: HomePowerGroup }) {
           </Reveal>
 
           <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {group.series.map((series, index) => (
+            {group.series.map((series, index) => {
+              const productImage = series.image;
+              return (
               <Reveal key={series.slug} delay={index * 0.05} y={18} className="h-full">
                 <Link
                   href={getSeriesHref(series)}
                   className="torch-card group flex h-full flex-col p-5"
                 >
-                  <div className="flex h-[13rem] items-center justify-center bg-gradient-to-b from-white to-[#e8eefc] p-3">
-                    <PowerVisual kind={series.kind} uid={`card-${series.slug}`} className="h-full w-full" title={`${series.name} illustration`} />
+                  <div className="relative flex h-[13rem] items-center justify-center overflow-hidden bg-gradient-to-b from-white to-[#e8eefc]">
+                    {productImage ? (
+                      <Image
+                        src={productImage}
+                        alt={`VIJETA ${series.name}`}
+                        fill
+                        sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 30vw"
+                        className="object-cover object-[50%_62%] transition-transform duration-700 group-hover:scale-[1.04]"
+                      />
+                    ) : (
+                      <PowerVisual kind={series.kind} uid={`card-${series.slug}`} className="h-full w-full p-3" title={`${series.name} illustration`} />
+                    )}
                   </div>
                   <p className="mt-5 font-sans text-[0.72rem] font-medium text-royal">{series.waveform}</p>
                   <h3 className="mt-2 text-[1.25rem] font-semibold tracking-[-0.02em] text-ink">{series.name}</h3>
@@ -133,7 +161,8 @@ export function HomePowerCategory({ group }: { group: HomePowerGroup }) {
                   </span>
                 </Link>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

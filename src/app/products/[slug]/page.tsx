@@ -64,7 +64,7 @@ export default async function ProductDetailPage({ params }: Props) {
           <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
             <Reveal>
               <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-b from-white to-[#e8eefc] p-8">
-                <Image src={product.image} alt={product.name} fill sizes="(max-width:1024px) 90vw, 50vw" className="object-contain p-8" priority />
+                <Image src={product.detailImage ?? product.image} alt={product.name} fill sizes="(max-width:1024px) 90vw, 50vw" className="object-contain p-8" priority />
               </div>
             </Reveal>
 
@@ -104,6 +104,53 @@ export default async function ProductDetailPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {product.compare && (
+        <section className="border-t border-line bg-white section-y">
+          <div className="container-x">
+            <Reveal>
+              <p className="font-sans text-[0.78rem] font-medium text-royal">Choosing the right cell</p>
+              <h2 className="mt-3 text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold tracking-[-0.02em] text-ink">
+                {product.compare.title}
+              </h2>
+              <p className="mt-3 max-w-[54rem] text-[0.95rem] leading-relaxed text-ink/60">
+                Both cells share the same 2 V transparent SAN tubular platform. The difference is the
+                rated capacity at the 10-hour rate — SAN 200 delivers twice the capacity of SAN 100
+                for longer backup or a heavier cyclic load.
+              </p>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <div className="mt-8 overflow-x-auto rounded-2xl border border-royal/12 bg-white">
+                <table className="w-full min-w-[34rem] border-collapse text-left text-[0.85rem]">
+                  <thead>
+                    <tr className="bg-[#eef3ff]">
+                      <th className="whitespace-nowrap px-5 py-4 font-sans text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-ink/50">
+                        Specification
+                      </th>
+                      {product.compare.columns.map((column) => (
+                        <th key={column} className="whitespace-nowrap px-5 py-4 font-sans text-[0.92rem] font-semibold text-royal">
+                          {column}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {product.compare.rows.map(([label, first, second]) => (
+                      <tr key={label} className="border-t border-line">
+                        <th className="whitespace-nowrap px-5 py-3.5 font-sans text-[0.8rem] font-medium text-ink/55">
+                          {label}
+                        </th>
+                        <td className="whitespace-nowrap px-5 py-3.5 text-ink/70">{first}</td>
+                        <td className="whitespace-nowrap px-5 py-3.5 font-semibold text-ink">{second}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       {(product.atAGlance || product.materials || product.quality) && (
         <section className="section-y bg-paper">
