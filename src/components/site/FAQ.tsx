@@ -68,7 +68,7 @@ export function FAQ() {
             transition={{ duration: 0.7, delay: 0.06 }}
             className="mx-auto mt-4 max-w-[20ch] text-[clamp(2.4rem,5.4vw,4.4rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-white"
           >
-            How can we <em className="heading-gloss accent-serif font-normal not-italic text-volt">help you?</em>
+            How can we <em className="heading-gloss accent-serif font-normal not-italic text-volt-light">help you?</em>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}

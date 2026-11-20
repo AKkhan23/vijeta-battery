@@ -59,7 +59,7 @@ export function AboutHero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.28, ease }}
                 >
-                  <em className="heading-gloss accent-serif font-normal not-italic text-volt">
+                  <em className="heading-gloss accent-serif font-normal not-italic text-volt-light">
                     {aboutHero.line2}
                   </em>
                 </motion.span>

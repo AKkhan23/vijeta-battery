@@ -68,7 +68,7 @@ export function Series({ index = "02" }: { index?: string }) {
             <Reveal key={item.name} delay={i * 0.1} amount={0.12}>
               <article
                 data-torch
-                className={`group relative flex h-full min-h-[34rem] flex-col overflow-hidden border p-6 transition-colors sm:p-8 ${
+                className={`group relative flex h-full flex-col overflow-hidden border p-6 transition-colors sm:p-8 lg:min-h-[34rem] ${
                   item.dark ? "torch-card torch-card-ink text-white" : "torch-card text-ink"
                 }`}
               >
@@ -76,7 +76,7 @@ export function Series({ index = "02" }: { index?: string }) {
                   <div aria-hidden="true" className="blueprint-dark absolute inset-0 opacity-50" />
                 ) : null}
 
-                <div className="relative flex items-start justify-between gap-6">
+                <div className="relative flex items-start justify-between gap-3 sm:gap-6">
                   <div>
                     <span
                       className={`inline-flex items-center border px-2.5 py-1 font-sans font-medium text-[0.72rem] ${
@@ -87,13 +87,13 @@ export function Series({ index = "02" }: { index?: string }) {
                     >
                       {item.badge}
                     </span>
-                    <h3 className="mt-4 font-display text-[1.6rem] font-bold tracking-tight">
+                    <h3 className="mt-4 font-display text-[1.5rem] font-bold tracking-tight sm:text-[1.6rem]">
                       {item.name}
                     </h3>
                   </div>
-                  <div className="text-right">
+                  <div className="shrink-0 text-right">
                     <p
-                      className={`display text-[clamp(3.6rem,6vw,5.4rem)] leading-[0.8] ${
+                      className={`display text-[clamp(2.8rem,6vw,5.4rem)] leading-[0.8] ${
                         item.dark ? "text-white" : "text-royal"
                       }`}
                     >
@@ -101,7 +101,7 @@ export function Series({ index = "02" }: { index?: string }) {
                     </p>
                     <p
                       className={`mt-2 font-sans font-medium text-[0.72rem] ${
-                        item.dark ? "text-white/45" : "text-ink/45"
+                        item.dark ? "text-white/55" : "text-ink/45"
                       }`}
                     >
                       Months
@@ -111,10 +111,10 @@ export function Series({ index = "02" }: { index?: string }) {
                   </div>
                 </div>
 
-                <div className="relative flex flex-1 items-center justify-center py-2">
+                <div className="relative flex items-center justify-center py-2 lg:flex-1">
                   <StaticBattery
                     variant={item.variant}
-                    className="h-[15.5rem] w-auto drop-shadow-[0_26px_35px_rgba(7,11,24,0.18)] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-2 group-hover:rotate-[-2deg] sm:h-[17rem]"
+                    className="h-[11.5rem] w-auto drop-shadow-[0_26px_35px_rgba(7,11,24,0.18)] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-2 group-hover:rotate-[-2deg] sm:h-[15rem] lg:h-[17rem]"
                   />
                   <span
                     aria-hidden="true"
@@ -127,7 +127,7 @@ export function Series({ index = "02" }: { index?: string }) {
                 <div className="relative mt-auto">
                   <p
                     className={`max-w-[38ch] text-[0.92rem] leading-relaxed ${
-                      item.dark ? "text-white/62" : "text-ink/62"
+                      item.dark ? "text-white/70" : "text-ink/68"
                     }`}
                   >
                     {item.copy}
@@ -147,7 +147,7 @@ export function Series({ index = "02" }: { index?: string }) {
                       >
                         <dt
                           className={`font-sans font-medium text-[0.72rem] ${
-                            item.dark ? "text-white/35" : "text-ink/35"
+                            item.dark ? "text-white/50" : "text-ink/45"
                           }`}
                         >
                           {spec.k}

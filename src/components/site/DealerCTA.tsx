@@ -28,7 +28,7 @@ export function DealerCTA({ href = "/dealership", label = "Explore dealership" }
               <h2 className="mt-5 max-w-[16ch] text-[clamp(2.8rem,6vw,5.4rem)] text-white">
                 Sell batteries that
                 <br />
-                <em className="heading-gloss accent-serif font-normal text-volt">don’t come back.</em>
+                <em className="heading-gloss accent-serif font-normal text-volt-light">don’t come back.</em>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>

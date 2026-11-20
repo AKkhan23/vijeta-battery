@@ -8,7 +8,6 @@ const points = [
   { title: "Cranking power", note: "Wide plate surface. First turn, no hesitation." },
   { title: "Service life", note: "Lead-calcium alloy resists heat and corrosion." },
   { title: "Tested unit by unit", note: "Formation-charged and load-tested in Pithampur." },
-       
 ];
 
 export function TechnologyTeaser() {
@@ -31,7 +30,7 @@ export function TechnologyTeaser() {
               <h2 className="max-w-[12ch] text-[clamp(2.6rem,5vw,4.4rem)] text-white">
                 Good starts
                 <br />
-                aren’t <em className="heading-gloss accent-serif font-normal text-volt">luck.</em>
+                aren’t <em className="heading-gloss accent-serif font-normal text-volt-light">luck.</em>
               </h2>
               <p className="mt-6 max-w-[28rem] text-[0.95rem] leading-relaxed text-white/60">
                 Four things decide whether a battery cranks on the morning you need it.
