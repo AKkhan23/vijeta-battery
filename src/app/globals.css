@@ -1232,7 +1232,9 @@ body::after {
 
 /* Gloss sweep removed: the wordmark stays still, only the torch follows the cursor. */
 
-/* Footer wordmark: cursor-following torch effect */
+/* Footer wordmark: cursor-following torch effect.
+   Rest state is fully transparent, so the coloured gradient can never stay
+   parked at the last pointer position after the cursor leaves. */
 .wordmark-torch {
   --mx: 50%;
   --my: 50%;
@@ -1249,13 +1251,22 @@ body::after {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  opacity: 0.55;
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.wordmark-torch:hover .wordmark-torch-glow,
-.wordmark-torch:focus-within .wordmark-torch-glow {
-  opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+  .wordmark-torch:hover .wordmark-torch-glow,
+  .wordmark-torch:focus-within .wordmark-torch-glow {
+    opacity: 1;
+  }
+}
+
+/* Touch screens have no hover to remove: hold a soft static glow instead. */
+@media (hover: none) {
+  .wordmark-torch-glow {
+    opacity: 0.5;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

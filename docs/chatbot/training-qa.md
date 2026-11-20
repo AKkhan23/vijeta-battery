@@ -125,7 +125,7 @@ Battery prices aren't published on the website, so I can't quote a rate. Ask you
 We don't publish a dealer list, so I can't name one directly. Call us or send your city on WhatsApp and the team will share the nearest authorised dealer's address — do confirm before you travel. [Call / WA]
 
 **P3. "What's your address / contact?"**
-VIJETA's plant: Plot No. M-52, Sector 3, Pithampur Growth Corridor, Dhar, Madhya Pradesh 454774. Call us or email vijetabatteries@gmail.com; we'll be glad to help.
+VIJETA's plant: Vijeta Accumulators and New Technologies, Plot No. M-52, Sector 3, Dhar, Madhya Pradesh 454774. Call us or email vijetabatteries@gmail.com; we'll be glad to help.
 
 **P4. "Can I chat on WhatsApp?"**
 Yes — you can reach our team directly on WhatsApp and ask about batteries, price or dealers. [WA]

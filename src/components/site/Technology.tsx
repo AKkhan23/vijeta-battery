@@ -140,7 +140,7 @@ export function Technology({ index = "04" }: { index?: string }) {
 
               <div className="relative flex flex-wrap items-center justify-between gap-2 border-t border-white/10 px-4 py-3">
                 <span className="font-sans font-medium text-[0.72rem] text-white/35">
-                  In-house assembly · Pithampur
+                  In-house assembly · Vijeta Accumulators and New Technologies
                 </span>
                 <span className="font-sans font-medium text-[0.72rem] text-volt">
                   QC 100%

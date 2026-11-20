@@ -7,6 +7,10 @@ export function FooterWordmark() {
   const ref = useRef<HTMLDivElement>(null);
 
   function handleMove(event: PointerEvent<HTMLDivElement>) {
+    // Touch scrolling also fires pointermove; ignore it so the glow never
+    // parks itself under a finger and stays centred.
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();

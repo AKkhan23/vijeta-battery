@@ -40,7 +40,7 @@ export const values = [
   },
   {
     title: "Make in India",
-    copy: "Manufactured in Pithampur with a strong commitment to Indian manufacturing and sustainable practices.",
+    copy: "Manufactured at Vijeta Accumulators and New Technologies with a strong commitment to Indian manufacturing and sustainable practices.",
   },
 ];
 
@@ -53,7 +53,7 @@ export const journey = [
   {
     year: "2000 — 2009",
     title: "Lead-acid, built in-house",
-    copy: "The company moved into lead-acid batteries and chargers, setting up grid casting, paste mixing and cell assembly under one roof in Pithampur.",
+    copy: "The company moved into lead-acid batteries and chargers, setting up grid casting, paste mixing and cell assembly under one roof at Vijeta Accumulators and New Technologies.",
   },
   {
     year: "2010 — 2015",
@@ -109,7 +109,7 @@ export const articles = [
       "Cranking power is the burst of energy a battery delivers to the starter motor in the first few seconds of ignition. It matters most on cold mornings and under load.",
       "A lead-acid battery produces this surge through a large plate surface area and low internal resistance. The more effectively the plates conduct, the more reliable the start.",
       "Indian conditions are demanding: high under-hood temperatures in summer, cold dawns in winter and long stretches of rough road. A battery built with a denser grid and high-purity lead alloy handles these better.",
-      "VIJETA batteries are engineered for high cranking power, with in-house grid casting and 100% load testing before every unit leaves the plant in Pithampur.",
+      "VIJETA batteries are engineered for high cranking power, with in-house grid casting and 100% load testing before every unit leaves the plant at Vijeta Accumulators and New Technologies.",
       "When choosing a replacement battery, match the capacity and cranking rating recommended for your vehicle rather than choosing on price alone.",
     ],
   },
@@ -144,7 +144,7 @@ export const homeStoryPanels = [
     label: "Tested, not trusted blindly",
     title: "Every unit earns its place.",
     lines: [
-      "100% load-tested before it leaves the Pithampur floor.",
+      "100% load-tested before it leaves the plant at Vijeta Accumulators and New Technologies.",
       "Electrical and chemical testing on every production batch.",
       "IS 1651:1991 and ISO 9001:2008 certified processes.",
     ],
@@ -165,7 +165,7 @@ export const storyPanels = [
     label: "Founded on quality",
     title: "One plant. One standard.",
     lines: [
-      "Manufactured in Pithampur since 1988.",
+      "Manufactured at Vijeta Accumulators and New Technologies since 1988.",
       "Grids cast, paste mixed and cells assembled in-house.",
       "Every unit load-tested before it leaves the floor.",
     ],

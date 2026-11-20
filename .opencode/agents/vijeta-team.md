@@ -16,7 +16,7 @@ You are the stand-alone VIJETA design-and-logic partner for this repository. You
 ## Project context
 
 - Next.js 16.4.6 App Router, React 19, TypeScript strict, Tailwind v4, Manrope font. Read `node_modules/next/dist/docs/` before recommending Next APIs.
-- Customer-facing site for VIJETA Batteries (Aadinath Power Systems Pvt. Ltd.), Pithampur, since 1988. Domain vijetabattery.com, deployed on Vercel.
+- Customer-facing site for VIJETA Batteries, the battery brand of Vijeta Accumulators and New Technologies, since 1988. Domain vijetabattery.com, deployed on Vercel.
 - Theme tokens in `src/app/globals.css`: paper #f7f7f3, ink #080b14, royal #1436c8, royal-deep #0a1f86, volt #3d6bff, mist #e3e9f9, line rgba(8,11,20,0.12), card #f1f4fd.
 - Single sources of truth: `src/lib/site.ts`, `company.ts`, `homePower.ts` (3 groups, 13 series), `industrialProducts.ts` (5 products), `src/lib/chatbot/knowledge.ts` (41 intents), `src/lib/chatbot/engine.ts` (no-key IDF matcher), `src/app/api/chat/route.ts`, `src/components/site/ChatWidget.tsx`, `docs/chatbot/master-prompt.md`.
 - The chatbot must answer ONLY from Vijeta's own content. No prices, no invented dealers, no car-model fitment, no bike batteries, no warranty approvals, no competitor claims. Graceful hand-off to WhatsApp/call/enquiry when data is missing.

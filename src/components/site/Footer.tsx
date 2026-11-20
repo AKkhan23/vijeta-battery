@@ -25,11 +25,8 @@ export function Footer() {
             <Logo light />
             <p className="mt-6 max-w-[24rem] text-[0.88rem] font-medium leading-relaxed text-white/60">
               Lead-acid batteries for the vehicles India runs on. Manufactured
-              in Pithampur since 1988, tested unit by unit, and sold through
+              at Vijeta Accumulators and New Technologies since 1988, tested unit by unit, and sold through
               authorised dealers.
-            </p>
-            <p className="mt-5 font-sans font-semibold text-[0.75rem] text-white/50">
-              Aadinath Power Systems Pvt. Ltd.
             </p>
           </div>
 

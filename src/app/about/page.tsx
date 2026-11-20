@@ -15,7 +15,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "About the factory",
   description:
-    "VIJETA Batteries began in 1988 with accumulators and torches. Nearly four decades later the same family makes lead-acid batteries at Pithampur, M.P. — and every unit still leaves load-tested.",
+    "VIJETA Batteries began in 1988 with accumulators and torches. Nearly four decades later the same family makes lead-acid batteries at Vijeta Accumulators and New Technologies — and every unit still leaves load-tested.",
   path: "/about",
 });
 

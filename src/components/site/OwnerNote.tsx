@@ -18,8 +18,8 @@ export function OwnerNote() {
             <figure className="group">
               <div className="relative aspect-[3/4] overflow-hidden rounded-[1.75rem] border border-line bg-paper transition-[border-color,box-shadow] duration-500 group-hover:border-royal/25 group-hover:shadow-[0_36px_70px_-50px_rgba(20,54,200,0.45)]">
                 <Image
-                  src="/owner-apurv-jain-office.jpg"
-                  alt="Apurv Singh Jain at his desk in the VIJETA office."
+                  src="/owner-ajay-kumar-jain-office.jpg"
+                  alt="Ajay Kumar Jain at his desk in the VIJETA office."
                   fill
                   sizes="(max-width: 1024px) 92vw, 33vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
@@ -35,7 +35,6 @@ export function OwnerNote() {
 
                 <figcaption className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/60 bg-white/90 px-4 py-3 shadow-[0_18px_40px_-30px_rgba(8,11,20,0.45)] backdrop-blur-md">
                   <p className="font-sans text-[0.86rem] font-semibold text-ink">{owner.name}</p>
-                  <p className="mt-0.5 font-sans text-[0.7rem] leading-snug text-ink/50">{owner.role}</p>
                 </figcaption>
               </div>
             </figure>
@@ -77,7 +76,6 @@ export function OwnerNote() {
               <div>
                 <p className="eyebrow text-ink/40">Owner</p>
                 <p className="mt-2.5 text-[0.86rem] font-semibold text-ink">{owner.name}</p>
-                <p className="mt-1 text-[0.72rem] leading-snug text-ink/45">{owner.role}</p>
               </div>
               <div>
                 <p className="eyebrow text-ink/40">Plant</p>

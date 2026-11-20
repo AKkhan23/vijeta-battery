@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Inside the cell",
   description:
-    "How VIJETA builds a lead-acid battery: grid casting, plate design, lead-calcium alloy, sealed case and unit-by-unit load testing in Pithampur.",
+    "How VIJETA builds a lead-acid battery: grid casting, plate design, lead-calcium alloy, sealed case and unit-by-unit load testing at Vijeta Accumulators and New Technologies.",
   path: "/technology",
 });
 

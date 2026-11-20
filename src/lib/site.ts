@@ -1,12 +1,12 @@
 export const site = {
   name: "VIJETA",
   wordmark: "VIJETA",
-  legalName: "Aadinath Power Systems Pvt. Ltd.",
+  legalName: "Vijeta Accumulators and New Technologies",
   domain: "vijetabattery.com",
   url: "https://vijetabattery.com",
   since: 1988,
   description:
-    "Lead-acid batteries for cars, tractors, trucks, rickshaws and industry. Manufactured in Pithampur since 1988. Gold series with 36 months of cover, Silver with 24.",
+    "Lead-acid batteries for cars, tractors, trucks, rickshaws and industry. Manufactured at Vijeta Accumulators and New Technologies since 1988. Gold series with 36 months of cover, Silver with 24.",
   phonePrimary: "+919981716000",
   phonePrimaryLabel: "+91 99817 16000",
   phones: [
@@ -17,7 +17,7 @@ export const site = {
   email: "vijetabatteries@gmail.com",
   address: {
     line1: "Plot No. M-52, Sector 3",
-    line2: "Pithampur Growth Corridor",
+    line2: "Vijeta Accumulators and New Technologies",
     city: "Dhar",
     state: "Madhya Pradesh",
     pin: "454774",
@@ -148,7 +148,7 @@ export const technology = [
     key: "testing",
     title: "Tested, unit by unit",
     copy:
-      "Every battery is formation-charged, load-tested and inspected before it leaves Pithampur. Nothing goes out on a promise.",
+      "Every battery is formation-charged, load-tested and inspected before it leaves Vijeta Accumulators and New Technologies. Nothing goes out on a promise.",
     highlight: "all",
   },
 ] as const;
@@ -189,7 +189,7 @@ export const visionMission = {
   mission:
     "Manufacture high-density lead-acid batteries with rigorous internal quality control, honest warranty support, and long-term dealer partnerships built on reliability, zero excuses, and fair pricing.",
   values: [
-    { title: "In-House Quality", desc: "Grid casting, paste mixing, cell assembly, and 100% load testing done under one roof at Pithampur." },
+    { title: "In-House Quality", desc: "Grid casting, paste mixing, cell assembly, and 100% load testing done under one roof at Vijeta Accumulators and New Technologies." },
     { title: "Honest Warranty", desc: "No confusing fine print. 36 months for Gold and 24 months for Silver honored directly through our dealer network." },
     { title: "Indian Road Realities", desc: "Designed for high ambient heat, cold morning starts, high vibration, and unpaved rural routes." },
   ],
@@ -218,7 +218,7 @@ export const faqs = [
   },
   {
     q: "Where are VIJETA batteries made?",
-    a: "At our plant in Pithampur, Madhya Pradesh — Plot M-52, Sector 3, Pithampur Growth Corridor, Dhar. Most components are manufactured in-house and every unit is tested before dispatch.",
+    a: "At the Vijeta Accumulators and New Technologies plant — Plot M-52, Sector 3, Dhar, Madhya Pradesh. Most components are manufactured in-house and every unit is tested before dispatch.",
   },
 ] as const;
 

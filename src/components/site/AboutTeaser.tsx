@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 const facts = [
   { value: "1988", label: "Established" },
-  { value: "One", label: "Plant in Pithampur" },
+  { value: "One", label: "Plant at Vijeta Accumulators and New Technologies" },
   { value: "100%", label: "Units load-tested" },
 ];
 
@@ -68,7 +68,7 @@ export function AboutTeaser() {
               </Link>
               <span className="inline-flex items-center gap-2 font-sans font-medium text-[0.72rem] text-ink/40">
                 <PinIcon className="h-3.5 w-3.5 text-royal" />
-                Pithampur · Dhar · M.P.
+                Vijeta Accumulators and New Technologies · Dhar · M.P.
               </span>
             </Reveal>
           </div>

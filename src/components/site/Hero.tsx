@@ -68,7 +68,7 @@ export function Hero() {
           </h1>
 
           <motion.p variants={fade} className="mt-6 max-w-[34rem] text-[1.02rem] leading-[1.7] text-ink/60">
-            Vijeta Batteries powers the vehicles India runs on. Built in Pithampur,
+            Vijeta Batteries powers the vehicles India runs on. Built at Vijeta Accumulators and New Technologies,
             quality-tested and backed by up to <strong className="font-medium text-ink">36 months</strong> of warranty.
           </motion.p>
 

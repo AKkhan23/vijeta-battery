@@ -111,7 +111,7 @@ export function QualityChecking() {
                   onPlay={() => setPlaying(true)}
                   onPause={() => setPlaying(false)}
                   onTimeUpdate={() => setPlaying(true)}
-                  aria-label="Battery assembly and checking on the VIJETA factory floor at Pithampur"
+                  aria-label="Battery assembly and checking on the VIJETA factory floor at Vijeta Accumulators and New Technologies"
                 />
                 <div
                   aria-hidden="true"

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s · VIJETA Batteries",
   },
   description:
-    "Lead-acid batteries for cars, tractors, trucks, rickshaws and industry. Manufactured in Pithampur since 1988. Gold series with 36 months of cover, Silver with 24.",
+    "Lead-acid batteries for cars, tractors, trucks, rickshaws and industry. Manufactured at Vijeta Accumulators and New Technologies since 1988. Gold series with 36 months of cover, Silver with 24.",
   keywords: [
     "VIJETA Batteries",
     "lead acid battery",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "truck battery",
     "auto rickshaw battery",
     "industrial battery",
-    "Pithampur battery manufacturer",
+    "Vijeta Accumulators and New Technologies battery manufacturer",
     "vijetabattery.com",
   ],
   authors: [{ name: "VIJETA Batteries" }],
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "VIJETA Batteries",
     title: "VIJETA Batteries — Lead-Acid Power Since 1988",
     description:
-      "Batteries for the vehicles India runs on. Built in Pithampur, tested unit by unit, backed for up to 36 months.",
+      "Batteries for the vehicles India runs on. Built at Vijeta Accumulators and New Technologies, tested unit by unit, backed for up to 36 months.",
     images: [
       {
         url: "/og.png",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "VIJETA Batteries — Lead-Acid Power Since 1988",
     description:
-      "Batteries for the vehicles India runs on. Built in Pithampur, tested unit by unit, backed for up to 36 months.",
+      "Batteries for the vehicles India runs on. Built at Vijeta Accumulators and New Technologies, tested unit by unit, backed for up to 36 months.",
     images: ["/og.png"],
   },
   robots: {

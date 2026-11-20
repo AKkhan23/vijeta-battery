@@ -54,7 +54,7 @@ export function About() {
                   summers later.
                 </p>
                 <p>
-                  From our plant at Pithampur, we cast grids, mix paste, assemble cells and
+                  From our plant at Vijeta Accumulators and New Technologies, we cast grids, mix paste, assemble cells and
                   load-test every unit before it leaves the gate. Most components are made
                   in-house, which is how we keep the quality close and the excuses few.
                 </p>
@@ -115,9 +115,9 @@ export function About() {
                     Still on the same floor.
                   </p>
                   <p className="mt-4 text-[0.8rem] leading-relaxed text-white/55">
-                    Aadinath Power Systems Pvt. Ltd.
+                    Vijeta Accumulators and New Technologies
                     <br />
-                    Pithampur, Dhar — M.P.
+                    Dhar, Madhya Pradesh
                   </p>
                 </div>
               </div>

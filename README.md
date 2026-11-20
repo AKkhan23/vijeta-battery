@@ -1,6 +1,6 @@
 # VIJETA Batteries — website
 
-Premium single-page website for VIJETA Batteries (Aadinath Power Systems Pvt. Ltd.),
+Premium single-page website for VIJETA Batteries (Vijeta Accumulators and New Technologies),
 built with Next.js 16, React 19, Tailwind CSS 4, Motion and a Three.js hero cell.
 
 ## Run locally

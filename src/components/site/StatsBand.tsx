@@ -167,7 +167,7 @@ export function StatsBand({
         </div>
 
         <p className="mt-12 border-t border-royal/15 pt-5 font-sans font-medium text-[0.72rem] text-ink/40 lg:mt-14">
-          VIJETA · Pithampur · M.P. · India — manufacturing since 1988
+          VIJETA · Vijeta Accumulators and New Technologies · M.P. · India — manufacturing since 1988
         </p>
       </div>
     </section>

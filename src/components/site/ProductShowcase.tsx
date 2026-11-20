@@ -54,7 +54,7 @@ export function ProductShowcase() {
           <span aria-hidden="true" className="product-heading__line mx-auto mt-6 block h-[3px] w-20 rounded-full bg-royal" />
           <p className="mx-auto mt-5 max-w-[40rem] text-[1rem] leading-[1.7] text-ink/55">
             Lead-acid power for cars, tractors, commercial vehicles and industry —
-            manufactured in Pithampur and tested unit by unit.
+            manufactured at Vijeta Accumulators and New Technologies and tested unit by unit.
           </p>
         </Reveal>
 

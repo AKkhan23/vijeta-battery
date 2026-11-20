@@ -33,7 +33,7 @@ const jsonLd = {
       description: site.description,
       address: {
         "@type": "PostalAddress",
-        streetAddress: `${site.address.line1}, ${site.address.line2}`,
+        streetAddress: site.address.line1,
         addressLocality: site.address.city,
         addressRegion: site.address.state,
         postalCode: site.address.pin,

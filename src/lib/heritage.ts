@@ -9,13 +9,13 @@
  */
 
 export const narrative =
-  "In 1988 a family workshop in Madhya Pradesh began making accumulators and torches. In 2000 it moved into lead-acid batteries and chargers, and brought casting, pasting, assembly and testing under one roof in Pithampur. Nearly four decades later the same family runs the plant, the same rule still applies, and the floor supplies power utilities, PSUs and departments across six states through open tenders.";
+  "In 1988 a family workshop in Madhya Pradesh began making accumulators and torches. In 2000 it moved into lead-acid batteries and chargers, and brought casting, pasting, assembly and testing under one roof at Vijeta Accumulators and New Technologies. Nearly four decades later the same family runs the plant, the same rule still applies, and the floor supplies power utilities, PSUs and departments across six states through open tenders.";
 
 export const homeHero = {
   eyebrow: "Lead-acid battery manufacturers · Since 1988",
   headline: ["Powering India's", "essential services", "since 1988."],
   intro:
-    "A family-run maker of inverter, automotive and industrial lead-acid batteries. For nearly four decades, departments and fleets across India have trusted the plant in Pithampur to keep their power on.",
+    "A family-run maker of inverter, automotive and industrial lead-acid batteries. For nearly four decades, departments and fleets across India have trusted the plant at Vijeta Accumulators and New Technologies to keep their power on.",
   primary: { label: "Send a tender enquiry", href: "/government-supply#tender-desk" },
   secondary: { label: "Explore products", href: "/products" },
   seal: "Est. 1988",
@@ -152,7 +152,7 @@ export const whyUs = [
   },
   {
     title: "Made under one roof",
-    copy: "Grid casting, paste mixing, assembly, formation and testing all happen at Pithampur. Nothing is rebadged.",
+    copy: "Grid casting, paste mixing, assembly, formation and testing all happen at Vijeta Accumulators and New Technologies. Nothing is rebadged.",
   },
   {
     title: "Tender-ready paperwork",
@@ -225,7 +225,7 @@ export const chapters: Chapter[] = [
     body: "The family opens a small manufacturing unit in Madhya Pradesh. The first products are accumulators and torches, assembled by hand and checked one by one before they leave.",
     proof: "The business begins with electrical products, not batteries.",
     image: "/about-factory.png",
-    alt: "The VIJETA manufacturing unit in Pithampur",
+    alt: "The VIJETA manufacturing unit at Vijeta Accumulators and New Technologies",
   },
   {
     year: "1988–1999",
@@ -248,11 +248,11 @@ export const chapters: Chapter[] = [
   {
     year: "2000s",
     kicker: "Chapter four",
-    title: "One roof in Pithampur",
-    body: "Grid casting, paste mixing, cell assembly, formation charging and load testing are brought under one roof at the Pithampur plant. Control over every stage replaces bought-in parts.",
+    title: "One roof at Vijeta Accumulators and New Technologies",
+    body: "Grid casting, paste mixing, cell assembly, formation charging and load testing are brought under one roof at the Vijeta Accumulators and New Technologies plant. Control over every stage replaces bought-in parts.",
     proof: "Five production stages, one address.",
     image: "/about-factory.png",
-    alt: "The Pithampur plant floor",
+    alt: "The Vijeta Accumulators and New Technologies plant floor",
   },
   {
     year: "2010s",
@@ -302,15 +302,15 @@ export const unchanged = [
 /* ------------------------------------------------------------------ */
 
 export const aboutHero = {
-  eyebrow: "Since 1988 · Pithampur, Madhya Pradesh",
+  eyebrow: "Since 1988 · Vijeta Accumulators and New Technologies",
   line1: "Since 1988,",
   line2: "one standard.",
-  body: "A family workshop in Madhya Pradesh became a lead-acid battery plant at Pithampur. Nearly four decades later the same family runs it, and every unit still leaves the floor load-tested.",
+  body: "A family workshop in Madhya Pradesh became a lead-acid battery plant at Vijeta Accumulators and New Technologies. Nearly four decades later the same family runs it, and every unit still leaves the floor load-tested.",
   primary: { label: "Read the story", href: "#story" },
   secondary: { label: "Our manufacturing", href: "#plant" },
   facts: [
     { label: "Established", value: "1988" },
-    { label: "Plant", value: "Pithampur, M.P." },
+    { label: "Plant", value: "Vijeta Accumulators and New Technologies" },
     { label: "Testing", value: "100% load-tested" },
   ],
 };
@@ -321,7 +321,7 @@ export const aboutIntro = {
   titleAccent: "We have been building it since 1988.",
   paragraphs: [
     "VIJETA began in a small Madhya Pradesh workshop, making accumulators and torches for dealers who could return anything that failed. That return counter set the rule the company still runs on: a product must deliver exactly what its label says, for as long as it says.",
-    "The range has since grown into lead-acid batteries for homes, cars, tractors, trucks, telecom sites and industry, with lithium systems alongside and government tenders served direct from the plant. Casting, pasting, assembly, formation and testing still happen under one roof at Pithampur — and every unit is load-tested before dispatch.",
+    "The range has since grown into lead-acid batteries for homes, cars, tractors, trucks, telecom sites and industry, with lithium systems alongside and government tenders served direct from the plant. Casting, pasting, assembly, formation and testing still happen under one roof at Vijeta Accumulators and New Technologies — and every unit is load-tested before dispatch.",
   ],
   closing: "Different products. Same rule since 1988.",
   facts: [
@@ -337,7 +337,7 @@ export const origin = {
   paragraphs: [
     "In 1988 the family opened a small manufacturing unit in Madhya Pradesh. The first products were accumulators and torches — small, unglamorous electrical goods, assembled by hand and sold through dealers who could return anything that failed.",
     "That return counter taught the rule the business still runs on: a product must do exactly what its label says, for as long as it says. No inflated ratings. No quiet shortcuts.",
-    "In 2000 the workshop moved into lead-acid batteries and chargers. Casting, pasting, assembly, formation and testing were brought under one roof at Pithampur, so the family could control every stage instead of trusting someone else's.",
+    "In 2000 the workshop moved into lead-acid batteries and chargers. Casting, pasting, assembly, formation and testing were brought under one roof at Vijeta Accumulators and New Technologies, so the family could control every stage instead of trusting someone else's.",
   ],
   pullQuote: "A battery is judged on the morning it must start.",
   pullNote: "The rule on our floor, since 1988.",
@@ -437,15 +437,14 @@ export const ownerNote = {
   eyebrow: "The family",
   title: "The name on the door is the name on the floor.",
   paragraphs: [
-    "VIJETA is made by Aadinath Power Systems Pvt. Ltd., the family company that has run the plant at Pithampur since 1988. The people who own the plant are the people a buyer can call.",
+    "VIJETA is made by the family company Vijeta Accumulators and New Technologies, which has run this plant since 1988. The people who own the plant are the people a buyer can call.",
     "The second generation now works in the business the founder built. The machines are newer and the lab is bigger, but the same family signs off on every battery that carries its name.",
   ],
   quote: "We do not sell a battery we would not put on our own vehicle.",
   quoteNote: "The family behind VIJETA Batteries",
   owner: {
-    name: "Apurv Singh Jain",
-    role: "Director, Aadinath Power Systems Pvt. Ltd.",
-    place: "Pithampur, Madhya Pradesh",
+    name: "Ajay Kumar Jain",
+    place: "Vijeta Accumulators and New Technologies",
     generation: "Second generation",
   },
 };
@@ -474,7 +473,7 @@ export const plantDetail = {
     { title: "Formation decides life", copy: "First charge run under controlled current." },
     { title: "Tested before dispatch", copy: "Every unit, not just a sample." },
   ],
-  videoNote: "Filmed on the VIJETA floor, Pithampur.",
+  videoNote: "Filmed on the VIJETA floor, Vijeta Accumulators and New Technologies.",
   link: { label: "Ask about a plant visit", href: "/contact" },
 };
 
@@ -490,11 +489,11 @@ export const openingStory = {
     "Since 1988, VIJETA has made lead-acid batteries in Madhya Pradesh the way the founder taught: honest ratings, tested batches, and promises kept.",
   paragraphs: [
     "The first products were accumulators and torches. Small, unglamorous electrical goods sold through dealers who could return anything that failed. That return counter taught the family the rule it still runs on: a product must do what its label says, for as long as it says.",
-    "In 2000 the workshop moved into lead-acid batteries and chargers. The plant in Pithampur grew around that decision, with casting, pasting, assembly, formation and testing brought under one roof. Dealers noticed. Then institutions noticed. Then the departments did.",
+    "In 2000 the workshop moved into lead-acid batteries and chargers. The plant at Vijeta Accumulators and New Technologies grew around that decision, with casting, pasting, assembly, formation and testing brought under one roof. Dealers noticed. Then institutions noticed. Then the departments did.",
     "Nearly four decades later the second generation runs the plant. The machines are newer, the lab is bigger and the tenders are online, but every battery is still tested before it leaves, and the family still answers the phone.",
   ],
   signature: "The family behind VIJETA Batteries",
-  note: "Aadinath Power Systems Pvt. Ltd. · Pithampur, Madhya Pradesh",
+  note: "Vijeta Accumulators and New Technologies · Dhar, Madhya Pradesh",
 };
 
 /* ------------------------------------------------------------------ */
@@ -616,7 +615,7 @@ export const tenderSteps = [
   {
     index: "03",
     title: "Manufacture & test",
-    copy: "Your order is built and batch-tested at Pithampur, with reports for every lot.",
+    copy: "Your order is built and batch-tested at Vijeta Accumulators and New Technologies, with reports for every lot.",
   },
   {
     index: "04",
@@ -719,7 +718,7 @@ export const qualityChecks = [
 
 export const dispatchIntro = {
   headline: "Dispatch & Packaging",
-  body: "Tested, packed and documented before it leaves Pithampur.",
+  body: "Tested, packed and documented before it leaves Vijeta Accumulators and New Technologies.",
 };
 
 export const dispatchPacking = {
@@ -727,7 +726,7 @@ export const dispatchPacking = {
   title: "Packed for the road, not the shelf.",
   body: "Batteries are packed only after the test report is closed. Terminals are protected, cartons reinforced, and every box is marked for handling before it is stacked.",
   points: ["Terminal protection", "Reinforced cartons", "Batch-marked boxes"],
-  imageNote: "Packed and stacked for dispatch, Pithampur.",
+  imageNote: "Packed and stacked for dispatch, Vijeta Accumulators and New Technologies.",
 };
 
 export const dispatchDetail = {
@@ -770,13 +769,13 @@ export const faqItems: FaqItem[] = [
     id: "how-long",
     category: "about",
     q: "How long have you been making batteries?",
-    a: "Since 1988. The family began with accumulators and torches, moved into lead-acid batteries and chargers in 2000, and still runs the plant in Pithampur today.",
+    a: "Since 1988. The family began with accumulators and torches, moved into lead-acid batteries and chargers in 2000, and still runs the plant at Vijeta Accumulators and New Technologies today.",
   },
   {
     id: "manufacture",
     category: "about",
     q: "Do you manufacture the batteries yourselves?",
-    a: "Yes. Grid casting, paste mixing, cell assembly, formation charging and load testing happen under one roof at Pithampur. We do not rebrand another maker's battery.",
+    a: "Yes. Grid casting, paste mixing, cell assembly, formation charging and load testing happen under one roof at Vijeta Accumulators and New Technologies. We do not rebrand another maker's battery.",
   },
   {
     id: "customers",

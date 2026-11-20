@@ -52,7 +52,7 @@ export function PlantProcess() {
                 loop
                 playsInline
                 preload="metadata"
-                aria-label="Plate handling and battery assembly on the VIJETA factory floor at Pithampur"
+                aria-label="Plate handling and battery assembly on the VIJETA factory floor at Vijeta Accumulators and New Technologies"
               />
               <div
                 aria-hidden="true"

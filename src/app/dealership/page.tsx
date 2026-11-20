@@ -26,7 +26,7 @@ const benefits = [
   },
   {
     title: "Warranty support",
-    copy: "Clear claim handling through Pithampur. Your customers deal with you, and you deal with a team that answers.",
+    copy: "Clear claim handling through Vijeta Accumulators and New Technologies. Your customers deal with you, and you deal with a team that answers.",
   },
   {
     title: "Factory-direct contact",
@@ -53,7 +53,7 @@ export default function DealershipPage() {
         meta={[
           { label: "Network", value: "Central India" },
           { label: "Series", value: "Gold & Silver" },
-          { label: "Support", value: "Direct from Pithampur" },
+          { label: "Support", value: "Direct from Vijeta Accumulators and New Technologies" },
           { label: "Sales line", value: site.phones[2].label },
         ]}
       />

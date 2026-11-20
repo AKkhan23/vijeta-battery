@@ -60,7 +60,7 @@ function useLabelTexture() {
     ctx.font = "500 26px Consolas, monospace";
     ctx.fillText("LEAD-ACID  ·  LOW MAINTENANCE", 58, 646);
     ctx.fillText("HIGH CRANKING  ·  6 CELL", 58, 690);
-    ctx.fillText("MADE IN PITHAMPUR, INDIA", 58, 734);
+    ctx.fillText("MADE IN INDIA", 58, 734);
 
     // warranty row
     ctx.fillStyle = "#1638c6";

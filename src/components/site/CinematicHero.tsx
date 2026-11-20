@@ -54,7 +54,7 @@ export function CinematicHero() {
             is the whole <em className="heading-gloss accent-serif font-normal text-white">story.</em>
           </h1>
           <p className="mt-2 max-w-[30rem] text-[0.86rem] leading-[1.6] text-white/65 sm:mt-4 sm:text-[1rem] sm:leading-[1.7]">
-            Built in Pithampur. Tested unit by unit. Backed for <strong className="font-semibold text-white">36 months</strong>.
+            Built at Vijeta Accumulators and New Technologies. Tested unit by unit. Backed for <strong className="font-semibold text-white">36 months</strong>.
           </p>
           <div className="mt-4 flex flex-col gap-2 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
             <Link href="/products" className="btn btn-primary">
