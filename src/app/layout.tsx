@@ -100,11 +100,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${manrope.variable} ${wordmark.variable}`}
     >
       {/* ===== VIJETA PRELOADER : START (HEAD PART) ===== */}
+      {/* REVERT NOTE: the original loader (flying p1-p4.webp images) is still
+          clean in git. To restore it later just run:
+          `git checkout -- src/app/layout.tsx` and delete public/loader/battery.gif */}
       <head>
-        <link rel="preload" as="image" href="/loader/p1.webp" />
-      <link rel="preload" as="image" href="/loader/p2.webp" />
-      <link rel="preload" as="image" href="/loader/p3.webp" />
-      <link rel="preload" as="image" href="/loader/p4.webp" />
+      <link rel="preload" as="image" href="/loader/battery.gif" />
       <link rel="preload" as="image" href="/loader/title.webp" />
       <style>{`
   html.vj-lock, html.vj-lock body { overflow: hidden; }
@@ -115,21 +115,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     transition: opacity .4s ease, visibility .4s ease;
   }
   #vj-loader.vj-hide { opacity: 0; visibility: hidden; }
-  .vj-stage { position: relative; width: min(84vw, 400px); aspect-ratio: 586 / 510; }
-  .vj-stage img {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    opacity: 0; backface-visibility: hidden; will-change: transform, opacity;
-    animation: vj-in .85s cubic-bezier(.2, .9, .25, 1) forwards;
-  }
-  .vj-stage img:nth-child(1) { --x:-75%; --y:-70%; --r:-32deg; animation-delay: .00s; }
-  .vj-stage img:nth-child(2) { --x: 75%; --y:-65%; --r: 30deg; animation-delay: .08s; }
-  .vj-stage img:nth-child(3) { --x:-70%; --y: 70%; --r: 26deg; animation-delay: .16s; }
-  .vj-stage img:nth-child(4) { --x: 75%; --y: 72%; --r:-28deg; animation-delay: .24s; }
-  @keyframes vj-in {
-    0%   { opacity: 0; transform: translate3d(var(--x), var(--y), 0) rotate(var(--r)) scale(.92); }
-    20%  { opacity: 1; }
-    100% { opacity: 1; transform: translate3d(0, 0, 0) rotate(0) scale(1); }
-  }
+  /* Supplied Battery.gif (150x112, 120 frames) replaces the old flying-images
+     animation. The brand text + progress line below are intentionally unchanged. */
+  .vj-stage { position: relative; width: min(70vw, 260px); aspect-ratio: 150 / 112; }
+  .vj-battery { display: block; width: 100%; height: 100%; object-fit: contain; }
   .vj-title {
     width: min(62vw, 270px); height: auto; margin-top: 18px;
     opacity: 0; transform: translate3d(0, 12px, 0);
@@ -149,7 +138,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   @keyframes vj-fade { to { opacity: 1; } }
   @keyframes vj-fill { to { transform: scaleX(1); } }
   @media (prefers-reduced-motion: reduce) {
-    .vj-stage img, .vj-title, .vj-bar, .vj-bar i { animation-duration: .01s; animation-delay: 0s; }
+    .vj-title, .vj-bar, .vj-bar i { animation-duration: .01s; animation-delay: 0s; }
   }
 `}</style>
       </head>
@@ -158,10 +147,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* ===== VIJETA PRELOADER : START (BODY PART - <body> ke bilkul upar, #root se pehle) ===== */}
         <div id="vj-loader" role="status" aria-label="Loading" suppressHydrationWarning>
           <div className="vj-stage">
-            <img src="/loader/p1.webp" alt="" decoding="async" />
-            <img src="/loader/p2.webp" alt="" decoding="async" />
-            <img src="/loader/p3.webp" alt="" decoding="async" />
-            <img src="/loader/p4.webp" alt="" decoding="async" />
+            <img className="vj-battery" src="/loader/battery.gif" alt="" />
           </div>
           <img className="vj-title" src="/loader/title.webp" alt="Vijeta Battery" decoding="async" />
           <div className="vj-bar"><i></i></div>

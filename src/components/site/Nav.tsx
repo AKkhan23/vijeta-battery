@@ -22,6 +22,7 @@ const powerMenus = homePowerGroups.map((group) => ({
 const utilityLinks = [
   { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
+  { label: "Our Work", href: "/our-work" },
   { label: "Technology", href: "/technology" },
   { label: "Warranty", href: "/warranty" },
   { label: "Dealership", href: "/dealership" },
@@ -32,6 +33,7 @@ const utilityLinks = [
 const mobileLinks = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
+  { label: "Our Work", href: "/our-work" },
   { label: "About", href: "/about" },
   { label: "Technology", href: "/technology" },
   { label: "Warranty", href: "/warranty" },
@@ -185,6 +187,8 @@ export function Nav() {
     pathname === "/" ||
     pathname === "/products" ||
     pathname === "/about" ||
+    pathname === "/our-work" ||
+    pathname === "/chargers" ||
     pathname === "/faq";
   const lightText = darkTop && !scrolled;
 
@@ -272,7 +276,20 @@ export function Nav() {
             ))}
           </nav>
 
-          <div className="absolute bottom-[4px] left-[calc(50%+3rem)] hidden items-center gap-5 xl:flex">
+          <div className="absolute bottom-[4px] right-[12rem] hidden items-center gap-4 xl:flex">
+            <Link
+              href="/chargers"
+              aria-current={isActive("/chargers") ? "page" : undefined}
+              className={`group relative border-b pb-0.5 font-sans text-[0.85rem] font-semibold tracking-[-0.01em] transition-colors ${
+                isActive("/chargers")
+                  ? lightText ? "border-white text-white" : "border-royal text-royal"
+                  : lightText
+                    ? "border-white/40 text-white/90 hover:border-white hover:text-white"
+                    : "border-royal/40 text-royal hover:border-royal hover:text-royal-deep"
+              }`}
+            >
+              Chargers
+            </Link>
             {powerMenus.map((menu) => (
               <PowerMenu key={menu.href} menu={menu} light={lightText} />
             ))}
@@ -425,6 +442,18 @@ export function Nav() {
                   );
                 })}
               </nav>
+
+              <Link
+                href="/chargers"
+                onClick={() => setOpen(false)}
+                aria-current={isActive("/chargers") ? "page" : undefined}
+                className={`mt-1 flex items-center justify-between border-b border-white/12 py-3 transition-colors hover:text-volt ${
+                  isActive("/chargers") ? "text-volt" : "text-white"
+                }`}
+              >
+                <span className="display text-[clamp(1.6rem,6vw,2.6rem)]">Chargers</span>
+                <span className="font-sans font-medium text-[0.7rem] text-white/35">NEW</span>
+              </Link>
 
               <Link
                 href="/products/tbs-san-cell"

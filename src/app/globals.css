@@ -542,6 +542,277 @@
     animation: heading-gloss-underline 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
+  /* ── Factory Tour: ONE premium text system, scoped to /our-work ──────────
+     Every heading shares a live black→royal sheen; every label gets an
+     animated underline; body copy carries a blue-leaning ink tone. Nothing
+     here touches other pages. */
+  .our-work {
+    --ow-ink: #080b14;
+    --ow-blue: #1436c8;
+    --ow-blue-lit: #6e93ff;
+  }
+
+  /* One-time, mount-only entrance. Nothing is gated on scroll position, so a
+     section can never be left blank — scrolling up always shows full content. */
+  .ow-text-in {
+    animation: ow-text-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* The compact charger banner is meant to stay still. */
+  .ow-static {
+    animation: none !important;
+  }
+
+  /* Headlines — one calm family. A subtle, STATIC sheen only: no looping
+     gloss animation, so the page stays still and the ink colour never shifts. */
+  .our-work h1,
+  .our-work h2,
+  .our-work h3 {
+    background-image: linear-gradient(
+      100deg,
+      var(--ow-ink) 0%,
+      var(--ow-ink) 30%,
+      var(--ow-blue) 46%,
+      var(--ow-blue-lit) 50%,
+      var(--ow-blue) 54%,
+      var(--ow-ink) 70%,
+      var(--ow-ink) 100%
+    );
+    background-size: 220% 100%;
+    background-position: 180% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: none;
+  }
+
+  /* The single royal-blue word inside each headline keeps its own still hue. */
+  .ow-accent {
+    background-image: linear-gradient(
+      100deg,
+      var(--ow-blue) 0%,
+      var(--ow-blue-lit) 50%,
+      var(--ow-blue) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 170% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: none;
+  }
+
+  /* The hero title is the full-bleed cinematic overlay: solid white, edge to
+     edge over the video, no gloss sweep and no animation. */
+  .our-work .ow-hero h1 {
+    background: none !important;
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+    -webkit-text-fill-color: #ffffff !important;
+    animation: none !important;
+    opacity: 1;
+    filter: drop-shadow(0 4px 26px rgba(0, 0, 0, 0.6));
+  }
+
+  .ow-hero-accent {
+    color: #bcd6ff;
+  }
+
+  /* Mobile: the hero is a tall, full-bleed poster. Centre the copy block and
+     lift it clear of the floating chat buttons; keep the type comfortable. */
+  @media (max-width: 640px) {
+    .our-work .ow-hero .container-x {
+      padding-bottom: 7.5rem !important;
+    }
+    .our-work .ow-hero .ow-hero-copy {
+      margin-inline: auto;
+      text-align: center;
+    }
+    .our-work .ow-hero h1 {
+      font-size: 1.95rem !important;
+      line-height: 1.06 !important;
+      letter-spacing: -0.035em !important;
+      text-align: center !important;
+    }
+    .our-work .ow-hero .ow-hero-copy .prose-lede {
+      text-align: center;
+      font-size: 0.88rem !important;
+      line-height: 1.6 !important;
+    }
+    .our-work .ow-hero .ow-hero-eyebrow {
+      justify-content: center !important;
+    }
+    /* The "FACTORY TOUR" identity line was invisible at 5%, and at the desktop
+       clamp size it overflowed a phone. Scale it to fit the full word. */
+    .our-work .ow-hero .ow-hero-watermark p {
+      font-size: 2.85rem !important;
+      letter-spacing: -0.05em !important;
+      color: rgb(255 255 255 / 0.13) !important;
+    }
+  }
+
+  /* All light-section body copy: a fixed blue-leaning ink. No hover colour
+     change — only the gloss passes across it. Hero copy is excluded so the
+     white-on-video type stays legible. */
+  .our-work > section:not(.ow-hero) p {
+    color: color-mix(in srgb, var(--ow-ink) 84%, var(--ow-blue));
+  }
+
+  /* Eyebrows + closing labels: royal blue with a travelling underline. */
+  .ow-label,
+  .ow-note {
+    color: var(--ow-blue) !important;
+    font-weight: 600;
+  }
+
+  .ow-note {
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    text-transform: none;
+  }
+
+  .ow-index {
+    color: var(--ow-blue) !important;
+  }
+
+  .factory-gloss {
+    position: relative;
+    display: inline-block;
+    background-image: linear-gradient(
+      100deg,
+      currentColor 0%,
+      currentColor 34%,
+      color-mix(in srgb, currentColor 55%, #9db8ff) 45%,
+      #eaf1ff 50%,
+      color-mix(in srgb, currentColor 55%, #9db8ff) 55%,
+      currentColor 66%,
+      currentColor 100%
+    );
+    background-size: 240% 100%;
+    background-position: 180% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: none;
+  }
+
+  /* Underline: hidden at rest, drawn in only while the label is hovered.
+     No automatic sweeping anywhere on the page. */
+  .factory-line {
+    position: relative;
+  }
+
+  .factory-line::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.08em;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, currentColor, transparent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+
+  .our-work .factory-line:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  /* Body copy stays completely still — no travelling glow. */
+  .factory-shimmer {
+    animation: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .our-work h1,
+    .our-work h2,
+    .our-work h3,
+    .ow-accent,
+    .factory-gloss,
+    .factory-shimmer {
+      animation: none;
+      background-position: 0 0;
+    }
+    .factory-line::after {
+      animation: none;
+      transform: scaleX(0);
+    }
+    .ow-text-in {
+      animation: none;
+    }
+  }
+
+  /* Bottom machinery section: stays completely hidden until the visitor
+     scrolls it into view, then fades up once. Empty space is kept in the
+     layout, so there is no jump when it appears. */
+  .our-work .ow-scroll-reveal {
+    opacity: 0;
+    transform: translateY(38px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .our-work .ow-scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .our-work .ow-scroll-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ── /chargers: a deliberately quiet page. No sheen, no underline sweep, no
+     mount animation — the banner image and photography carry the visual. ── */
+  .chargers-page h1,
+  .chargers-page h2,
+  .chargers-page h3,
+  .chargers-page .ow-accent,
+  .chargers-page .factory-gloss {
+    background-image: none !important;
+    -webkit-text-fill-color: currentColor !important;
+    animation: none !important;
+  }
+  .chargers-page .factory-line::after,
+  .chargers-page .factory-shimmer,
+  .chargers-page .ow-text-in {
+    animation: none !important;
+  }
+  .chargers-page .ow-text-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* The supplied panorama keeps its subject (cables + battery) on the LEFT,
+     with the right half as empty copy space. A centre cover-crop on a phone
+     cut the subject out entirely, so anchor the crop left and lift the veil
+     just enough for the photograph to read while the copy stays legible. */
+  @media (max-width: 640px) {
+    .chargers-page .page-banner-img {
+      object-position: 24% center !important;
+    }
+    .chargers-page .page-banner-veil-main {
+      background-image: linear-gradient(
+          to bottom,
+          rgb(3 19 33 / 0.28) 0%,
+          rgb(3 19 33 / 0.5) 42%,
+          rgb(3 19 33 / 0.88) 100%
+        ) !important;
+    }
+    .chargers-page .page-banner-veil-bottom {
+      background-image: linear-gradient(to top, rgb(3 19 33 / 0.55), transparent 70%) !important;
+    }
+  }
+
   .prose-lede {
     color: color-mix(in srgb, var(--color-ink) 70%, transparent);
     font-size: clamp(1.0625rem, 1.3vw, 1.15rem);
@@ -1110,6 +1381,59 @@
   86%,
   100% {
     background-position: 170% 0;
+  }
+}
+
+@keyframes factory-gloss-sweep {
+  0%,
+  14% {
+    background-position: 180% 0;
+  }
+  58% {
+    background-position: -60% 0;
+  }
+  88%,
+  100% {
+    background-position: 180% 0;
+  }
+}
+
+@keyframes factory-shimmer {
+  0%,
+  100% {
+    text-shadow: 0 0 0 transparent;
+  }
+  50% {
+    text-shadow: 0 0 20px color-mix(in srgb, #9db8ff 45%, transparent);
+  }
+}
+
+@keyframes ow-text-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes factory-underline {
+  0%,
+  6% {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  44%,
+  54% {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+  92%,
+  100% {
+    transform: scaleX(0);
+    transform-origin: right center;
   }
 }
 

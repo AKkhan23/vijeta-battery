@@ -433,7 +433,7 @@ export function ChatWidget() {
           <span className="vjchat-ring grid h-6 w-6 place-items-center rounded-full bg-white/15">
             <ChatIcon className="h-[17px] w-[17px]" />
           </span>
-          <span className="whitespace-nowrap text-[13px] font-semibold leading-none tracking-[-0.01em]">
+          <span className="hidden whitespace-nowrap text-[13px] font-semibold leading-none tracking-[-0.01em] sm:inline">
             {LABELS[labelIdx]}
             <span className="vjchat-cursor ml-0.5 inline-block font-normal">|</span>
           </span>

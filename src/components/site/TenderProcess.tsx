@@ -1,9 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import {
   clientGroups,
   documentKit,
+  governmentClientLogos,
   tenderIntro,
   tenderSteps,
 } from "@/lib/heritage";
@@ -19,11 +21,36 @@ export function TenderProcess() {
     >
       <div className="container-x section-y">
         <div className="mx-auto max-w-[62rem] text-center">
-          <Reveal>
-            <h2 className="text-balance text-[clamp(2.05rem,5vw,4rem)] font-semibold leading-[1.03] tracking-[-0.035em]">
-              <span className="heading-gloss text-royal">{tenderIntro.eyebrow}</span>
-            </h2>
-          </Reveal>
+          <div className="grid grid-cols-2 items-center gap-x-4 gap-y-6 sm:gap-x-10 lg:grid-cols-[auto_minmax(0,1fr)_auto]">
+            <Reveal className="order-2 flex justify-center lg:order-1">
+              <Image
+                src={governmentClientLogos[0].src}
+                alt={governmentClientLogos[0].alt}
+                width={governmentClientLogos[0].width}
+                height={governmentClientLogos[0].height}
+                sizes="(max-width: 640px) 40vw, (max-width: 1024px) 22vw, 128px"
+                className="h-20 w-auto max-w-full object-contain mix-blend-multiply sm:h-24 lg:h-28"
+              />
+            </Reveal>
+
+            <Reveal className="order-1 col-span-2 lg:order-2 lg:col-span-1">
+              <h2 className="text-balance text-[clamp(2.05rem,5vw,4rem)] font-semibold leading-[1.03] tracking-[-0.035em]">
+                <span className="heading-gloss text-royal">{tenderIntro.eyebrow}</span>
+              </h2>
+            </Reveal>
+
+            <Reveal className="order-3 flex justify-center">
+              <Image
+                src={governmentClientLogos[1].src}
+                alt={governmentClientLogos[1].alt}
+                width={governmentClientLogos[1].width}
+                height={governmentClientLogos[1].height}
+                sizes="(max-width: 640px) 40vw, (max-width: 1024px) 22vw, 128px"
+                className="h-20 w-auto max-w-full object-contain mix-blend-multiply sm:h-24 lg:h-28"
+              />
+            </Reveal>
+          </div>
+
           <Reveal delay={0.06}>
             <p className="mx-auto mt-5 max-w-[46rem] text-balance text-[0.98rem] leading-[1.8] text-ink/60 sm:text-[1.04rem]">
               {tenderIntro.body}

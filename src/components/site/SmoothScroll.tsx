@@ -10,7 +10,19 @@ export function SmoothScroll() {
   const lenisRef = useRef<LenisInstance | null>(null);
   const firstRender = useRef(true);
 
+  // The factory tour is long and video-heavy. Lenis adds wheel inertia that
+  // makes it feel laggy, so that one route uses native, instant scrolling.
+  // Every other page keeps the original Lenis behaviour untouched.
+  const isFactoryTour = pathname === "/our-work";
+
   useEffect(() => {
+    if (isFactoryTour) {
+      document.documentElement.style.scrollBehavior = "auto";
+      return () => {
+        document.documentElement.style.scrollBehavior = "";
+      };
+    }
+
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let frame = 0;
@@ -39,7 +51,7 @@ export function SmoothScroll() {
       lenisRef.current?.destroy();
       lenisRef.current = null;
     };
-  }, []);
+  }, [isFactoryTour]);
 
   // Reset scroll on route change (including back/forward), but honour direct hash links.
   useEffect(() => {

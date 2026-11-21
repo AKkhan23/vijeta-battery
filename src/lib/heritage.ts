@@ -482,6 +482,22 @@ export const tenderIntro = {
   body: "From spec review to delivery and warranty. Here is how a government or institutional requirement runs through the plant.",
 };
 
+/** Client marks shown either side of the government section heading. */
+export const governmentClientLogos = [
+  {
+    src: "/gov-client-prakash-vikas.webp",
+    alt: "Prakash evam Vikas logo",
+    width: 1043,
+    height: 1020,
+  },
+  {
+    src: "/gov-client-mpez.png",
+    alt: "MPEZ — Madhya Pradesh Eastern Region Power Distribution logo",
+    width: 337,
+    height: 337,
+  },
+];
+
 export const openingStory = {
   eyebrow: "A family business",
   title: "A family business, built one battery at a time.",

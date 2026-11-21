@@ -30,7 +30,10 @@ export function Contact({
     <>
       Tell us what
       <br />
-      you <em className="heading-gloss accent-serif font-normal text-royal">drive.</em>
+      you{" "}
+      <em className="heading-gloss accent-serif font-normal text-royal">
+        drive.
+      </em>
     </>
   ),
   intro = "Send the details and we will come back with the right battery, the right series and the nearest authorised dealer. A phone call works too.",
@@ -71,7 +74,10 @@ export function Contact({
                   <p className="eyebrow text-ink/40">Call</p>
                   <div className="mt-2 space-y-1.5">
                     {site.phones.map((phone) => (
-                      <div key={phone.tel} className="flex flex-wrap items-baseline gap-x-3">
+                      <div
+                        key={phone.tel}
+                        className="flex flex-wrap items-baseline gap-x-3"
+                      >
                         <a
                           href={`tel:${phone.tel}`}
                           className="font-display text-[1.02rem] font-semibold tracking-tight text-ink transition-colors hover:text-royal"

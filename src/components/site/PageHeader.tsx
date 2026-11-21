@@ -12,10 +12,25 @@ type Props = {
   path: string;
   meta?: { label: string; value: string }[];
   image?: string;
+  /** `cover` fills a panoramic banner on narrow screens; default stays `contain`. */
+  imageFit?: "contain" | "cover";
+  /** Tighter vertical rhythm + a stronger scrim for copy-heavy banners. */
+  compact?: boolean;
 };
 
-export function PageHeader({ eyebrow, index, title, intro, crumb, path, meta = [], image }: Props) {
+export function PageHeader({ eyebrow, index, title, intro, crumb, path, meta = [], image, imageFit = "contain", compact = false }: Props) {
   const overlay = Boolean(image);
+  const innerPad = compact ? "pb-5 pt-6 sm:pb-6" : "pb-6 pt-9 lg:pb-8";
+  const gridClass = compact
+    ? "mt-6 grid gap-7 lg:grid-cols-12 lg:gap-10"
+    : "mt-10 grid gap-10 lg:grid-cols-12 lg:gap-12";
+  const overlayMain = compact
+    ? "bg-gradient-to-r from-ink/95 via-ink/75 to-ink/25"
+    : "bg-gradient-to-r from-ink/90 via-ink/45 to-transparent";
+  const overlayBottom = compact
+    ? "bg-gradient-to-t from-ink/70 via-ink/10 to-transparent"
+    : "bg-gradient-to-t from-ink/55 via-transparent to-transparent";
+  const metaClass = compact ? "mt-5" : "mt-7";
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -39,13 +54,10 @@ export function PageHeader({ eyebrow, index, title, intro, crumb, path, meta = [
             fill
             priority
             sizes="100vw"
-            className="object-contain object-center"
+            className={`page-banner-img ${imageFit === "cover" ? "object-cover object-center" : "object-contain object-center"}`}
           />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/45 to-transparent"
-          />
-          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
+          <div aria-hidden="true" className={`page-banner-veil-main absolute inset-0 ${overlayMain}`} />
+          <div aria-hidden="true" className={`page-banner-veil-bottom absolute inset-0 ${overlayBottom}`} />
         </>
       ) : (
         <div
@@ -54,7 +66,7 @@ export function PageHeader({ eyebrow, index, title, intro, crumb, path, meta = [
         />
       )}
 
-      <div className={`container-x relative ${overlay ? "flex min-h-[calc(clamp(20rem,24vw,22rem)-76px)] flex-col justify-end pb-6 pt-9 lg:pb-8" : "pb-14 pt-12 lg:pb-20 lg:pt-16"}`}>
+      <div className={`container-x relative ${overlay ? `flex min-h-[calc(clamp(20rem,24vw,22rem)-76px)] flex-col justify-end ${innerPad}` : "pb-14 pt-12 lg:pb-20 lg:pt-16"}`}>
         <nav
           aria-label="Breadcrumb"
           className={`flex items-center gap-2 font-sans font-medium text-[0.75rem] ${overlay ? "text-white/55" : "text-ink/40"}`}
@@ -68,7 +80,7 @@ export function PageHeader({ eyebrow, index, title, intro, crumb, path, meta = [
           <span className={overlay ? "text-white" : "text-ink/65"}>{crumb}</span>
         </nav>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className={gridClass}>
           <div className="lg:col-span-8">
             <div className="flex items-center gap-3.5">
               <span className={`font-sans font-medium text-[0.78rem] ${overlay ? "text-white/80" : "text-royal"}`}>
@@ -109,7 +121,7 @@ export function PageHeader({ eyebrow, index, title, intro, crumb, path, meta = [
         </div>
 
         {overlay && meta.length > 0 && (
-          <dl className="mt-7 grid w-full grid-cols-2 gap-px border border-white/15 bg-white/15 sm:grid-cols-4">
+          <dl className={`${metaClass} grid w-full grid-cols-2 gap-px border border-white/15 bg-white/15 sm:grid-cols-4`}>
             {meta.map((item) => (
               <div
                 key={item.label}
