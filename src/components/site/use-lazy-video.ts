@@ -1,27 +1,24 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "motion/react";
 
 /**
  * Defers a video until it approaches the viewport, then plays it automatically
  * only while it is on screen. A page with several clips therefore downloads the
  * first one immediately and the rest as the visitor scrolls, instead of pulling
  * every file (and decoding every frame) on load. Playback is always automatic —
- * there is no play button to press.
+ * there is no play button to press, on any device or motion preference.
  *
- * Visitors who prefer reduced motion get the poster only; no file is fetched
- * and nothing moves. The poster attribute stays on the <video>, so the frame is
- * never blank while the clip is waiting to load.
+ * The poster attribute stays on the <video>, so the frame is never blank while
+ * the clip is waiting to load.
  */
 export function useLazyVideo(src: string, enabled = true) {
   const ref = useRef<HTMLVideoElement>(null);
-  const reduce = useReducedMotion();
   const [near, setNear] = useState(false);
   const [inView, setInView] = useState(false);
 
   const active = enabled && Boolean(src);
-  const shouldLoad = active && near && !reduce;
+  const shouldLoad = active && near;
 
   useEffect(() => {
     if (!active) return;

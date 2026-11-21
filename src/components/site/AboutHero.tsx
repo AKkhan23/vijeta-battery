@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "@/components/ui/Icons";
@@ -110,21 +109,14 @@ export function AboutHero() {
               <video
                 ref={video.ref}
                 src={video.src}
+                poster="/about-banner-poster-v2.jpg"
                 muted
                 loop
                 playsInline
                 preload="none"
                 aria-hidden="true"
                 tabIndex={-1}
-                className="h-full w-full object-cover object-center motion-reduce:hidden"
-              />
-              <Image
-                src="/about-banner-poster-v2.jpg"
-                alt=""
-                fill
-                sizes="(max-width: 1024px) 92vw, 46vw"
-                aria-hidden="true"
-                className="hidden object-cover object-center motion-reduce:block"
+                className="h-full w-full object-cover object-center"
               />
               <div
                 aria-hidden="true"
