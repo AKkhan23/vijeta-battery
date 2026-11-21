@@ -45,7 +45,7 @@ export function PlantProcess() {
               <video
                 ref={videoRef}
                 className="absolute inset-0 h-full w-full object-cover"
-                src="/manufacturing.mp4"
+                src="/manufacturing-compressed.mp4"
                 poster="/manufacturing-poster.jpg"
                 autoPlay
                 muted
