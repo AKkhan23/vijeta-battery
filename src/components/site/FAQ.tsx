@@ -38,7 +38,7 @@ export function FAQ() {
       {/* Help-centre hero */}
       <div className="relative overflow-hidden bg-ink">
         <Image
-          src="/manufacturing-poster.jpg"
+          src="/manufacturing-poster-v2.jpg"
           alt=""
           fill
           sizes="100vw"

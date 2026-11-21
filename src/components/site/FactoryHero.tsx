@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { useLazyVideo } from "@/components/site/use-lazy-video";
 import { ourWorkMedia } from "@/lib/our-work-media";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -31,6 +32,7 @@ function ScrollCue() {
 export function FactoryHero() {
   const media = ourWorkMedia.hero;
   const reduce = useReducedMotion();
+  const video = useLazyVideo(media.videoSrc);
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -57,17 +59,18 @@ export function FactoryHero() {
       {/* Cinematic media layer — real factory video, poster shows before playback. */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.video
+          ref={video.ref}
+          src={video.src}
           poster={media.poster}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           aria-label={media.label}
           style={{ y: mediaY, scale: mediaScale }}
           className="absolute inset-0 h-full w-full object-cover object-[58%_center] sm:object-center"
         >
-          {media.videoSrc ? <source src={media.videoSrc} type="video/mp4" /> : null}
           {media.label}
         </motion.video>
       </div>

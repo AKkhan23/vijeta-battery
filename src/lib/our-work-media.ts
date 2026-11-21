@@ -34,32 +34,32 @@ export type FactoryImage = {
 
 export const ourWorkMedia = {
   hero: {
-    videoSrc: "/our-work/hero-compressed.mp4",
-    poster: "/our-work/hero-poster.jpg",
+    videoSrc: "/our-work/hero-v2.mp4",
+    poster: "/our-work/hero-poster-v2.jpg",
     label: "Factory workers on the VIJETA production floor",
   } satisfies FactoryVideo,
 
   production: {
-    videoSrc: "/our-work/production-compressed.mp4",
-    poster: "/our-work/production-poster.jpg",
+    videoSrc: "/our-work/production-v2.mp4",
+    poster: "/our-work/production-poster-v2.jpg",
     label: "Battery production on the VIJETA factory floor",
   } satisfies FactoryVideo,
 
   assembly: {
-    videoSrc: "/our-work/assembly-compressed.mp4",
-    poster: "/our-work/assembly-poster.jpg",
+    videoSrc: "/our-work/assembly-v2.mp4",
+    poster: "/our-work/assembly-poster-v2.jpg",
     label: "Battery assembly on the VIJETA factory floor",
   } satisfies FactoryVideo,
 
   process: {
-    videoSrc: "/our-work/process-compressed.mp4",
-    poster: "/our-work/assembly-poster.jpg",
+    videoSrc: "/our-work/process-v2.mp4",
+    poster: "/our-work/process-poster-v2.jpg",
     label: "A closer look at battery assembly on the VIJETA factory floor",
   } satisfies FactoryVideo,
 
   machineryVideo: {
-    videoSrc: "/our-work/machinery-video.mp4",
-    poster: "/our-work/machinery-video-poster.jpg",
+    videoSrc: "/our-work/machinery-v2.mp4",
+    poster: "/our-work/machinery-video-poster-v2.jpg",
     label: "Manufacturing machinery operating on the VIJETA factory floor",
   } satisfies FactoryVideo,
 

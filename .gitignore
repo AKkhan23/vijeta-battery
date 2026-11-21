@@ -43,3 +43,6 @@ next-env.d.ts
 # local enquiry log
 .data/
 .vercel
+
+# original / superseded video sources (kept locally, never deployed)
+/media-source/

@@ -1,37 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
+import { useLazyVideo } from "@/components/site/use-lazy-video";
 import { qualityChecks, qualityDetail, qualityIntro } from "@/lib/heritage";
 
 export function QualityChecking() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const tryPlay = () => {
-      video.muted = true;
-      void video.play().catch(() => {});
-    };
-
-    // Autoplay can be refused until data is ready or the tab is focused.
-    video.addEventListener("canplay", tryPlay);
-    video.addEventListener("loadeddata", tryPlay);
-    document.addEventListener("visibilitychange", tryPlay);
-    tryPlay();
-
-    return () => {
-      video.removeEventListener("canplay", tryPlay);
-      video.removeEventListener("loadeddata", tryPlay);
-      document.removeEventListener("visibilitychange", tryPlay);
-    };
-  }, []);
+  const lazyVideo = useLazyVideo("/quality-checking-v2.mp4");
 
   return (
     <section
@@ -99,18 +76,15 @@ export function QualityChecking() {
             <div className="grid h-full grid-cols-1 overflow-hidden rounded-3xl bg-ink shadow-[0_30px_70px_-60px_rgba(8,11,20,0.45)] md:grid-cols-[45fr_55fr]">
               <figure className="group relative aspect-video overflow-hidden md:aspect-auto md:h-full">
                 <video
-                  ref={videoRef}
+                  ref={lazyVideo.ref}
                   className="absolute inset-0 h-full w-full object-cover object-[50%_32%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                  src="/quality-checking.mp4?v=4"
-                  poster="/quality-checking-poster.jpg?v=4"
+                  src={lazyVideo.src}
+                  poster="/quality-checking-poster-v2.jpg"
                   autoPlay
                   muted
                   loop
                   playsInline
-                  preload="metadata"
-                  onPlay={() => setPlaying(true)}
-                  onPause={() => setPlaying(false)}
-                  onTimeUpdate={() => setPlaying(true)}
+                  preload="none"
                   aria-label="Battery assembly and checking on the VIJETA factory floor at Vijeta Accumulators and New Technologies"
                 />
                 <div
@@ -125,25 +99,6 @@ export function QualityChecking() {
                     {qualityDetail.videoNote}
                   </p>
                 </figcaption>
-                {!playing && (
-                  <button
-                    type="button"
-                    aria-label="Play quality checking video"
-                    onClick={() => {
-                      const video = videoRef.current;
-                      if (!video) return;
-                      video.muted = true;
-                      void video.play().catch(() => {});
-                    }}
-                    className="absolute inset-0 z-10 flex items-center justify-center bg-ink/25 transition-colors hover:bg-ink/10"
-                  >
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/60 bg-white/20 backdrop-blur transition-transform hover:scale-105">
-                      <svg viewBox="0 0 24 24" aria-hidden="true" className="ml-0.5 h-4 w-4 fill-white">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </span>
-                  </button>
-                )}
               </figure>
 
               <figure className="group relative aspect-video overflow-hidden border-t border-white/10 md:aspect-auto md:h-full md:border-l md:border-t-0">

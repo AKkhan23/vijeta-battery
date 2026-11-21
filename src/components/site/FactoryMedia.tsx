@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, type ReactNode } from "react";
-import { useReducedMotion } from "motion/react";
+import type { ReactNode } from "react";
+import { useLazyVideo } from "@/components/site/use-lazy-video";
 import type { FactoryImage } from "@/lib/our-work-media";
 
 export type RevealDirection = "up" | "from-left" | "from-right";
@@ -44,9 +44,10 @@ export function TextIn({
 }
 
 /**
- * Video frame. The clip plays unconditionally so a fast scroll back up never
- * leaves a stale or blank frame. With no `videoSrc` the poster stays visible —
- * no broken media icon.
+ * Video frame. The clip loads as it approaches the viewport and pauses once it
+ * is scrolled well away, so a page with several videos does not fetch or decode
+ * them all at once. The poster fills the frame until playback starts, and the
+ * clip resumes when the section comes back into view.
  */
 export function VideoFrame({
   videoSrc,
@@ -67,33 +68,23 @@ export function VideoFrame({
   delay?: number;
   children?: ReactNode;
 }) {
-  const ref = useRef<HTMLVideoElement>(null);
-  const reduce = useReducedMotion();
-
-  useEffect(() => {
-    const video = ref.current;
-    if (!videoSrc || !video || reduce) return;
-    video.muted = true;
-    // Play unconditionally. An observer that paused off-screen could leave a
-    // section showing a stale frame after a fast scroll back up.
-    void video.play().catch(() => {});
-  }, [videoSrc, reduce]);
+  const video = useLazyVideo(videoSrc);
 
   return (
     <MediaClip className={className} direction={direction} delay={delay}>
       <div className="relative h-full w-full overflow-hidden bg-ink">
         <video
-          ref={ref}
+          ref={video.ref}
+          src={video.src}
           poster={poster}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           aria-label={label}
           className={`absolute inset-0 h-full w-full object-cover ${imageClassName}`}
         >
-          {videoSrc ? <source src={videoSrc} type="video/mp4" /> : null}
           {label}
         </video>
         {children}

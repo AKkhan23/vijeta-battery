@@ -1,26 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { ArrowUpRight } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
+import { useLazyVideo } from "@/components/site/use-lazy-video";
 import { plantDetail, plantIntro, plantSteps } from "@/lib/heritage";
 
 export function PlantProcess() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const reduce = useReducedMotion();
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (reduce) {
-      video.pause();
-      return;
-    }
-    video.muted = true;
-    void video.play().catch(() => {});
-  }, [reduce]);
+  const video = useLazyVideo("/manufacturing-v2.mp4");
 
   return (
     <section id="plant" className="relative overflow-hidden bg-paper" style={{ scrollMarginTop: "5.5rem" }}>
@@ -43,15 +30,15 @@ export function PlantProcess() {
           <Reveal className="lg:col-span-7">
             <div className="relative h-full min-h-[19rem] overflow-hidden rounded-3xl bg-ink">
               <video
-                ref={videoRef}
+                ref={video.ref}
                 className="absolute inset-0 h-full w-full object-cover"
-                src="/manufacturing-compressed.mp4"
-                poster="/manufacturing-poster.jpg"
+                src={video.src}
+                poster="/manufacturing-poster-v2.jpg"
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="none"
                 aria-label="Plate handling and battery assembly on the VIJETA factory floor at Vijeta Accumulators and New Technologies"
               />
               <div

@@ -3,23 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
-import { useEffect, useRef } from "react";
 import { ArrowUpRight } from "@/components/ui/Icons";
+import { useLazyVideo } from "@/components/site/use-lazy-video";
 import { aboutHero } from "@/lib/heritage";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export function AboutHero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const reduce = useReducedMotion();
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    video.muted = true;
-    void video.play().catch(() => {});
-  }, []);
+  const video = useLazyVideo("/about-banner-v2.mp4");
 
   return (
     <section className="relative overflow-hidden bg-ink text-white">
@@ -116,18 +108,18 @@ export function AboutHero() {
           >
             <div className="relative aspect-[16/10] overflow-hidden rounded-[1.75rem] border border-white/12 bg-ink-soft shadow-[0_50px_100px_-55px_rgba(20,54,200,0.75)] sm:aspect-[16/9] lg:aspect-[4/3]">
               <video
-                ref={videoRef}
-                src="/about-banner.mp4"
+                ref={video.ref}
+                src={video.src}
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="none"
                 aria-hidden="true"
                 tabIndex={-1}
                 className="h-full w-full object-cover object-center motion-reduce:hidden"
               />
               <Image
-                src="/about-banner-poster.jpg"
+                src="/about-banner-poster-v2.jpg"
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 92vw, 46vw"
