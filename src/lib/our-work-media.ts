@@ -34,25 +34,25 @@ export type FactoryImage = {
 
 export const ourWorkMedia = {
   hero: {
-    videoSrc: "/our-work/hero.mp4",
+    videoSrc: "/our-work/hero-compressed.mp4",
     poster: "/our-work/hero-poster.jpg",
     label: "Factory workers on the VIJETA production floor",
   } satisfies FactoryVideo,
 
   production: {
-    videoSrc: "/our-work/production.mp4",
+    videoSrc: "/our-work/production-compressed.mp4",
     poster: "/our-work/production-poster.jpg",
     label: "Battery production on the VIJETA factory floor",
   } satisfies FactoryVideo,
 
   assembly: {
-    videoSrc: "/our-work/assembly.mp4",
+    videoSrc: "/our-work/assembly-compressed.mp4",
     poster: "/our-work/assembly-poster.jpg",
     label: "Battery assembly on the VIJETA factory floor",
   } satisfies FactoryVideo,
 
   process: {
-    videoSrc: "/our-work/process.mp4",
+    videoSrc: "/our-work/process-compressed.mp4",
     poster: "/our-work/assembly-poster.jpg",
     label: "A closer look at battery assembly on the VIJETA factory floor",
   } satisfies FactoryVideo,
