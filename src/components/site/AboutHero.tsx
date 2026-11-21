@@ -121,7 +121,7 @@ export function AboutHero() {
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
                 aria-hidden="true"
                 tabIndex={-1}
                 className="h-full w-full object-cover object-center motion-reduce:hidden"

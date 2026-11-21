@@ -107,7 +107,7 @@ export function QualityChecking() {
                   muted
                   loop
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   onPlay={() => setPlaying(true)}
                   onPause={() => setPlaying(false)}
                   onTimeUpdate={() => setPlaying(true)}

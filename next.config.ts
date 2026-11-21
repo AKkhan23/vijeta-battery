@@ -17,6 +17,32 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  // Ensure proper MIME types and caching for video files on Vercel
+  async headers() {
+    return [
+      {
+        source: "/:path*.mp4",
+        headers: [
+          { key: "Content-Type", value: "video/mp4" },
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        source: "/:path*.webm",
+        headers: [
+          { key: "Content-Type", value: "video/webm" },
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        source: "/:path*.mov",
+        headers: [
+          { key: "Content-Type", value: "video/quicktime" },
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

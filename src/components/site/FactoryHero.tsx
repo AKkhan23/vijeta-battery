@@ -62,7 +62,7 @@ export function FactoryHero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           aria-label={media.label}
           style={{ y: mediaY, scale: mediaScale }}
           className="absolute inset-0 h-full w-full object-cover object-[58%_center] sm:object-center"
