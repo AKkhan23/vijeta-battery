@@ -509,7 +509,7 @@ export const openingStory = {
     "Nearly four decades later the second generation runs the plant. The machines are newer, the lab is bigger and the tenders are online, but every battery is still tested before it leaves, and the family still answers the phone.",
   ],
   signature: "The family behind VIJETA Batteries",
-  note: "Vijeta Accumulators and New Technologies · Dhar, Madhya Pradesh",
+  note: "Vijeta Accumulators and New Technologies · Indore, Madhya Pradesh",
 };
 
 /* ------------------------------------------------------------------ */

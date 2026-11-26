@@ -63,7 +63,7 @@ export function EnquiryForm({ defaultType }: { defaultType?: string }) {
       values.type && `Looking for: ${values.type}`,
       values.message && `Message: ${values.message}`,
     ].filter(Boolean);
-    return `https://wa.me/919981716000?text=${encodeURIComponent(lines.join("\n"))}`;
+    return `https://wa.me/919981718000?text=${encodeURIComponent(lines.join("\n"))}`;
   }, [values]);
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {

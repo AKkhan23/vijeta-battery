@@ -117,7 +117,7 @@ export function About() {
                   <p className="mt-4 text-[0.8rem] leading-relaxed text-white/55">
                     Vijeta Accumulators and New Technologies
                     <br />
-                    Dhar, Madhya Pradesh
+                    Indore, Madhya Pradesh
                   </p>
                 </div>
               </div>

@@ -129,7 +129,7 @@ export function Hero() {
           Scroll — the factory floor
         </a>
         <span className="font-sans font-medium text-[0.75rem] text-ink/30">
-          Lead-acid power systems · M-52, Sector 3
+          Lead-acid power systems · Industrial Estate, Indore
         </span>
       </div>
     </section>

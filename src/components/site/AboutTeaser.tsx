@@ -68,7 +68,7 @@ export function AboutTeaser() {
               </Link>
               <span className="inline-flex items-center gap-2 font-sans font-medium text-[0.72rem] text-ink/40">
                 <PinIcon className="h-3.5 w-3.5 text-royal" />
-                Vijeta Accumulators and New Technologies · Dhar · M.P.
+                Vijeta Accumulators and New Technologies · Indore · M.P.
               </span>
             </Reveal>
           </div>

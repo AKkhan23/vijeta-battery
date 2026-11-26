@@ -4,7 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
 
 const dealerWhatsApp =
-  "https://wa.me/919981716000?text=Hi%20VIJETA%2C%20I%27d%20like%20to%20discuss%20a%20dealership%20in%20my%20area.";
+  "https://wa.me/919981718000?text=Hi%20VIJETA%2C%20I%27d%20like%20to%20discuss%20a%20dealership%20in%20my%20area.";
 
 type Props = {
   href?: string;

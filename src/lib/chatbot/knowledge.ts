@@ -215,8 +215,8 @@ export const knowledgeEntries: KnowledgeEntry[] = [
   },
   {
     id: "contact-address",
-    keywords: ["contact", "phone", "number", "address", "vijeta accumulators", "dhar", "plant", "factory", "location", "email", "call", "telephone", "where made", "head office"],
-    answer: "VIJETA's plant is at Plot No. M-52, Sector 3, Dhar, Madhya Pradesh 454774 — the Vijeta Accumulators and New Technologies plant. Call +91 99817 16000 (plant & general) or email vijetabatteries@gmail.com. For enquiries, +91 93013 86893 is also available.",
+    keywords: ["contact", "phone", "number", "address", "vijeta accumulators", "indore", "chandan nagar", "plant", "factory", "location", "email", "call", "telephone", "where made", "head office"],
+    answer: "VIJETA's plant is at Plot No. 7-A, Industrial Estate, Near Chandan Nagar Police Station, Scheme Number 71, Indore, Madhya Pradesh 452002 — the Vijeta Accumulators and New Technologies plant. Call +91 99817 18000 (plant & general) or email vijetabatteries@gmail.com. For enquiries, +91 93025 30420 is also available.",
     links: [{ label: "Contact page", href: "/contact" }, { label: "Call us", href: callLink }],
     weight: 3,
   },
@@ -230,7 +230,7 @@ export const knowledgeEntries: KnowledgeEntry[] = [
   {
     id: "company-history",
     keywords: ["history", "since 1988", "1988", "established", "founded", "old company", "years", "four decades", "kitne saal", "kab se", "journey", "legacy"],
-    answer: "VIJETA has been making lead-acid batteries since 1988 — starting with accumulators and torches, then moving into lead-acid batteries and chargers after 2000. Today the plant at Vijeta Accumulators and New Technologies in Dhar, Madhya Pradesh, makes them, and the Gold (36 months) and Silver (24 months) series power cars, tractors, fleets and industry.",
+    answer: "VIJETA has been making lead-acid batteries since 1988 — starting with accumulators and torches, then moving into lead-acid batteries and chargers after 2000. Today the plant at Vijeta Accumulators and New Technologies in Indore, Madhya Pradesh, makes them, and the Gold (36 months) and Silver (24 months) series power cars, tractors, fleets and industry.",
     links: [{ label: "Our story", href: "/about" }],
     weight: 2,
   },

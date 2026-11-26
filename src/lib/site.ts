@@ -7,24 +7,24 @@ export const site = {
   since: 1988,
   description:
     "Lead-acid batteries for cars, tractors, trucks, rickshaws and industry. Manufactured at Vijeta Accumulators and New Technologies since 1988. Gold series with 36 months of cover, Silver with 24.",
-  phonePrimary: "+919981716000",
-  phonePrimaryLabel: "+91 99817 16000",
+  phonePrimary: "+919981718000",
+  phonePrimaryLabel: "+91 99817 18000",
   phones: [
-    { label: "+91 99817 16000", tel: "+919981716000", note: "Plant & general" },
-    { label: "+91 93013 86893", tel: "+919301386893", note: "Enquiries" },
-    { label: "+91 92036 66893", tel: "+919203666893", note: "Sales executive" },
+    { label: "+91 99817 18000", tel: "+919981718000", note: "Plant & general" },
+    { label: "+91 93025 30420", tel: "+919302530420", note: "Enquiries" },
+    { label: "+91 94250 74551", tel: "+919425074551", note: "Sales executive" },
   ],
   email: "vijetabatteries@gmail.com",
   address: {
-    line1: "Plot No. M-52, Sector 3",
-    line2: "Vijeta Accumulators and New Technologies",
-    city: "Dhar",
+    line1: "Plot No. 7-A, Industrial Estate",
+    line2: "Near Chandan Nagar Police Station, Scheme Number 71",
+    city: "Indore",
     state: "Madhya Pradesh",
-    pin: "454774",
+    pin: "452002",
     country: "India",
   },
   whatsapp:
-    "https://wa.me/919981716000?text=Hi%20VIJETA%2C%20I%20found%20you%20on%20vijetabattery.com%20and%20I%27d%20like%20to%20enquire%20about%20a%20battery.",
+    "https://wa.me/919981718000?text=Hi%20VIJETA%2C%20I%20found%20you%20on%20vijetabattery.com%20and%20I%27d%20like%20to%20enquire%20about%20a%20battery.",
 } as const;
 
 export const navLinks = [
@@ -218,7 +218,7 @@ export const faqs = [
   },
   {
     q: "Where are VIJETA batteries made?",
-    a: "At the Vijeta Accumulators and New Technologies plant — Plot M-52, Sector 3, Dhar, Madhya Pradesh. Most components are manufactured in-house and every unit is tested before dispatch.",
+    a: "At the Vijeta Accumulators and New Technologies plant — Plot No. 7-A, Industrial Estate, Near Chandan Nagar Police Station, Scheme Number 71, Indore, Madhya Pradesh 452002. Most components are manufactured in-house and every unit is tested before dispatch.",
   },
 ] as const;
 
