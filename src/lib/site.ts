@@ -10,9 +10,9 @@ export const site = {
   phonePrimary: "+919981718000",
   phonePrimaryLabel: "+91 99817 18000",
   phones: [
+    { label: "+91 94250 74551", tel: "+919425074551", note: "Sales executive" },
     { label: "+91 99817 18000", tel: "+919981718000", note: "Plant & general" },
     { label: "+91 93025 30420", tel: "+919302530420", note: "Enquiries" },
-    { label: "+91 94250 74551", tel: "+919425074551", note: "Sales executive" },
   ],
   email: "vijetabatteries@gmail.com",
   address: {
