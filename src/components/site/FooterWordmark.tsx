@@ -1,25 +1,27 @@
 "use client";
 
 /**
- * Supplied VIJETA wordmark video, used at its original 1920x1080 framing with
- * no crop and no colour keying, so the letter edges and the flowing wave below
- * stay pixel-for-pixel identical to the source. Screen blending folds the dark
- * navy background into the footer without a visible box.
+ * Supplied VIJETA wordmark video at its original resolution. CSS crops only
+ * the empty margins, so the letters and the flowing wave stay pixel-for-pixel
+ * identical to the source and the section keeps its original, compact height.
+ * Screen blending plus an edge mask folds the dark navy background into the
+ * footer without a visible box.
  */
+const EDGE_MASK =
+  "linear-gradient(to right, transparent 0%, #000 2%, #000 99.5%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 3%, #000 96%, transparent 100%)";
+
 export function FooterWordmark() {
   return (
-    <div aria-hidden="true" className="select-none pb-6 pt-4">
+    <div aria-hidden="true" className="select-none pb-6 pt-10">
       <div
         className="relative mx-auto w-full"
-        style={{ aspectRatio: "1920 / 1080", mixBlendMode: "screen" }}
+        style={{ aspectRatio: "1920 / 530", mixBlendMode: "screen" }}
       >
         <video
-          className="absolute inset-0 h-full w-full object-contain"
+          className="absolute inset-0 h-full w-full object-cover"
           style={{
-            maskImage:
-              "linear-gradient(to right, transparent 0%, #000 3%, #000 97%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 4%, #000 90%, transparent 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, #000 3%, #000 97%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 4%, #000 90%, transparent 100%)",
+            maskImage: EDGE_MASK,
+            WebkitMaskImage: EDGE_MASK,
             maskComposite: "intersect",
             WebkitMaskComposite: "source-in",
           }}
