@@ -1,25 +1,23 @@
 "use client";
 
 /**
- * The footer wordmark is supplied as a video (VIJETA letters filled with
- * factory footage). It replaces the old outlined text wordmark in the exact
- * same slot at the bottom of the footer. The wide, short frame crops the
- * video's empty top/bottom so the lettering keeps the same visual size as
- * the text it replaced.
+ * Supplied VIJETA wordmark video. Cropped to the exact letter band so nothing
+ * is cut off, with its dark background keyed to black and screen-blended into
+ * the footer so no box/frame is visible.
  */
 export function FooterWordmark() {
   return (
-    <div aria-hidden="true" className="select-none overflow-hidden pb-10 pt-12">
+    <div aria-hidden="true" className="select-none pb-6 pt-10">
       <div
         className="relative mx-auto w-full"
-        style={{ aspectRatio: "4.6 / 1" }}
+        style={{ aspectRatio: "1820 / 390", mixBlendMode: "screen" }}
       >
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-contain"
           src="/videos/vijeta-footer.mp4"
           poster="/videos/vijeta-footer-poster.jpg"
-          width={1920}
-          height={1080}
+          width={1820}
+          height={390}
           autoPlay
           muted
           loop
