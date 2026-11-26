@@ -8,7 +8,7 @@ import { useLazyVideo } from "@/components/site/use-lazy-video";
 import { qualityChecks, qualityDetail, qualityIntro } from "@/lib/heritage";
 
 export function QualityChecking() {
-  const lazyVideo = useLazyVideo("/quality-checking-v2.mp4");
+  const lazyVideo = useLazyVideo("/videos/quality-checking.mp4");
 
   return (
     <section
@@ -84,7 +84,7 @@ export function QualityChecking() {
                   muted
                   loop
                   playsInline
-                  preload="none"
+                  preload="metadata"
                   aria-label="Battery assembly and checking on the VIJETA factory floor at Vijeta Accumulators and New Technologies"
                 />
                 <div

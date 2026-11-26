@@ -3,76 +3,99 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Defers a video until it approaches the viewport, then plays it automatically
- * only while it is on screen. A page with several clips therefore downloads the
- * first one immediately and the rest as the visitor scrolls, instead of pulling
- * every file (and decoding every frame) on load. Playback is always automatic —
- * there is no play button to press, on any device or motion preference.
+ * Autoplay video with broad browser support.
  *
- * The poster attribute stays on the <video>, so the frame is never blank while
- * the clip is waiting to load.
+ * The source is attached from the very first render, so the browser can begin
+ * loading and autoplaying immediately instead of waiting for JavaScript to
+ * decide the clip is "near" the viewport. An IntersectionObserver still pauses
+ * clips that scroll well out of view, which keeps a page with several videos
+ * light. Two fallbacks make playback reliable everywhere:
+ *   1. a canplay/loadeddata retry — a single play() on mount can fail on slow
+ *      connections and leave the poster frozen forever;
+ *   2. a first-interaction retry — browsers that block even muted autoplay
+ *      start the clip as soon as the visitor taps or clicks the page.
  */
 export function useLazyVideo(src: string, enabled = true) {
   const ref = useRef<HTMLVideoElement>(null);
-  const [near, setNear] = useState(false);
+  const inViewRef = useRef(false);
   const [inView, setInView] = useState(false);
-
   const active = enabled && Boolean(src);
-  const shouldLoad = active && near;
 
   useEffect(() => {
-    if (!active) return;
     const video = ref.current;
-    if (!video) return;
+    if (!active || !video) return;
 
-    if (typeof IntersectionObserver === "undefined") {
-      setNear(true);
+    // Be explicit: a conservative preload must not stop the first frame.
+    video.preload = "auto";
+
+    const tryPlay = () => {
+      video.muted = true;
+      try {
+        const result = video.play();
+        if (result && typeof (result as Promise<void>).catch === "function") {
+          (result as Promise<void>).catch(() => {});
+        }
+      } catch {
+        /* the interaction fallback below covers blocked autoplay */
+      }
+    };
+
+    const retry = () => {
+      if (inViewRef.current) tryPlay();
+    };
+    video.addEventListener("canplay", retry);
+    video.addEventListener("loadeddata", retry);
+
+    const onInteract = () => {
+      if (inViewRef.current) tryPlay();
+    };
+    document.addEventListener("pointerdown", onInteract, { passive: true });
+    document.addEventListener("touchstart", onInteract, { passive: true });
+
+    let observer: IntersectionObserver | undefined;
+    if (typeof IntersectionObserver !== "undefined") {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          const visible = entry.isIntersecting;
+          inViewRef.current = visible;
+          setInView(visible);
+        },
+        { threshold: 0.01 },
+      );
+      observer.observe(video);
+    } else {
+      inViewRef.current = true;
       setInView(true);
-      return;
     }
 
-    const loadObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setNear(true);
-          // Once the file has been requested there is nothing left to watch for.
-          loadObserver.disconnect();
-        }
-      },
-      // Start fetching a little before the clip scrolls into view.
-      { rootMargin: "300px 0px" },
-    );
-
-    // Playback follows actual visibility, not the prefetch margin, so a clip
-    // waiting just below the fold is loaded but not decoding frames.
-    const playObserver = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold: 0.01 },
-    );
-
-    loadObserver.observe(video);
-    playObserver.observe(video);
     return () => {
-      loadObserver.disconnect();
-      playObserver.disconnect();
+      observer?.disconnect();
+      video.removeEventListener("canplay", retry);
+      video.removeEventListener("loadeddata", retry);
+      document.removeEventListener("pointerdown", onInteract);
+      document.removeEventListener("touchstart", onInteract);
     };
-  }, [active]);
+  }, [active, src]);
 
   useEffect(() => {
     const video = ref.current;
-    if (!video || !shouldLoad) return;
-
+    if (!video || !active) return;
     if (inView) {
       video.muted = true;
-      void video.play().catch(() => {});
+      try {
+        const result = video.play();
+        if (result && typeof (result as Promise<void>).catch === "function") {
+          (result as Promise<void>).catch(() => {});
+        }
+      } catch {
+        /* no-op */
+      }
     } else {
       video.pause();
     }
-  }, [shouldLoad, inView]);
+  }, [inView, active]);
 
-  return {
-    ref,
-    /** Pass as <video src>. Stays undefined until the clip should load. */
-    src: shouldLoad ? src : undefined,
-  };
+  // Expose the source unconditionally: autoplay is only dependable when src is
+  // present on the element from the start.
+  return { ref, src };
 }

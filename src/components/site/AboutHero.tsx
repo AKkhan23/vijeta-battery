@@ -10,7 +10,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 export function AboutHero() {
   const reduce = useReducedMotion();
-  const video = useLazyVideo("/about-banner-v2.mp4");
+  const video = useLazyVideo("/videos/about-banner.mp4");
 
   return (
     <section className="relative overflow-hidden bg-ink text-white">
@@ -113,7 +113,7 @@ export function AboutHero() {
                 muted
                 loop
                 playsInline
-                preload="none"
+                preload="metadata"
                 aria-hidden="true"
                 tabIndex={-1}
                 className="h-full w-full object-cover object-center"

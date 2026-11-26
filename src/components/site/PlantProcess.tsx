@@ -7,7 +7,7 @@ import { useLazyVideo } from "@/components/site/use-lazy-video";
 import { plantDetail, plantIntro, plantSteps } from "@/lib/heritage";
 
 export function PlantProcess() {
-  const video = useLazyVideo("/manufacturing-v2.mp4");
+  const video = useLazyVideo("/videos/manufacturing.mp4");
 
   return (
     <section id="plant" className="relative overflow-hidden bg-paper" style={{ scrollMarginTop: "5.5rem" }}>
@@ -38,7 +38,7 @@ export function PlantProcess() {
                 muted
                 loop
                 playsInline
-                preload="none"
+                preload="metadata"
                 aria-label="Plate handling and battery assembly on the VIJETA factory floor at Vijeta Accumulators and New Technologies"
               />
               <div

@@ -81,7 +81,7 @@ export function VideoFrame({
           muted
           loop
           playsInline
-          preload="none"
+          preload="metadata"
           aria-label={label}
           className={`absolute inset-0 h-full w-full object-cover ${imageClassName}`}
         >
