@@ -183,8 +183,8 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
 
+  // The home banner is light artwork, so the home nav keeps the ink wordmark.
   const darkTop =
-    pathname === "/" ||
     pathname === "/products" ||
     pathname === "/about" ||
     pathname === "/our-work" ||

@@ -357,7 +357,7 @@ export type Milestone = {
   label: string;
   title: string;
   body: string;
-  icon: "spark" | "store" | "battery" | "flask" | "grid" | "shield" | "layers" | "medal" | "file" | "factory";
+  logo: string;
 };
 
 export const milestones: Milestone[] = [
@@ -366,70 +366,70 @@ export const milestones: Milestone[] = [
     label: "The beginning",
     title: "Accumulators and torches",
     body: "A small family unit opens in Madhya Pradesh, building accumulators and torches checked by hand.",
-    icon: "spark",
+    logo: "/timelinelogo/1988.png",
   },
   {
     year: "1994",
     label: "Selling",
     title: "A counter that took returns",
     body: "Sales move through local dealers, and anything that fails comes back to the counter. That rule still runs the plant.",
-    icon: "store",
+    logo: "/timelinelogo/1994.png",
   },
   {
     year: "2000",
     label: "Lead-acid",
     title: "Batteries and chargers",
     body: "The workshop moves into lead-acid batteries and chargers. Casting, paste and assembly come under one roof.",
-    icon: "battery",
+    logo: "/timelinelogo/2000.png",
   },
   {
     year: "2005",
     label: "Material",
     title: "Lead cast in-house",
     body: "Grid casting and paste mixing move in-house, so alloy, grid thickness and cure stay under one roof.",
-    icon: "flask",
+    logo: "/timelinelogo/2005.png",
   },
   {
     year: "2010",
     label: "Technology",
     title: "Plates built for Indian roads",
     body: "Denser grids and higher-purity lead alloy lift cranking power for Indian heat and cold starts.",
-    icon: "grid",
+    logo: "/timelinelogo/2010.png",
   },
   {
     year: "2016",
     label: "Quality",
     title: "Testing becomes the habit",
     body: "Every unit is load-tested before dispatch. IS 1651 and ISO 9001 processes put a test report in the box with the battery.",
-    icon: "shield",
+    logo: "/timelinelogo/2016.png",
   },
   {
     year: "2019",
     label: "Range",
     title: "One line, many duties",
     body: "The same plant builds for cars, tractors, trucks, rickshaws, inverters and industrial backup.",
-    icon: "layers",
+    logo: "/timelinelogo/2019.png",
   },
   {
     year: "2021",
     label: "Two series",
     title: "Gold and Silver",
     body: "The range splits into Gold with 36 months of cover and Silver with 24. Same line, same tests, two clear promises.",
-    icon: "medal",
+    logo: "/timelinelogo/2021.png",
   },
   {
     year: "2023",
     label: "Tenders",
     title: "Into government supply",
     body: "State power utilities, transmission and generation companies and central PSUs are supplied through tenders.",
-    icon: "file",
+    logo: "/timelinelogo/2023.png",
   },
   {
     year: "2026",
     label: "Today",
     title: "The next generation",
     body: "The second generation runs the plant. The range runs from cars to substations, and every unit still leaves load-tested.",
-    icon: "factory",
+    logo: "/timelinelogo/2026.png",
   },
 ];
 

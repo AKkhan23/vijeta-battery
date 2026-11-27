@@ -1,87 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { ReactNode } from "react";
 import { useReducedMotion } from "motion/react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { milestones, timelineIntro } from "@/lib/heritage";
-import type { Milestone } from "@/lib/heritage";
-
-const stroke = {
-  stroke: "currentColor",
-  strokeWidth: 1.4,
-  strokeLinecap: "round" as const,
-  strokeLinejoin: "round" as const,
-};
-
-const icons: Record<Milestone["icon"], ReactNode> = {
-  spark: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-      <path
-        d="M12 3c2.4 2.8 3.8 4.8 3.8 6.8A3.8 3.8 0 0 1 12 13.6a3.8 3.8 0 0 1-3.8-3.8C8.2 7.8 9.6 5.8 12 3Z"
-        {...stroke}
-      />
-      <path d="M12 13.6V21" {...stroke} />
-    </svg>
-  ),
-  store: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-      <path d="M4 10v10h16V10" {...stroke} />
-      <path d="M3 6.5 5 3h14l2 3.5a2.5 2.5 0 0 1-4.7 1.2 2.5 2.5 0 0 1-4.6 0 2.5 2.5 0 0 1-4.7-1.2Z" {...stroke} />
-      <path d="M9.5 20v-5.5h5V20" {...stroke} />
-    </svg>
-  ),
-  battery: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-      <rect x="3" y="7" width="15" height="10" rx="2" {...stroke} />
-      <path d="M21 10.5v3" {...stroke} />
-      <path d="M7.6 12h4.8M10 9.6v4.8" {...stroke} />
-    </svg>
-  ),
-  flask: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-      <path d="M9.5 3h5M10.5 3v6L5.4 18a2.2 2.2 0 0 0 1.9 3h9.4a2.2 2.2 0 0 0 1.9-3L13.5 9V3" {...stroke} />
-      <path d="M7.6 15.5h8.8" {...stroke} />
-    </svg>
-  ),
-  grid: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-      <rect x="4" y="4" width="16" height="16" rx="2" {...stroke} />
-      <path d="M4 9.3h16M4 14.7h16M9.3 4v16M14.7 4v16" {...stroke} />
-    </svg>
-  ),
-  shield: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-      <path d="M12 3 5 6v5.4c0 4 2.9 7.4 7 8.6 4.1-1.2 7-4.6 7-8.6V6l-7-3Z" {...stroke} />
-      <path d="m9.1 11.9 2.1 2.1 3.9-4" {...stroke} />
-    </svg>
-  ),
-  layers: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-      <path d="m12 3 8 4.4-8 4.4-8-4.4L12 3Z" {...stroke} />
-      <path d="m4 12 8 4.4 8-4.4M4 16.4 12 20.8l8-4.4" {...stroke} />
-    </svg>
-  ),
-  medal: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-      <circle cx="12" cy="14.5" r="5.5" {...stroke} />
-      <path d="m9 9.6-2.6-6M15 9.6l2.6-6M12 12.4l.8 1.7 1.9.2-1.4 1.3.4 1.8-1.7-.9-1.7.9.4-1.8-1.4-1.3 1.9-.2.8-1.7Z" {...stroke} />
-    </svg>
-  ),
-  file: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-      <path d="M13 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V9l-6-6Z" {...stroke} />
-      <path d="M13 3v6h6M8.5 13h7M8.5 16.5h5" {...stroke} />
-    </svg>
-  ),
-  factory: (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-      <path d="M3 21h18M4 21V10l5 3v-3l5 3V7l6 4v10" {...stroke} />
-      <path d="M8 21v-3M12 21v-3M16 21v-3" {...stroke} />
-    </svg>
-  ),
-};
 
 export function JourneySlider() {
   const railRef = useRef<HTMLDivElement>(null);
@@ -252,8 +176,15 @@ export function JourneySlider() {
                           {milestone.label}
                         </p>
                       </div>
-                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-[0.95rem] border border-royal/10 bg-royal/[0.04] text-royal/75 transition-colors duration-300 group-hover:border-royal/25 group-hover:bg-royal/[0.08] group-hover:text-royal">
-                        {icons[milestone.icon]}
+                      <span className="relative grid h-14 w-24 shrink-0 place-items-center">
+                        <Image
+                          src={milestone.logo}
+                          alt=""
+                          width={320}
+                          height={320}
+                          sizes="96px"
+                          className="h-full w-full object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-[1.06]"
+                        />
                       </span>
                     </div>
 
